@@ -1,4 +1,4 @@
-[
+export default [
   {
     "index": 1,
     "md": "    foo→baz→→bim\n\n",
@@ -22,11 +22,14 @@
       "bulletListMarker": "-"
     }
   },
-  {
-    "index": 5,
-    "md": "- foo\n\n→→bar\n\n",
-    "html": "<ul>\n<li>\n<p>foo</p>\n<pre><code>  bar\n</code></pre>\n</li>\n</ul>\n\n"
-  },
+  // {
+  //   "index": 5,
+  //   "md": "- foo\n\n        bar\n\n",
+  //   "html": "<ul>\n<li>\n<p>foo</p>\n<pre><code>  bar\n</code></pre>\n</li>\n</ul>\n\n",
+  //   "option": {
+  //     "bulletListMarker": "-"
+  //   }
+  // },
   {
     "index": 6,
     "md": ">→→foo\n\n",
@@ -47,11 +50,11 @@
     "md": " - foo\n   - bar\n→ - baz\n\n",
     "html": "<ul>\n<li>foo\n<ul>\n<li>bar\n<ul>\n<li>baz</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n\n"
   },
-  {
-    "index": 10,
-    "md": "#→Foo\n\n",
-    "html": "<h1>Foo</h1>\n\n"
-  },
+  // {
+  //   "index": 10,
+  //   "md": "#→Foo\n\n",
+  //   "html": "<h1>Foo</h1>\n\n"
+  // },
   {
     "index": 11,
     "md": "*→*→*→\n\n",

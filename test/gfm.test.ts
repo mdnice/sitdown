@@ -1,5 +1,5 @@
 import { Sitdown } from '../src';
-import Examples from './spec/gfm.json';
+import Examples from './spec/gfm';
 import TurndownService from 'turndown';
 
 interface Example {
@@ -16,7 +16,7 @@ Examples.forEach(example => {
 });
 
 describe('GFM', () => {
-  (Examples as Example[]).slice(0, 4).forEach(example => {
+  (Examples as Example[]).slice(0, 5).forEach(example => {
     let sitdown = new Sitdown();
     it(`gfm example${example.index} works`, () => {
       if (example.option) {
