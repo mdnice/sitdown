@@ -10,9 +10,9 @@ interface Example {
 }
 
 Examples.forEach(example => {
-  // Info:替换制表符
-  example.md = example.md.replace(/→/g, '\t');
-  example.html = example.html.replace(/→/g, '\t');
+  // Info:替换制表符和结尾的两个换行符
+  example.md = example.md.replace(/→/g, '\t').replace(/\n+$/, '');
+  example.html = example.html.replace(/→/g, '\t').replace(/\n+$/, '');
 });
 
 describe('GFM', () => {
@@ -22,7 +22,7 @@ describe('GFM', () => {
       if (example.option) {
         sitdown = new Sitdown(example.option);
       }
-      const expected = sitdown.HTMLToMD(example.html) + '\n\n';
+      const expected = sitdown.HTMLToMD(example.html);
       expect(expected).toEqual(example.md);
     });
   });
