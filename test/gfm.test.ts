@@ -16,7 +16,7 @@ Examples.forEach(example => {
 });
 
 describe('GFM', () => {
-  (Examples as Example[]).slice(0, 5).forEach(example => {
+  (Examples as Example[]).slice(0, 7).forEach(example => {
     let sitdown = new Sitdown();
     it(`gfm example${example.index} works`, () => {
       if (example.option) {
