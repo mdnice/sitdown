@@ -1,7 +1,10 @@
 import { sitdown } from '../src';
+import ATXHeadingMD from './spec/atx-heading.md';
+import ATXHeadingHTML from './spec/atx-heading.html';
 
 describe('heading', () => {
   it('works', () => {
-    expect(sitdown('<h1>foo</h1>')).toEqual('# foo');
+    const expected = sitdown(ATXHeadingHTML);
+    expect(expected).toEqual(ATXHeadingMD);
   });
 });
