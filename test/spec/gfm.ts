@@ -70,9 +70,9 @@ export default [
     index: 13,
     md: '***\n***\n***\n\n',
     html: '<hr />\n<hr />\n<hr />\n\n',
-    option:{
-      hr:'***'
-    }
+    option: {
+      hr: '***',
+    },
   },
   {
     index: 14,
@@ -83,9 +83,9 @@ export default [
     index: 15,
     md: '===\n\n',
     html: '<p>===</p>\n\n',
-    option:{
-      hr:'==='
-    }
+    option: {
+      hr: '===',
+    },
   },
   {
     index: 16,
