@@ -16,8 +16,11 @@
   },
   {
     "index": 4,
-    "md": "  - foo\n\n→bar\n\n",
-    "html": "<ul>\n<li>\n<p>foo</p>\n<p>bar</p>\n</li>\n</ul>\n\n"
+    "md": "- foo\n\n    bar\n\n",
+    "html": "<ul>\n<li>\n<p>foo</p>\n<p>bar</p>\n</li>\n</ul>\n\n",
+    "option": {
+      "bulletListMarker": "-"
+    }
   },
   {
     "index": 5,

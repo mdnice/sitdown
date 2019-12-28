@@ -1,18 +1,20 @@
 import TurndownService from 'turndown';
+import { applyListRule } from './plugins/list';
 
-export class Sitdown{
-  defaultOptions:TurndownService.Options;
-  service:TurndownService;
+export class Sitdown {
+  defaultOptions: TurndownService.Options;
+  service: TurndownService;
 
-  constructor(options?: TurndownService.Options){
+  constructor(options?: TurndownService.Options) {
     this.defaultOptions = { headingStyle: 'atx' };
     this.service = new TurndownService({
       ...this.defaultOptions,
-      ...options
+      ...options,
     });
+    applyListRule(this.service);
   }
 
-  HTMLToMD(html:string){
-    return this.service.turndown.call(this.service,html)
+  HTMLToMD(html: string) {
+    return this.service.turndown.call(this.service, html);
   }
 }
