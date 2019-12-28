@@ -1,12 +1,12 @@
 [
   {
     "index": 1,
-    "md": "→foo→baz→→bim\n\n",
+    "md": "    foo→baz→→bim\n\n",
     "html": "<pre><code>foo→baz→→bim\n</code></pre>\n\n"
   },
   {
     "index": 2,
-    "md": "  →foo→baz→→bim\n\n",
+    "md": "    foo→baz→→bim\n\n",
     "html": "<pre><code>foo→baz→→bim\n</code></pre>\n\n"
   },
   {
