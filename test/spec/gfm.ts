@@ -63,7 +63,7 @@ export default [
   // },
   {
     index: 12,
-    md: '- \`one\n- two\`\n\n',
+    md: '* \\`one\n* two\\`\n\n',
     html: '<ul>\n<li>`one</li>\n<li>two`</li>\n</ul>\n\n',
   },
   {
