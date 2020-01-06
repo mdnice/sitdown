@@ -119,21 +119,33 @@ export default [
     index: 21,
     md: ' - - -\n\n',
     html: '<hr />\n\n',
+    option: {
+      hr: ' - - -',
+    },
   },
   {
     index: 22,
     md: ' **  * ** * ** * **\n\n',
     html: '<hr />\n\n',
+    option: {
+      hr: ' **  * ** * ** * **',
+    },
   },
   {
     index: 23,
     md: '-     -      -      -\n\n',
     html: '<hr />\n\n',
+    option: {
+      hr: '-     -      -      -',
+    },
   },
   {
     index: 24,
-    md: '- - - -    \n\n',
+    md: '- - - -\n\n',
     html: '<hr />\n\n',
+    option: {
+      hr: '- - - -',
+    },
   },
   {
     index: 25,
