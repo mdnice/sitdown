@@ -82,11 +82,11 @@ export default [
   {
     index: 15,
     md: '\\===\n\n',
-    html: '<p>===</p>\n\n'
+    html: '<p>===</p>\n\n',
   },
   {
     index: 16,
-    md: '--\n**\n__\n\n',
+    md: '\\-- \\*\\* \\_\\_\n',
     html: '<p>--\n**\n__</p>\n\n',
   },
   {
