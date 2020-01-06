@@ -81,11 +81,8 @@ export default [
   },
   {
     index: 15,
-    md: '===\n\n',
-    html: '<p>===</p>\n\n',
-    option: {
-      hr: '===',
-    },
+    md: '\\===\n\n',
+    html: '<p>===</p>\n\n'
   },
   {
     index: 16,
