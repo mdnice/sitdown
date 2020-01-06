@@ -91,8 +91,11 @@ export default [
   },
   {
     index: 17,
-    md: ' ***\n  ***\n   ***\n\n',
+    md: '***\n***\n***\n\n',
     html: '<hr />\n<hr />\n<hr />\n\n',
+    option: {
+      hr: '***',
+    },
   },
   {
     index: 18,
