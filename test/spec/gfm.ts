@@ -181,9 +181,9 @@ export default [
     index: 29,
     md: 'Foo\n---\n\nbar\n\n',
     html: '<h2>Foo</h2>\n<p>bar</p>\n\n',
-      option: {
-          headingStyle: 'setext',
-      },
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 30,
@@ -194,10 +194,13 @@ export default [
     index: 31,
     md: '- Foo\n- * * *\n\n',
     html: '<ul>\n<li>Foo</li>\n<li>\n<hr />\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 32,
-    md: '# foo\n## foo\n### foo\n#### foo\n##### foo\n###### foo\n\n',
+    md: '# foo\n\n## foo\n\n### foo\n\n#### foo\n\n##### foo\n\n###### foo\n\n',
     html:
       '<h1>foo</h1>\n<h2>foo</h2>\n<h3>foo</h3>\n<h4>foo</h4>\n<h5>foo</h5>\n<h6>foo</h6>\n\n',
   },
