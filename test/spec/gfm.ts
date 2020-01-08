@@ -315,28 +315,45 @@ export default [
   },
   {
     index: 52,
-    md: '  Foo *bar\nbaz*→\n====\n\n',
+    md: 'Foo *bar baz*\n=============\n\n',
     html: '<h1>Foo <em>bar\nbaz</em></h1>\n\n',
+    option: {
+      headingStyle: 'setext',
+      emDelimiter: '*',
+    },
   },
   {
     index: 53,
-    md: 'Foo\n-------------------------\n\nFoo\n=\n\n',
+    md: 'Foo\n---\n\nFoo\n===\n\n',
     html: '<h2>Foo</h2>\n<h1>Foo</h1>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 54,
-    md: '   Foo\n---\n\n  Foo\n-----\n\n  Foo\n  ===\n\n',
+    md: 'Foo\n---\n\nFoo\n---\n\nFoo\n===\n\n',
     html: '<h2>Foo</h2>\n<h2>Foo</h2>\n<h1>Foo</h1>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 55,
-    md: '    Foo\n    ---\n\n    Foo\n---\n\n',
+    md: '    Foo\n    ---\n    \n    Foo\n    \n\n---\n\n',
     html: '<pre><code>Foo\n---\n\nFoo\n</code></pre>\n<hr />\n\n',
+    option: {
+      headingStyle: 'setext',
+      hr: '---',
+    },
   },
   {
     index: 56,
-    md: 'Foo\n   ----      \n\n',
+    md: 'Foo\n---\n\n',
     html: '<h2>Foo</h2>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 57,
