@@ -223,15 +223,18 @@ export default [
     index: 36,
     md: '# foo *bar* \\*baz\\*\n\n',
     html: '<h1>foo <em>bar</em> *baz*</h1>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 37,
-    md: '#                  foo                     \n\n',
+    md: '# foo\n\n',
     html: '<h1>foo</h1>\n\n',
   },
   {
     index: 38,
-    md: ' ### foo\n  ## foo\n   # foo\n\n',
+    md: '### foo\n\n## foo\n\n# foo\n\n',
     html: '<h3>foo</h3>\n<h2>foo</h2>\n<h1>foo</h1>\n\n',
   },
   {
