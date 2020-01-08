@@ -179,12 +179,15 @@ export default [
   },
   {
     index: 29,
-    md: 'Foo\n---\nbar\n\n',
+    md: 'Foo\n---\n\nbar\n\n',
     html: '<h2>Foo</h2>\n<p>bar</p>\n\n',
+      option: {
+          headingStyle: 'setext',
+      },
   },
   {
     index: 30,
-    md: '* Foo\n* * *\n* Bar\n\n',
+    md: '* Foo\n\n* * *\n\n* Bar\n\n',
     html: '<ul>\n<li>Foo</li>\n</ul>\n<hr />\n<ul>\n<li>Bar</li>\n</ul>\n\n',
   },
   {
