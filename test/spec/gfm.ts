@@ -244,24 +244,24 @@ export default [
   },
   {
     index: 40,
-    md: 'foo\n    # bar\n\n',
+    md: 'foo # bar\n\n',
     html: '<p>foo\n# bar</p>\n\n',
   },
-  {
-    index: 41,
-    md: '## foo ##\n  ###   bar    ###\n\n',
-    html: '<h2>foo</h2>\n<h3>bar</h3>\n\n',
-  },
-  {
-    index: 42,
-    md: '# foo ##################################\n##### foo ##\n\n',
-    html: '<h1>foo</h1>\n<h5>foo</h5>\n\n',
-  },
-  {
-    index: 43,
-    md: '### foo ###     \n\n',
-    html: '<h3>foo</h3>\n\n',
-  },
+  // {
+  //   index: 41,
+  //   md: '## foo ##\n  ###   bar    ###\n\n',
+  //   html: '<h2>foo</h2>\n<h3>bar</h3>\n\n',
+  // },
+  // {
+  //   index: 42,
+  //   md: '# foo ##################################\n##### foo ##\n\n',
+  //   html: '<h1>foo</h1>\n<h5>foo</h5>\n\n',
+  // },
+  // {
+  //   index: 43,
+  //   md: '### foo ###     \n\n',
+  //   html: '<h3>foo</h3>\n\n',
+  // },
   {
     index: 44,
     md: '### foo ### b\n\n',
