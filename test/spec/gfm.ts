@@ -156,19 +156,26 @@ export default [
     index: 26,
     md: '*\\-*\n\n',
     html: '<p><em>-</em></p>\n\n',
-    option:{
-      emDelimiter:'*'
-    }
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 27,
-    md: '- foo\n***\n- bar\n\n',
+    md: '- foo\n\n***\n\n- bar\n\n',
     html: '<ul>\n<li>foo</li>\n</ul>\n<hr />\n<ul>\n<li>bar</li>\n</ul>\n\n',
+    option: {
+      hr: '***',
+      bulletListMarker: '-',
+    },
   },
   {
     index: 28,
-    md: 'Foo\n***\nbar\n\n',
+    md: 'Foo\n\n***\n\nbar\n\n',
     html: '<p>Foo</p>\n<hr />\n<p>bar</p>\n\n',
+    option: {
+      hr: '***',
+    },
   },
   {
     index: 29,
