@@ -149,13 +149,16 @@ export default [
   },
   {
     index: 25,
-    md: '_ _ _ _ a\n\na------\n\n---a---\n\n',
+    md: '\\_ \\_ \\_ \\_ a\n\na------\n\n\\---a---\n\n',
     html: '<p>_ _ _ _ a</p>\n<p>a------</p>\n<p>---a---</p>\n\n',
   },
   {
     index: 26,
-    md: ' *-*\n\n',
+    md: '*\\-*\n\n',
     html: '<p><em>-</em></p>\n\n',
+    option:{
+      emDelimiter:'*'
+    }
   },
   {
     index: 27,
