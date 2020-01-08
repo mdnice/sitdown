@@ -274,17 +274,20 @@ export default [
   },
   {
     index: 46,
-    md: '### foo \\###\n## foo #\\##\n# foo \\#\n\n',
+    md: '### foo ###\n\n## foo ###\n\n# foo #\n\n',
     html: '<h3>foo ###</h3>\n<h2>foo ###</h2>\n<h1>foo #</h1>\n\n',
   },
   {
     index: 47,
-    md: '****\n## foo\n****\n\n',
+    md: '****\n\n## foo\n\n****\n\n',
     html: '<hr />\n<h2>foo</h2>\n<hr />\n\n',
+      option:{
+        hr:'****'
+      }
   },
   {
     index: 48,
-    md: 'Foo bar\n# baz\nBar foo\n\n',
+    md: 'Foo bar\n\n# baz\n\nBar foo\n\n',
     html: '<p>Foo bar</p>\n<h1>baz</h1>\n<p>Bar foo</p>\n\n',
   },
   {
