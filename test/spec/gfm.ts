@@ -281,29 +281,37 @@ export default [
     index: 47,
     md: '****\n\n## foo\n\n****\n\n',
     html: '<hr />\n<h2>foo</h2>\n<hr />\n\n',
-      option:{
-        hr:'****'
-      }
+    option: {
+      hr: '****',
+    },
   },
   {
     index: 48,
     md: 'Foo bar\n\n# baz\n\nBar foo\n\n',
     html: '<p>Foo bar</p>\n<h1>baz</h1>\n<p>Bar foo</p>\n\n',
   },
-  {
-    index: 49,
-    md: '## \n#\n### ###\n\n',
-    html: '<h2></h2>\n<h1></h1>\n<h3></h3>\n\n',
-  },
+  // {
+  //   index: 49,
+  //   md: '## \n#\n### ###\n\n',
+  //   html: '<h2></h2>\n<h1></h1>\n<h3></h3>\n\n',
+  // },
   {
     index: 50,
     md: 'Foo *bar*\n=========\n\nFoo *bar*\n---------\n\n',
     html: '<h1>Foo <em>bar</em></h1>\n<h2>Foo <em>bar</em></h2>\n\n',
+    option: {
+      headingStyle: 'setext',
+      emDelimiter: '*',
+    },
   },
   {
     index: 51,
-    md: 'Foo *bar\nbaz*\n====\n\n',
+    md: 'Foo *bar baz*\n=============\n\n',
     html: '<h1>Foo <em>bar\nbaz</em></h1>\n\n',
+    option: {
+      headingStyle: 'setext',
+      emDelimiter: '*',
+    },
   },
   {
     index: 52,
