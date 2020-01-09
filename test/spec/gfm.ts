@@ -357,104 +357,173 @@ export default [
   },
   {
     index: 57,
-    md: 'Foo\n    ---\n\n',
+    md: 'Foo \\---\n\n',
     html: '<p>Foo\n---</p>\n\n',
   },
   {
     index: 58,
-    md: 'Foo\n= =\n\nFoo\n--- -\n\n',
+    md: 'Foo = =\n\nFoo\n\n--- -\n\n',
     html: '<p>Foo\n= =</p>\n<p>Foo</p>\n<hr />\n\n',
+    option: {
+      headingStyle: 'setext',
+      hr: '--- -',
+    },
   },
   {
     index: 59,
-    md: 'Foo  \n-----\n\n',
+    md: 'Foo\n---\n\n',
     html: '<h2>Foo</h2>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 60,
-    md: 'Foo\\\n----\n\n',
+    md: 'Foo\\\\\n-----\n\n',
     html: '<h2>Foo\\</h2>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 61,
-    md: '`Foo\n----\n`\n\n<a title="a lot\n---\nof dashes"/>\n\n',
+    md:
+      '\\`Foo\n-----\n\n\\`\n\n<a title="a lot\n---------------\n\nof dashes"/>\n\n',
     html:
       '<h2>`Foo</h2>\n<p>`</p>\n<h2>&lt;a title=&quot;a lot</h2>\n<p>of dashes&quot;/&gt;</p>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 62,
-    md: '> Foo\n---\n\n',
+    md: '> Foo\n\n---\n\n',
     html: '<blockquote>\n<p>Foo</p>\n</blockquote>\n<hr />\n\n',
+    option: {
+      headingStyle: 'setext',
+      hr: '---',
+    },
   },
   {
     index: 63,
-    md: '> foo\nbar\n===\n\n',
+    md: '> foo bar ===\n\n',
     html: '<blockquote>\n<p>foo\nbar\n===</p>\n</blockquote>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 64,
-    md: '- Foo\n---\n\n',
+    md: '- Foo\n\n---\n\n',
     html: '<ul>\n<li>Foo</li>\n</ul>\n<hr />\n\n',
+    option: {
+      headingStyle: 'setext',
+      hr: '---',
+      bulletListMarker: '-',
+    },
   },
   {
     index: 65,
-    md: 'Foo\nBar\n---\n\n',
+    md: 'Foo Bar\n-------\n\n',
     html: '<h2>Foo\nBar</h2>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 66,
-    md: '---\nFoo\n---\nBar\n---\nBaz\n\n',
+    md: '---\n\nFoo\n---\n\nBar\n---\n\nBaz\n\n',
     html: '<hr />\n<h2>Foo</h2>\n<h2>Bar</h2>\n<p>Baz</p>\n\n',
+    option: {
+      headingStyle: 'setext',
+      hr: '---',
+    },
   },
   {
     index: 67,
-    md: '\n====\n\n',
+    md: '\\====\n\n',
     html: '<p>====</p>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 68,
     md: '---\n---\n\n',
     html: '<hr />\n<hr />\n\n',
+    option: {
+      headingStyle: 'setext',
+      hr: '---',
+    },
   },
   {
     index: 69,
-    md: '- foo\n-----\n\n',
+    md: '- foo\n\n-----\n\n',
     html: '<ul>\n<li>foo</li>\n</ul>\n<hr />\n\n',
+    option: {
+      headingStyle: 'setext',
+      bulletListMarker: '-',
+      hr: '-----',
+    },
   },
   {
     index: 70,
-    md: '    foo\n---\n\n',
+    md: '    foo\n    \n\n---\n\n',
     html: '<pre><code>foo\n</code></pre>\n<hr />\n\n',
+    option: {
+      headingStyle: 'setext',
+      hr: '---',
+    },
   },
   {
     index: 71,
-    md: '> foo\n-----\n\n',
+    md: '> foo\n\n-----\n\n',
     html: '<blockquote>\n<p>foo</p>\n</blockquote>\n<hr />\n\n',
+    option: {
+      headingStyle: 'setext',
+      hr: '-----',
+    },
   },
   {
     index: 72,
     md: '\\> foo\n------\n\n',
     html: '<h2>&gt; foo</h2>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 73,
-    md: 'Foo\n\nbar\n---\nbaz\n\n',
+    md: 'Foo\n\nbar\n---\n\nbaz\n\n',
     html: '<p>Foo</p>\n<h2>bar</h2>\n<p>baz</p>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 74,
-    md: 'Foo\nbar\n\n---\n\nbaz\n\n',
+    md: 'Foo bar\n\n---\n\nbaz\n\n',
     html: '<p>Foo\nbar</p>\n<hr />\n<p>baz</p>\n\n',
+    option: {
+      headingStyle: 'setext',
+      hr: '---',
+    },
   },
   {
     index: 75,
-    md: 'Foo\nbar\n* * *\nbaz\n\n',
+    md: 'Foo bar\n\n* * *\n\nbaz\n\n',
     html: '<p>Foo\nbar</p>\n<hr />\n<p>baz</p>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 76,
-    md: 'Foo\nbar\n\\---\nbaz\n\n',
+    md: 'Foo bar \\--- baz\n\n',
     html: '<p>Foo\nbar\n---\nbaz</p>\n\n',
+    option: {
+      headingStyle: 'setext',
+    },
   },
   {
     index: 77,

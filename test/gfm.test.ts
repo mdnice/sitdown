@@ -16,13 +16,14 @@ Examples.forEach(example => {
 });
 
 describe('GFM', () => {
-  (Examples as Example[]).slice(0, 7).forEach(example => {
+  (Examples as Example[]).slice(0, 65).forEach(example => {
     let sitdown = new Sitdown();
     it(`gfm example${example.index} works`, () => {
       if (example.option) {
         sitdown = new Sitdown(example.option);
       }
       const expected = sitdown.HTMLToMD(example.html);
+      // console.log(expected)
       expect(expected).toEqual(example.md);
     });
   });

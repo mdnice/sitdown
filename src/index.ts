@@ -1,6 +1,7 @@
 import TurndownService from 'turndown';
 import { applyListRule } from './plugins/list';
 import { applyHrRule } from './plugins/hr';
+import { applyParagraphRule } from './plugins/paragraph';
 
 export class Sitdown {
   defaultOptions: TurndownService.Options;
@@ -14,6 +15,7 @@ export class Sitdown {
     });
     applyListRule(this.service);
     applyHrRule(this.service);
+    applyParagraphRule(this.service);
   }
 
   HTMLToMD(html: string) {
