@@ -1,6 +1,9 @@
 import { Sitdown } from '../src';
 import Examples from './spec/gfm';
 import TurndownService from 'turndown';
+import MD from 'markdown-it';
+import {RootNode} from './root';
+const md = new MD();
 
 interface Example {
   index: number;
@@ -18,13 +21,16 @@ Examples.forEach(example => {
 describe('GFM', () => {
   (Examples as Example[]).slice(0, 65).forEach(example => {
     let sitdown = new Sitdown();
-    it(`gfm example${example.index} works`, () => {
+    it(`gfm example${example.index} html to markdown works`, () => {
       if (example.option) {
         sitdown = new Sitdown(example.option);
       }
       const expected = sitdown.HTMLToMD(example.html);
-      // console.log(expected)
       expect(expected).toEqual(example.md);
     });
+
+    it(`gfm example${example.index} markdown to html works`,() => {
+      expect(RootNode(md.render(example.md))).toEqual(RootNode(example.html));
+    })
   });
 });

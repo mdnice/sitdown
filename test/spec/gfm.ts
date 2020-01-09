@@ -2,17 +2,17 @@ export default [
   {
     index: 1,
     md: '    foo→baz→→bim\n\n',
-    html: '<pre><code>foo→baz→→bim\n</code></pre>\n\n',
+    html: '<pre><code>foo→baz→→bim</code></pre>\n\n',
   },
   {
     index: 2,
     md: '    foo→baz→→bim\n\n',
-    html: '<pre><code>foo→baz→→bim\n</code></pre>\n\n',
+    html: '<pre><code>foo→baz→→bim</code></pre>\n\n',
   },
   {
     index: 3,
     md: '    a→a\n    ὐ→a\n\n',
-    html: '<pre><code>a→a\nὐ→a\n</code></pre>\n\n',
+    html: '<pre><code>a→a\nὐ→a</code></pre>\n\n',
   },
   {
     index: 4,
@@ -100,7 +100,7 @@ export default [
   {
     index: 18,
     md: '    ***\n\n',
-    html: '<pre><code>***\n</code></pre>\n\n',
+    html: '<pre><code>***</code></pre>\n\n',
   },
   {
     index: 19,
@@ -240,7 +240,7 @@ export default [
   {
     index: 39,
     md: '    # foo\n\n',
-    html: '<pre><code># foo\n</code></pre>\n\n',
+    html: '<pre><code># foo</code></pre>\n\n',
   },
   {
     index: 40,
@@ -274,7 +274,7 @@ export default [
   },
   {
     index: 46,
-    md: '### foo ###\n\n## foo ###\n\n# foo #\n\n',
+    md: '### foo \\###\n\n## foo #\\##\n\n# foo \\#\n\n',
     html: '<h3>foo ###</h3>\n<h2>foo ###</h2>\n<h1>foo #</h1>\n\n',
   },
   {
