@@ -264,7 +264,7 @@ export default [
   // },
   {
     index: 44,
-    md: '### foo ### b\n\n',
+    md: '### foo \\### b\n\n',
     html: '<h3>foo ### b</h3>\n\n',
   },
   {
@@ -274,7 +274,7 @@ export default [
   },
   {
     index: 46,
-    md: '### foo \\###\n\n## foo #\\##\n\n# foo \\#\n\n',
+    md: '### foo \\###\n\n## foo \\###\n\n# foo \\#\n\n',
     html: '<h3>foo ###</h3>\n<h2>foo ###</h2>\n<h1>foo #</h1>\n\n',
   },
   {
@@ -528,174 +528,258 @@ export default [
   {
     index: 77,
     md: '    a simple\n      indented code block\n\n',
-    html: '<pre><code>a simple\n  indented code block\n</code></pre>\n\n',
+    html: '<pre><code>a simple\n  indented code block</code></pre>\n\n',
   },
   {
     index: 78,
-    md: '  - foo\n\n    bar\n\n',
+    md: '- foo\n\n    bar\n\n',
     html: '<ul>\n<li>\n<p>foo</p>\n<p>bar</p>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 79,
     md: '1.  foo\n\n    - bar\n\n',
     html: '<ol>\n<li>\n<p>foo</p>\n<ul>\n<li>bar</li>\n</ul>\n</li>\n</ol>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 80,
-    md: '    <a/>\n    *hi*\n\n    - one\n\n',
-    html: '<pre><code>&lt;a/&gt;\n*hi*\n\n- one\n</code></pre>\n\n',
+    md: '    <a/>\n    *hi*\n    \n    - one\n\n',
+    html: '<pre><code>&lt;a/&gt;\n*hi*\n\n- one</code></pre>\n\n',
   },
   {
     index: 81,
-    md: '    chunk1\n\n    chunk2\n  \n \n \n    chunk3\n\n',
-    html: '<pre><code>chunk1\n\nchunk2\n\n\n\nchunk3\n</code></pre>\n\n',
+    md: '    chunk1\n    \n    chunk2\n    \n    \n    \n    chunk3\n\n',
+    html: '<pre><code>chunk1\n\nchunk2\n\n\n\nchunk3</code></pre>\n\n',
   },
   {
     index: 82,
     md: '    chunk1\n      \n      chunk2\n\n',
-    html: '<pre><code>chunk1\n  \n  chunk2\n</code></pre>\n\n',
+    html: '<pre><code>chunk1\n  \n  chunk2</code></pre>\n\n',
   },
   {
     index: 83,
-    md: 'Foo\n    bar\n\n',
+    md: 'Foo bar\n\n',
     html: '<p>Foo\nbar</p>\n\n',
   },
   {
     index: 84,
-    md: '    foo\nbar\n\n',
+    md: '    foo\n    \n\nbar\n\n',
     html: '<pre><code>foo\n</code></pre>\n<p>bar</p>\n\n',
   },
   {
     index: 85,
-    md: '# Heading\n    foo\nHeading\n------\n    foo\n----\n\n',
+    md: '# Heading\n\n    foo\n    \n\n## Heading\n\n    foo\n    \n\n----\n\n',
     html:
       '<h1>Heading</h1>\n<pre><code>foo\n</code></pre>\n<h2>Heading</h2>\n<pre><code>foo\n</code></pre>\n<hr />\n\n',
+    option: {
+      hr: '----',
+    },
   },
   {
     index: 86,
     md: '        foo\n    bar\n\n',
-    html: '<pre><code>    foo\nbar\n</code></pre>\n\n',
+    html: '<pre><code>    foo\nbar</code></pre>\n\n',
   },
   {
     index: 87,
-    md: '\n    \n    foo\n    \n\n',
-    html: '<pre><code>foo\n</code></pre>\n\n',
+    md: '    foo\n\n\n',
+    html: '<pre><code>foo</code></pre>\n\n',
   },
-  {
-    index: 88,
-    md: '    foo  \n\n',
-    html: '<pre><code>foo  \n</code></pre>\n\n',
-  },
+  // {
+  //   index: 88,
+  //   md: '    foo  \n\n',
+  //   html: '<pre><code>foo  </code></pre>\n\n',
+  // },
   {
     index: 89,
     md: '```\n<\n >\n```\n\n',
     html: '<pre><code>&lt;\n &gt;\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 90,
     md: '~~~\n<\n >\n~~~\n\n',
     html: '<pre><code>&lt;\n &gt;\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      fence: '~~~',
+    },
   },
-  {
-    index: 91,
-    md: '``\nfoo\n``\n\n',
-    html: '<p><code>foo</code></p>\n\n',
-  },
+  // {
+  //   index: 91,
+  //   md: '``\nfoo\n``\n\n',
+  //   html: '<p><code>foo</code></p>\n\n',
+  //   option: {
+  //     codeBlockStyle: 'fenced',
+  //   },
+  // },
   {
     index: 92,
     md: '```\naaa\n~~~\n```\n\n',
     html: '<pre><code>aaa\n~~~\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 93,
     md: '~~~\naaa\n```\n~~~\n\n',
     html: '<pre><code>aaa\n```\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      fence: '~~~',
+    },
   },
   {
     index: 94,
     md: '````\naaa\n```\n``````\n\n',
     html: '<pre><code>aaa\n```\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      fence: '````',
+      endFence: '``````',
+    },
   },
   {
     index: 95,
     md: '~~~~\naaa\n~~~\n~~~~\n\n',
     html: '<pre><code>aaa\n~~~\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      fence: '~~~~',
+    },
   },
   {
     index: 96,
     md: '```\n\n',
     html: '<pre><code></code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      endFence: '',
+    },
   },
   {
     index: 97,
     md: '`````\n\n```\naaa\n\n',
-    html: '<pre><code>\n```\naaa\n</code></pre>\n\n',
+    html: '<pre><code>\n```\naaa</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      fence: '`````',
+      endFence: '',
+    },
   },
   {
     index: 98,
     md: '> ```\n> aaa\n\nbbb\n\n',
     html:
       '<blockquote>\n<pre><code>aaa\n</code></pre>\n</blockquote>\n<p>bbb</p>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      endFence: '',
+    },
   },
   {
     index: 99,
     md: '```\n\n  \n```\n\n',
     html: '<pre><code>\n  \n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 100,
     md: '```\n```\n\n',
     html: '<pre><code></code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
-  {
-    index: 101,
-    md: ' ```\n aaa\naaa\n```\n\n',
-    html: '<pre><code>aaa\naaa\n</code></pre>\n\n',
-  },
-  {
-    index: 102,
-    md: '  ```\naaa\n  aaa\naaa\n  ```\n\n',
-    html: '<pre><code>aaa\naaa\naaa\n</code></pre>\n\n',
-  },
-  {
-    index: 103,
-    md: '   ```\n   aaa\n    aaa\n  aaa\n   ```\n\n',
-    html: '<pre><code>aaa\n aaa\naaa\n</code></pre>\n\n',
-  },
+  // {
+  //   index: 101,
+  //   md: ' ```\n aaa\naaa\n```\n\n',
+  //   html: '<pre><code>aaa\naaa\n</code></pre>\n\n',
+  //     option: {
+  //         codeBlockStyle: 'fenced',
+  //     },
+  // },
+  // {
+  //   index: 102,
+  //   md: '  ```\naaa\n  aaa\naaa\n  ```\n\n',
+  //   html: '<pre><code>aaa\naaa\naaa\n</code></pre>\n\n',
+  //     option: {
+  //         codeBlockStyle: 'fenced',
+  //     },
+  // },
+  // {
+  //   index: 103,
+  //   md: '   ```\n   aaa\n    aaa\n  aaa\n   ```\n\n',
+  //   html: '<pre><code>aaa\n aaa\naaa\n</code></pre>\n\n',
+  //     option: {
+  //         codeBlockStyle: 'fenced',
+  //     },
+  // },
   {
     index: 104,
     md: '    ```\n    aaa\n    ```\n\n',
-    html: '<pre><code>```\naaa\n```\n</code></pre>\n\n',
+    html: '<pre><code>```\naaa\n```</code></pre>\n\n',
   },
   {
     index: 105,
     md: '```\naaa\n  ```\n\n',
     html: '<pre><code>aaa\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      endFence: '  ```',
+    },
   },
   {
     index: 106,
     md: '   ```\naaa\n  ```\n\n',
     html: '<pre><code>aaa\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      startFence: '   ```',
+      endFence: '  ```',
+    },
   },
   {
     index: 107,
     md: '```\naaa\n    ```\n\n',
-    html: '<pre><code>aaa\n    ```\n</code></pre>\n\n',
+    html: '<pre><code>aaa\n    ```</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 108,
     md: '``` ```\naaa\n\n',
     html: '<p><code> </code>\naaa</p>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 109,
     md: '~~~~~~\naaa\n~~~ ~~\n\n',
     html: '<pre><code>aaa\n~~~ ~~\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 110,
     md: 'foo\n```\nbar\n```\nbaz\n\n',
     html: '<p>foo</p>\n<pre><code>bar\n</code></pre>\n<p>baz</p>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 111,
