@@ -1,9 +1,9 @@
 import { Sitdown } from '../src';
 import Examples from './spec/gfm';
 import TurndownService from 'turndown';
-import MD from 'markdown-it';
+import MarkdownIt from 'markdown-it';
 import { RootNode } from './root';
-const md = new MD();
+const md = new MarkdownIt();
 
 interface Example {
   index: number;
