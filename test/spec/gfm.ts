@@ -779,7 +779,7 @@ export default [
   },
   {
     index: 110,
-    md: 'foo\n```\nbar\n```\nbaz\n\n',
+    md: 'foo\n\n```\nbar\n```\n\nbaz\n\n',
     html: '<p>foo</p>\n<pre><code>bar\n</code></pre>\n<p>baz</p>\n\n',
     option: {
       codeBlockStyle: 'fenced',
@@ -787,41 +787,68 @@ export default [
   },
   {
     index: 111,
-    md: 'foo\n---\n~~~\nbar\n~~~\n# baz\n\n',
+    md: '## foo\n\n~~~\nbar\n~~~\n\n# baz\n\n',
     html: '<h2>foo</h2>\n<pre><code>bar\n</code></pre>\n<h1>baz</h1>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      fence: '~~~',
+    },
   },
   {
     index: 112,
     md: '```ruby\ndef foo(x)\n  return 3\nend\n```\n\n',
     html:
       '<pre><code class="language-ruby">def foo(x)\n  return 3\nend\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
-  {
-    index: 113,
-    md:
-      '~~~~    ruby startline=3 $%@#$\ndef foo(x)\n  return 3\nend\n~~~~~~~\n\n',
-    html:
-      '<pre><code class="language-ruby">def foo(x)\n  return 3\nend\n</code></pre>\n\n',
-  },
+  // {
+  //   index: 113,
+  //   md:
+  //     '~~~~ruby startline=3 $%@#$\ndef foo(x)\n  return 3\nend\n~~~~~~~\n\n',
+  //   html:
+  //     '<pre><code class="language-ruby">def foo(x)\n  return 3\nend\n</code></pre>\n\n',
+  //     option:{
+  //         codeBlockStyle: 'fenced',
+  //         fence:'~~~~',
+  //         endFence:'~~~~~~~'
+  //     }
+  // },
   {
     index: 114,
     md: '````;\n````\n\n',
     html: '<pre><code class="language-;"></code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      fence: '````',
+    },
   },
   {
     index: 115,
-    md: '``` aa ```\nfoo\n\n',
+    md: '```aa``` foo\n\n',
     html: '<p><code>aa</code>\nfoo</p>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      codeDelimiter: '```',
+    },
   },
   {
     index: 116,
-    md: '~~~ aa ``` ~~~\nfoo\n~~~\n\n',
+    md: '~~~aa\nfoo\n~~~\n\n',
     html: '<pre><code class="language-aa">foo\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      fence: '~~~',
+    },
   },
   {
     index: 117,
     md: '```\n``` aaa\n```\n\n',
     html: '<pre><code>``` aaa\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 118,
