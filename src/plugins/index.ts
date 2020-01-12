@@ -1,4 +1,4 @@
-import TurndownService from 'turndown';
+import TurndownService from '../../lib/turndown';
 // @ts-ignore
 import * as turndownPluginGfm from 'turndown-plugin-gfm';
 import { applyListRule } from './list';
@@ -11,6 +11,7 @@ const gfm = turndownPluginGfm.gfm;
 const tables = turndownPluginGfm.tables;
 const strikethrough = turndownPluginGfm.strikethrough;
 
+const filters = ['div', 'style'];
 export default (turndownService: TurndownService) => {
   turndownService.use([
     applyListRule,
@@ -21,7 +22,24 @@ export default (turndownService: TurndownService) => {
     applyCodeRule,
   ]);
 
-  turndownService.keep(['div', 'style']);
+  // turndownService.keep(['div', 'style']);
+  turndownService.keep(node => {
+    const isKeep = filters.some(
+      filter => filter === node.nodeName.toLowerCase()
+    );
+    if (isKeep) {
+      if (node.parentNode) {
+        const index = Array.from(node.parentNode.childNodes).findIndex(
+          n => n === node
+        );
+        const next: ChildNode & { unNeedEscape?: boolean } =
+          node.parentNode.childNodes[index + 1];
+        next && (next.unNeedEscape = true);
+      }
+      return true;
+    }
+    return false;
+  });
 
   // Use the gfm plugin
   turndownService.use(gfm);

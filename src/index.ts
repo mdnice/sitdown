@@ -1,5 +1,5 @@
 import applyPlugins from './plugins';
-import { blankReplacement } from './util';
+import { blankReplacement, keepReplacement } from './util';
 import TurndownService from '../lib/turndown';
 
 export class Sitdown {
@@ -10,6 +10,7 @@ export class Sitdown {
     this.defaultOptions = {
       headingStyle: 'atx',
       blankReplacement,
+      keepReplacement,
     };
     this.service = new TurndownService({
       ...this.defaultOptions,
