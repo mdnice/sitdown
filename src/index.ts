@@ -1,6 +1,6 @@
-import TurndownService from 'turndown';
 import applyPlugins from './plugins';
 import { blankReplacement } from './util';
+import TurndownService from '../lib/turndown';
 
 export class Sitdown {
   defaultOptions: TurndownService.Options;
