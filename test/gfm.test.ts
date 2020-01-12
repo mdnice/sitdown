@@ -37,7 +37,9 @@ describe('GFM', () => {
 
     it(`gfm example${example.index} markdown to html works`, () => {
       const html = md.render(example.md);
-      expect(RootNode(html).innerHTML).toEqual(RootNode(example.html).innerHTML);
+      expect(RootNode(html).innerHTML).toEqual(
+        RootNode(example.html).innerHTML
+      );
     });
   });
 });

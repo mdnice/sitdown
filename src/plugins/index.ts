@@ -21,7 +21,7 @@ export default (turndownService: TurndownService) => {
     applyCodeRule,
   ]);
 
-  turndownService.keep(['div','style']);
+  turndownService.keep(['div', 'style']);
 
   // Use the gfm plugin
   turndownService.use(gfm);
