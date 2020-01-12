@@ -30,7 +30,8 @@
   "author": "LinFeng1997",
   "module": "dist/.esm.js",
   "dependencies": {
-    "turndown": "^5.0.3"
+    "turndown": "^5.0.3",
+    "turndown-plugin-gfm": "^1.0.2"
   },
   "devDependencies": {
     "@types/jest": "^24.0.25",

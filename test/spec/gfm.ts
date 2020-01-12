@@ -1,3 +1,5 @@
+// import TurndownService from "turndown";
+
 export default [
   {
     index: 1,
@@ -850,65 +852,68 @@ export default [
       codeBlockStyle: 'fenced',
     },
   },
-  {
-    index: 118,
-    md:
-      '<table><tr><td>\n<pre>\n**Hello**,\n\n_world_.\n</pre>\n</td></tr></table>\n\n',
-    html:
-      '<table><tr><td>\n<pre>\n**Hello**,\n<p><em>world</em>.\n</pre></p>\n</td></tr></table>\n\n',
-  },
-  {
-    index: 119,
-    md:
-      '<table>\n  <tr>\n    <td>\n           hi\n    </td>\n  </tr>\n</table>\n\nokay.\n\n',
-    html:
-      '<table>\n  <tr>\n    <td>\n           hi\n    </td>\n  </tr>\n</table>\n<p>okay.</p>\n\n',
-  },
-  {
-    index: 120,
-    md: ' <div>\n  *hello*\n         <foo><a>\n\n',
-    html: ' <div>\n  *hello*\n         <foo><a>\n\n',
-  },
-  {
-    index: 121,
-    md: '</div>\n*foo*\n\n',
-    html: '</div>\n*foo*\n\n',
-  },
-  {
-    index: 122,
-    md: '<DIV CLASS="foo">\n\n*Markdown*\n\n</DIV>\n\n',
-    html: '<DIV CLASS="foo">\n<p><em>Markdown</em></p>\n</DIV>\n\n',
-  },
-  {
-    index: 123,
-    md: '<div id="foo"\n  class="bar">\n</div>\n\n',
-    html: '<div id="foo"\n  class="bar">\n</div>\n\n',
-  },
-  {
-    index: 124,
-    md: '<div id="foo" class="bar\n  baz">\n</div>\n\n',
-    html: '<div id="foo" class="bar\n  baz">\n</div>\n\n',
-  },
-  {
-    index: 125,
-    md: '<div>\n*foo*\n\n*bar*\n\n',
-    html: '<div>\n*foo*\n<p><em>bar</em></p>\n\n',
-  },
-  {
-    index: 126,
-    md: '<div id="foo"\n*hi*\n\n',
-    html: '<div id="foo"\n*hi*\n\n',
-  },
-  {
-    index: 127,
-    md: '<div class\nfoo\n\n',
-    html: '<div class\nfoo\n\n',
-  },
-  {
-    index: 128,
-    md: '<div *???-&&&-<---\n*foo*\n\n',
-    html: '<div *???-&&&-<---\n*foo*\n\n',
-  },
+  // Info：表格
+  // {
+  //   index: 118,
+  //   md:
+  //     '<table><tr><td>\n<pre>\n**Hello**,\n\n_world_.\n</pre>\n</td></tr></table>\n\n',
+  //   html:
+  //     '<table><tr><td>\n<pre>\n**Hello**,\n<p><em>world</em>.\n</pre></p>\n</td></tr></table>\n\n',
+  // },
+  // {
+  //   index: 119,
+  //   md:
+  //     '<table>\n  <tr>\n    <td>\n           hi\n    </td>\n  </tr>\n</table>\n\nokay.\n\n',
+  //   html:
+  //     '<table>\n  <tr>\n    <td>\n           hi\n    </td>\n  </tr>\n</table>\n<p>okay.</p>\n\n',
+  // },
+  // 不规范的 HTML
+  // {
+  //   index: 120,
+  //   md: '<div>*hello*<foo><a>\n\n',
+  //   html: ' <div>\n  *hello*\n         <foo><a>\n\n',
+  // },
+  // {
+  //   index: 121,
+  //   md: '</div>\n*foo*\n\n',
+  //   html: '</div>\n*foo*\n\n',
+  // },
+  // {
+  //   index: 122,
+  //   md: '<DIV CLASS="foo">\n\n*Markdown*\n\n</DIV>\n\n',
+  //   html: '<DIV CLASS="foo">\n<p><em>Markdown</em></p>\n</DIV>\n\n',
+  // },
+  // 空内容
+  // {
+  //   index: 123,
+  //   md: '<div id="foo"\n  class="bar">\n</div>\n\n',
+  //   html: '<div id="foo"\n  class="bar">\n</div>\n\n',
+  // },
+  // {
+  //   index: 124,
+  //   md: '<div id="foo" class="bar\n  baz">\n</div>\n\n',
+  //   html: '<div id="foo" class="bar\n  baz">\n</div>\n\n',
+  // },
+  // {
+  //   index: 125,
+  //   md: '<div>\n*foo*\n\n*bar*\n\n',
+  //   html: '<div>\n*foo*\n<p><em>bar</em></p>\n\n',
+  // },
+  // {
+  //   index: 126,
+  //   md: '<div id="foo"\n*hi*\n\n',
+  //   html: '<div id="foo"\n*hi*\n\n',
+  // },
+  // {
+  //   index: 127,
+  //   md: '<div class\nfoo\n\n',
+  //   html: '<div class\nfoo\n\n',
+  // },
+  // {
+  //   index: 128,
+  //   md: '<div *???-&&&-<---\n*foo*\n\n',
+  //   html: '<div *???-&&&-<---\n*foo*\n\n',
+  // },
   {
     index: 129,
     md: '<div><a href="bar">*foo*</a></div>\n\n',
@@ -916,67 +921,79 @@ export default [
   },
   {
     index: 130,
-    md: '<table><tr><td>\nfoo\n</td></tr></table>\n\n',
+    md: '<table><tbody><tr><td>foo</td></tr></tbody></table>\n\n',
     html: '<table><tr><td>\nfoo\n</td></tr></table>\n\n',
   },
-  {
-    index: 131,
-    md: '<div></div>\n``` c\nint x = 33;\n```\n\n',
-    html: '<div></div>\n``` c\nint x = 33;\n```\n\n',
-  },
-  {
-    index: 132,
-    md: '<a href="foo">\n*bar*\n</a>\n\n',
-    html: '<a href="foo">\n*bar*\n</a>\n\n',
-  },
-  {
-    index: 133,
-    md: '<Warning>\n*bar*\n</Warning>\n\n',
-    html: '<Warning>\n*bar*\n</Warning>\n\n',
-  },
-  {
-    index: 134,
-    md: '<i class="foo">\n*bar*\n</i>\n\n',
-    html: '<i class="foo">\n*bar*\n</i>\n\n',
-  },
-  {
-    index: 135,
-    md: '</ins>\n*bar*\n\n',
-    html: '</ins>\n*bar*\n\n',
-  },
-  {
-    index: 136,
-    md: '<del>\n*foo*\n</del>\n\n',
-    html: '<del>\n*foo*\n</del>\n\n',
-  },
-  {
-    index: 137,
-    md: '<del>\n\n*foo*\n\n</del>\n\n',
-    html: '<del>\n<p><em>foo</em></p>\n</del>\n\n',
-  },
-  {
-    index: 138,
-    md: '<del>*foo*</del>\n\n',
-    html: '<p><del><em>foo</em></del></p>\n\n',
-  },
-  {
-    index: 139,
-    md:
-      '<pre language="haskell"><code>\nimport Text.HTML.TagSoup\n\nmain :: IO ()\nmain = print $ parseTags tags\n</code></pre>\nokay\n\n',
-    html:
-      '<pre language="haskell"><code>\nimport Text.HTML.TagSoup\n\nmain :: IO ()\nmain = print $ parseTags tags\n</code></pre>\n<p>okay</p>\n\n',
-  },
-  {
-    index: 140,
-    md:
-      '<script type="text/javascript">\n// JavaScript example\n\ndocument.getElementById("demo").innerHTML = "Hello JavaScript!";\n</script>\nokay\n\n',
-    html:
-      '<script type="text/javascript">\n// JavaScript example\n\ndocument.getElementById("demo").innerHTML = "Hello JavaScript!";\n</script>\n<p>okay</p>\n\n',
-  },
+  // {
+  //   index: 131,
+  //   md: '<div></div>\n``` c\nint x = 33;\n```\n\n',
+  //   html: '<div></div>\n``` c\nint x = 33;\n```\n\n',
+  // },
+  // {
+  //   index: 132,
+  //   md: '<a href="foo">\n*bar*\n</a>\n\n',
+  //   html: '<a href="foo">\n*bar*\n</a>\n\n',
+  //   enhance: (service: TurndownService) => {
+  //     service.keep(['a'])
+  //   }
+  // },
+  // {
+  //   index: 133,
+  //   md: '<Warning>\n*bar*\n</Warning>\n\n',
+  //   html: '<Warning>\n*bar*\n</Warning>\n\n',
+  //   enhance: (service: TurndownService) => {
+  //     service.keep(['Warning'])
+  //   }
+  // },
+  // {
+  //   index: 134,
+  //   md: '<i class="foo">\n*bar*\n</i>\n\n',
+  //   html: '<i class="foo">\n*bar*\n</i>\n\n',
+  //     enhance: (service: TurndownService) => {
+  //       service.keep(['i'])
+  //     }
+  // },
+  // {
+  //   index: 135,
+  //   md: '</ins>\n*bar*\n\n',
+  //   html: '</ins>\n*bar*\n\n',
+  // },
+  // {
+  //   index: 136,
+  //   md: '<del>\n*foo*\n</del>\n\n',
+  //   html: '<del>\n*foo*\n</del>\n\n',
+  //   enhance: (service: TurndownService) => {
+  //       service.keep(['del'])
+  //   }
+  // },
+  // {
+  //   index: 137,
+  //   md: '<del>\n\n*foo*\n\n</del>\n\n',
+  //   html: '<del>\n<p><em>foo</em></p>\n</del>\n\n',
+  // },
+  // {
+  //   index: 138,
+  //   md: '<del>*foo*</del>\n\n',
+  //   html: '<p><del><em>foo</em></del></p>\n\n',
+  // },
+  // {
+  //   index: 139,
+  //   md:
+  //     '<pre language="haskell"><code>\nimport Text.HTML.TagSoup\n\nmain :: IO ()\nmain = print $ parseTags tags\n</code></pre>\nokay\n\n',
+  //   html:
+  //     '<pre language="haskell"><code>\nimport Text.HTML.TagSoup\n\nmain :: IO ()\nmain = print $ parseTags tags\n</code></pre>\n<p>okay</p>\n\n',
+  // },
+  // {
+  //   index: 140,
+  //   md:
+  //     '<script type="text/javascript">\n// JavaScript example\n\ndocument.getElementById("demo").innerHTML = "Hello JavaScript!";\n</script>\nokay\n\n',
+  //   html:
+  //     '<script type="text/javascript">\n// JavaScript example\n\ndocument.getElementById("demo").innerHTML = "Hello JavaScript!";\n</script>\n<p>okay</p>\n\n',
+  // },
   {
     index: 141,
     md:
-      '<style\n  type="text/css">\nh1 {color:red;}\n\np {color:blue;}\n</style>\nokay\n\n',
+      '<style type="text/css">h1 {color:red;} p {color:blue;}</style>\n\nokay\n\n',
     html:
       '<style\n  type="text/css">\nh1 {color:red;}\n\np {color:blue;}\n</style>\n<p>okay</p>\n\n',
   },
