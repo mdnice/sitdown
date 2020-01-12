@@ -19,7 +19,7 @@ Examples.forEach(example => {
 });
 
 describe('GFM', () => {
-  (Examples as Example[]).slice(0, 90).forEach(example => {
+  (Examples as Example[]).slice(0, 93).forEach(example => {
     let sitdown = new Sitdown();
     it(`gfm example${example.index} html to markdown works`, () => {
       if (example.option) {

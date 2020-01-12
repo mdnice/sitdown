@@ -4,6 +4,7 @@ import { applyHrRule } from './hr';
 import { applyParagraphRule } from './paragraph';
 import { applyHeadingRule } from './heading';
 import { applyFenceRule } from './fencedCodeBlock';
+import { applyCodeRule } from './code';
 
 export default (turndownService: TurndownService) => {
   turndownService.use([
@@ -12,5 +13,6 @@ export default (turndownService: TurndownService) => {
     applyParagraphRule,
     applyHeadingRule,
     applyFenceRule,
+    applyCodeRule,
   ]);
 };

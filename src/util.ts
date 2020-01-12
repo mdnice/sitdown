@@ -20,6 +20,14 @@ export function isFence(options: Options, node: TurndownService.Node): boolean {
   );
 }
 
+export function isCode(node: TurndownService.Node) {
+  var hasSiblings = node.previousSibling || node.nextSibling;
+  var isCodeBlock =
+    node.parentNode && node.parentNode.nodeName === 'PRE' && !hasSiblings;
+
+  return node.nodeName === 'CODE' && !isCodeBlock;
+}
+
 export function fenceReplacement(
   _: string,
   node: HTMLElement | Document | DocumentFragment | Element,
@@ -43,13 +51,37 @@ export function fenceReplacement(
   );
 }
 
+export function codeReplacement(
+  content: string,
+  _: HTMLElement | Document | DocumentFragment | Element,
+  options: Options
+) {
+  if (!content.trim()) return '';
+
+  var delimiter = options.codeDelimiter ? options.codeDelimiter : '`';
+  var leadingSpace = '';
+  var trailingSpace = '';
+  var matches = content.match(/`+/gm);
+  if (matches) {
+    if (/^`/.test(content)) leadingSpace = ' ';
+    if (/`$/.test(content)) trailingSpace = ' ';
+    while (matches.indexOf(delimiter) !== -1) delimiter = delimiter + '`';
+  }
+
+  return delimiter + leadingSpace + content + trailingSpace + delimiter;
+}
+
 export function blankReplacement(
-  _: string,
+  content: string,
   node: TurndownService.Node & { isBlock?: boolean },
   options: Options
 ) {
   if (isFence(options, node)) {
-    return fenceReplacement(_, node, options);
+    return fenceReplacement(content, node, options);
+  } else if (isCode(node)) {
+    var delimiter = options.codeDelimiter ? options.codeDelimiter : '`';
+
+    return delimiter + ' ' + content + delimiter + '\n';
   }
   return node.isBlock ? '\n\n' : '';
 }

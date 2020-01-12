@@ -755,6 +755,7 @@ export default [
     html: '<pre><code>aaa\n    ```</code></pre>\n\n',
     option: {
       codeBlockStyle: 'fenced',
+      endFence: '',
     },
   },
   {
@@ -763,14 +764,17 @@ export default [
     html: '<p><code> </code>\naaa</p>\n\n',
     option: {
       codeBlockStyle: 'fenced',
+      codeDelimiter: '```',
     },
   },
   {
     index: 109,
     md: '~~~~~~\naaa\n~~~ ~~\n\n',
-    html: '<pre><code>aaa\n~~~ ~~\n</code></pre>\n\n',
+    html: '<pre><code>aaa\n~~~ ~~</code></pre>\n\n',
     option: {
       codeBlockStyle: 'fenced',
+      startFence: '~~~~~~',
+      endFence: '',
     },
   },
   {
