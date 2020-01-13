@@ -1339,38 +1339,41 @@ export default [
   },
   {
     index: 190,
-    md: 'aaa\nbbb\n\nccc\nddd\n\n',
+    md: 'aaa bbb\n\nccc ddd\n\n',
     html: '<p>aaa\nbbb</p>\n<p>ccc\nddd</p>\n\n',
   },
-  {
-    index: 191,
-    md: 'aaa\n\n\nbbb\n\n',
-    html: '<p>aaa</p>\n<p>bbb</p>\n\n',
-  },
+  // {
+  //   index: 191,
+  //   md: 'aaa\n\n\nbbb\n\n',
+  //   html: '<p>aaa</p>\n<p>bbb</p>\n\n',
+  // },
   {
     index: 192,
-    md: '  aaa\n bbb\n\n',
+    md: 'aaa bbb\n\n',
     html: '<p>aaa\nbbb</p>\n\n',
   },
   {
     index: 193,
-    md: 'aaa\n             bbb\n                                       ccc\n\n',
+    md: 'aaa bbb ccc\n\n',
     html: '<p>aaa\nbbb\nccc</p>\n\n',
   },
-  {
-    index: 194,
-    md: '   aaa\nbbb\n\n',
-    html: '<p>aaa\nbbb</p>\n\n',
-  },
+  // {
+  //   index: 194,
+  //   md: '   aaa\nbbb\n\n',
+  //   html: '<p>aaa\nbbb</p>\n\n',
+  // },
   {
     index: 195,
-    md: '    aaa\nbbb\n\n',
+    md: '    aaa\n    \n\nbbb\n\n',
     html: '<pre><code>aaa\n</code></pre>\n<p>bbb</p>\n\n',
   },
   {
     index: 196,
-    md: 'aaa     \nbbb     \n\n',
+    md: 'aaa     \nbbb\n\n',
     html: '<p>aaa<br />\nbbb</p>\n\n',
+    option: {
+      br: '     ',
+    },
   },
   {
     index: 197,
