@@ -40,8 +40,11 @@ declare namespace TurndownService {
     }
 
     interface Rule {
+        references?: string[];
         filter: Filter;
         replacement?: ReplacementFunction;
+        append?: () => void;
+        unshift?: () => void;
     }
 
     interface Rules {

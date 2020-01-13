@@ -1106,149 +1106,232 @@ export default [
     index: 161,
     md: '[foo]: /url "title"\n\n[foo]\n\n',
     html: '<p><a href="/url" title="title">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
-  {
-    index: 162,
-    md: "   [foo]: \n      /url  \n           'the title'  \n\n[foo]\n\n",
-    html: '<p><a href="/url" title="the title">foo</a></p>\n\n',
-  },
+  // {
+  //   index: 162,
+  //   md: "   [foo]: \n      /url  \n           'the title'  \n\n[foo]\n\n",
+  //   html: '<p><a href="/url" title="the title">foo</a></p>\n\n',
+  // },
   {
     index: 163,
-    md: "[Foo*bar\\]]:my_(url) 'title (with parens)'\n\n[Foo*bar\\]]\n\n",
+    md: `[Foo\\*bar\\]]: my_(url) "title (with parens)"\n\n[Foo\\*bar\\]]\n\n`,
     html:
       '<p><a href="my_(url)" title="title (with parens)">Foo*bar]</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 164,
-    md: "[Foo bar]:\n<my url>\n'title'\n\n[Foo bar]\n\n",
+    md: `[Foo bar]: <my url> "title"\n\n[Foo bar]\n\n`,
     html: '<p><a href="my%20url" title="title">Foo bar</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 165,
-    md: "[foo]: /url '\ntitle\nline1\nline2\n'\n\n[foo]\n\n",
+    md: `[foo]: /url "\ntitle\nline1\nline2\n"\n\n[foo]\n\n`,
     html: '<p><a href="/url" title="\ntitle\nline1\nline2\n">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 166,
-    md: "[foo]: /url 'title\n\nwith blank line'\n\n[foo]\n\n",
+    md: "\\[foo\\]: /url 'title\n\nwith blank line'\n\n\\[foo\\]\n\n",
     html:
       "<p>[foo]: /url 'title</p>\n<p>with blank line'</p>\n<p>[foo]</p>\n\n",
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 167,
-    md: '[foo]:\n/url\n\n[foo]\n\n',
+    md: '[foo]: /url\n\n[foo]\n\n',
     html: '<p><a href="/url">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 168,
-    md: '[foo]:\n\n[foo]\n\n',
+    md: '\\[foo\\]:\n\n\\[foo\\]\n\n',
     html: '<p>[foo]:</p>\n<p>[foo]</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
-  {
-    index: 169,
-    md: '[foo]: <>\n\n[foo]\n\n',
-    html: '<p><a href="">foo</a></p>\n\n',
-  },
-  {
-    index: 170,
-    md: '[foo]: <bar>(baz)\n\n[foo]\n\n',
-    html: '<p>[foo]: <bar>(baz)</p>\n<p>[foo]</p>\n\n',
-  },
+  // {
+  //   index: 169,
+  //   md: '[foo]: <>\n\n[foo]\n\n',
+  //   html: '<p><a href="">foo</a></p>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
+  // {
+  //   index: 170,
+  //   md: '\\[foo\\]: <bar>(baz)\n\n\\[foo\\]\n\n',
+  //   html: '<p>[foo]: <bar>(baz)</p>\n<p>[foo]</p>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
   {
     index: 171,
     md: '[foo]: /url\\bar\\*baz "foo\\"bar\\baz"\n\n[foo]\n\n',
     html:
       '<p><a href="/url%5Cbar*baz" title="foo&quot;bar\\baz">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
-  {
-    index: 172,
-    md: '[foo]\n\n[foo]: url\n\n',
-    html: '<p><a href="url">foo</a></p>\n\n',
-  },
-  {
-    index: 173,
-    md: '[foo]\n\n[foo]: first\n[foo]: second\n\n',
-    html: '<p><a href="first">foo</a></p>\n\n',
-  },
-  {
-    index: 174,
-    md: '[FOO]: /url\n\n[Foo]\n\n',
-    html: '<p><a href="/url">Foo</a></p>\n\n',
-  },
-  {
-    index: 175,
-    md: '[ΑΓΩ]: /φου\n\n[αγω]\n\n',
-    html: '<p><a href="/%CF%86%CE%BF%CF%85">αγω</a></p>\n\n',
-  },
-  {
-    index: 176,
-    md: '[foo]: /url\n\n',
-    html: '\n',
-  },
-  {
-    index: 177,
-    md: '[\nfoo\n]: /url\nbar\n\n',
-    html: '<p>bar</p>\n\n',
-  },
+  // {
+  //   index: 172,
+  //   md: '[foo]\n\n[foo]: url\n\n',
+  //   html: '<p><a href="url">foo</a></p>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
+  // {
+  //   index: 173,
+  //   md: '[foo]\n\n[foo]: first\n[foo]: second\n\n',
+  //   html: '<p><a href="first">foo</a></p>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
+  // {
+  //   index: 174,
+  //   md: '[FOO]: /url\n\n[Foo]\n\n',
+  //   html: '<p><a href="/url">Foo</a></p>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
+  // {
+  //   index: 175,
+  //   md: '[ΑΓΩ]: /φου\n\n[αγω]\n\n',
+  //   html: '<p><a href="/%CF%86%CE%BF%CF%85">αγω</a></p>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
+  // {
+  //   index: 176,
+  //   md: '[foo]: /url\n\n',
+  //   html: '\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
+  // {
+  //   index: 177,
+  //   md: '[\nfoo\n]: /url\nbar\n\n',
+  //   html: '<p>bar</p>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
   {
     index: 178,
-    md: '[foo]: /url "title" ok\n\n',
+    md: '\\[foo\\]: /url "title" ok\n\n',
     html: '<p>[foo]: /url &quot;title&quot; ok</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
-  {
-    index: 179,
-    md: '[foo]: /url\n"title" ok\n\n',
-    html: '<p>&quot;title&quot; ok</p>\n\n',
-  },
+  // {
+  //   index: 179,
+  //   md: '[foo]: /url\n"title" ok\n\n',
+  //   html: '<p>&quot;title&quot; ok</p>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
   {
     index: 180,
-    md: '    [foo]: /url "title"\n\n[foo]\n\n',
+    md: '    [foo]: /url "title"\n    \n\n\\[foo\\]\n\n',
     html:
       '<pre><code>[foo]: /url &quot;title&quot;\n</code></pre>\n<p>[foo]</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 181,
-    md: '```\n[foo]: /url\n```\n\n[foo]\n\n',
+    md: '```\n[foo]: /url\n```\n\n\\[foo\\]\n\n',
     html: '<pre><code>[foo]: /url\n</code></pre>\n<p>[foo]</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 182,
-    md: 'Foo\n[bar]: /baz\n\n[bar]\n\n',
+    md: 'Foo \\[bar\\]: /baz\n\n\\[bar\\]\n\n',
     html: '<p>Foo\n[bar]: /baz</p>\n<p>[bar]</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
-  {
-    index: 183,
-    md: '# [Foo]\n[foo]: /url\n> bar\n\n',
-    html:
-      '<h1><a href="/url">Foo</a></h1>\n<blockquote>\n<p>bar</p>\n</blockquote>\n\n',
-  },
+  // {
+  //   index: 183,
+  //   md: '# [Foo]\n[foo]: /url\n> bar\n\n',
+  //   html:
+  //     '<h1><a href="/url">Foo</a></h1>\n<blockquote>\n<p>bar</p>\n</blockquote>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
   {
     index: 184,
-    md: '[foo]: /url\nbar\n===\n[foo]\n\n',
+    md: '[foo]: /url\n\nbar\n===\n\n[foo]\n\n',
     html: '<h1>bar</h1>\n<p><a href="/url">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      headingStyle: 'setext',
+    },
   },
   {
     index: 185,
-    md: '[foo]: /url\n===\n[foo]\n\n',
+    md: '[foo]: /url\n\n\\=== [foo]\n\n',
     html: '<p>===\n<a href="/url">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 186,
     md:
-      '[foo]: /foo-url "foo"\n[bar]: /bar-url\n  "bar"\n[baz]: /baz-url\n\n[foo],\n[bar],\n[baz]\n\n',
+      '[foo]: /foo-url "foo"\n[bar]: /bar-url "bar"\n[baz]: /baz-url\n\n[foo], [bar], [baz]\n\n',
     html:
       '<p><a href="/foo-url" title="foo">foo</a>,\n<a href="/bar-url" title="bar">bar</a>,\n<a href="/baz-url">baz</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
-  {
-    index: 187,
-    md: '[foo]\n\n> [foo]: /url\n\n',
-    html: '<p><a href="/url">foo</a></p>\n<blockquote>\n</blockquote>\n\n',
-  },
-  {
-    index: 188,
-    md: '[foo]: /url\n\n',
-    html: '',
-  },
+  // {
+  //   index: 187,
+  //   md: '[foo]\n\n> [foo]: /url\n\n',
+  //   html: '<p><a href="/url">foo</a></p>\n<blockquote>\n</blockquote>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
+  // {
+  //   index: 188,
+  //   md: '[foo]: /url\n\n',
+  //   html: '',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //   },
+  // },
   {
     index: 189,
     md: 'aaa\n\nbbb\n\n',

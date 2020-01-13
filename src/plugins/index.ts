@@ -7,6 +7,7 @@ import { applyParagraphRule } from './paragraph';
 import { applyHeadingRule } from './heading';
 import { applyFenceRule } from './fencedCodeBlock';
 import { applyCodeRule } from './code';
+import { applyReferenceLinkRule } from './referenceLinks';
 const gfm = turndownPluginGfm.gfm;
 const tables = turndownPluginGfm.tables;
 const strikethrough = turndownPluginGfm.strikethrough;
@@ -20,6 +21,7 @@ export default (turndownService: TurndownService) => {
     applyHeadingRule,
     applyFenceRule,
     applyCodeRule,
+    applyReferenceLinkRule,
   ]);
 
   // turndownService.keep(['div', 'style']);
