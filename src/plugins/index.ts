@@ -8,12 +8,19 @@ import { applyHeadingRule } from './heading';
 import { applyFenceRule } from './fencedCodeBlock';
 import { applyCodeRule } from './code';
 import { applyReferenceLinkRule } from './referenceLinks';
+import { applyTableRule } from './table';
 const gfm = turndownPluginGfm.gfm;
 const tables = turndownPluginGfm.tables;
 const strikethrough = turndownPluginGfm.strikethrough;
 
 const filters = ['div', 'style'];
 export default (turndownService: TurndownService) => {
+  // Use the gfm plugin
+  turndownService.use(gfm);
+
+  // Use the table and strikethrough plugins only
+  turndownService.use([tables, strikethrough]);
+
   turndownService.use([
     applyListRule,
     applyHrRule,
@@ -22,6 +29,7 @@ export default (turndownService: TurndownService) => {
     applyFenceRule,
     applyCodeRule,
     applyReferenceLinkRule,
+    applyTableRule,
   ]);
 
   // turndownService.keep(['div', 'style']);
@@ -42,10 +50,4 @@ export default (turndownService: TurndownService) => {
     }
     return false;
   });
-
-  // Use the gfm plugin
-  turndownService.use(gfm);
-
-  // Use the table and strikethrough plugins only
-  turndownService.use([tables, strikethrough]);
 };
