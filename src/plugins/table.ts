@@ -1,11 +1,19 @@
 import TurndownService from 'turndown';
 import { escape } from '../util';
-const escapes: [RegExp, string | ((substring: string, ...args: any[]) => string)][] = [[/(.*)\|(.*)/g, (match,p1,p2) => {
-    if(match.match(/\`.*\|.*\`/)){
+const escapes: [
+  RegExp,
+  string | ((substring: string, ...args: any[]) => string)
+][] = [
+  [
+    /(.*)\|(.*)/g,
+    (match, p1, p2) => {
+      if (match.match(/\`.*\|.*\`/)) {
         return `${p1}\|${p2}`;
-    }
-    return `${p1}\\|${p2}`;
-}]];
+      }
+      return `${p1}\\|${p2}`;
+    },
+  ],
+];
 
 var every = Array.prototype.every;
 var indexOf = Array.prototype.indexOf;

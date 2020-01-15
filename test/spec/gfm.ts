@@ -1427,63 +1427,71 @@ export default [
     html:
       '<table>\n<thead>\n<tr>\n<th>abc</th>\n<th>def</th>\n</tr>\n</thead><tbody></tbody>\n</table>\n\n',
   },
-
   {
     index: 206,
-    md: '> # Foo\n> bar\n> baz\n\n',
+    md: '> # Foo\n> \n> bar baz\n\n',
     html: '<blockquote>\n<h1>Foo</h1>\n<p>bar\nbaz</p>\n</blockquote>\n\n',
   },
-  {
-    index: 207,
-    md: '># Foo\n>bar\n> baz\n\n',
-    html: '<blockquote>\n<h1>Foo</h1>\n<p>bar\nbaz</p>\n</blockquote>\n\n',
-  },
-  {
-    index: 208,
-    md: '   > # Foo\n   > bar\n > baz\n\n',
-    html: '<blockquote>\n<h1>Foo</h1>\n<p>bar\nbaz</p>\n</blockquote>\n\n',
-  },
+  // {
+  //   index: 207,
+  //   md: '># Foo\n>bar\n> baz\n\n',
+  //   html: '<blockquote>\n<h1>Foo</h1>\n<p>bar\nbaz</p>\n</blockquote>\n\n',
+  // },
+  // {
+  //   index: 208,
+  //   md: '   > # Foo\n   > bar\n > baz\n\n',
+  //   html: '<blockquote>\n<h1>Foo</h1>\n<p>bar\nbaz</p>\n</blockquote>\n\n',
+  // },
   {
     index: 209,
     md: '    > # Foo\n    > bar\n    > baz\n\n',
-    html: '<pre><code>&gt; # Foo\n&gt; bar\n&gt; baz\n</code></pre>\n\n',
+    html: '<pre><code>&gt; # Foo\n&gt; bar\n&gt; baz</code></pre>\n\n',
   },
-  {
-    index: 210,
-    md: '> # Foo\n> bar\nbaz\n\n',
-    html: '<blockquote>\n<h1>Foo</h1>\n<p>bar\nbaz</p>\n</blockquote>\n\n',
-  },
+  // {
+  //   index: 210,
+  //   md: '> # Foo\n> bar\nbaz\n\n',
+  //   html: '<blockquote>\n<h1>Foo</h1>\n<p>bar\nbaz</p>\n</blockquote>\n\n',
+  // },
   {
     index: 211,
-    md: '> bar\nbaz\n> foo\n\n',
+    md: '> bar baz foo\n\n',
     html: '<blockquote>\n<p>bar\nbaz\nfoo</p>\n</blockquote>\n\n',
   },
   {
     index: 212,
-    md: '> foo\n---\n\n',
+    md: '> foo\n\n---\n\n',
     html: '<blockquote>\n<p>foo</p>\n</blockquote>\n<hr />\n\n',
+    option: {
+      hr: '---',
+    },
   },
   {
     index: 213,
-    md: '> - foo\n- bar\n\n',
+    md: '> - foo\n\n- bar\n\n',
     html:
       '<blockquote>\n<ul>\n<li>foo</li>\n</ul>\n</blockquote>\n<ul>\n<li>bar</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 214,
-    md: '>     foo\n    bar\n\n',
+    md: '>     foo\n>     \n\n    bar\n\n',
     html:
-      '<blockquote>\n<pre><code>foo\n</code></pre>\n</blockquote>\n<pre><code>bar\n</code></pre>\n\n',
+      '<blockquote>\n<pre><code>foo\n</code></pre>\n</blockquote>\n<pre><code>bar</code></pre>\n\n',
   },
-  {
-    index: 215,
-    md: '> ```\nfoo\n```\n\n',
-    html:
-      '<blockquote>\n<pre><code></code></pre>\n</blockquote>\n<p>foo</p>\n<pre><code></code></pre>\n\n',
-  },
+  // {
+  //   index: 215,
+  //   md: '> ```\nfoo\n```\n\n',
+  //   html:
+  //     '<blockquote>\n<pre><code></code></pre>\n</blockquote>\n<p>foo</p>\n<pre><code></code></pre>\n\n',
+  //   option:{
+  //     codeBlockStyle:'fenced'
+  //   }
+  // },
   {
     index: 216,
-    md: '> foo\n    - bar\n\n',
+    md: '> foo \\- bar\n\n',
     html: '<blockquote>\n<p>foo\n- bar</p>\n</blockquote>\n\n',
   },
   {
@@ -1491,157 +1499,182 @@ export default [
     md: '>\n\n',
     html: '<blockquote>\n</blockquote>\n\n',
   },
-  {
-    index: 218,
-    md: '>\n>  \n> \n\n',
-    html: '<blockquote>\n</blockquote>\n\n',
-  },
-  {
-    index: 219,
-    md: '>\n> foo\n>  \n\n',
-    html: '<blockquote>\n<p>foo</p>\n</blockquote>\n\n',
-  },
+  // {
+  //   index: 218,
+  //   md: '>\n>  \n> \n\n',
+  //   html: '<blockquote>\n</blockquote>\n\n',
+  // },
+  // {
+  //   index: 219,
+  //   md: '>\n> foo\n>  \n\n',
+  //   html: '<blockquote>\n<p>foo</p>\n</blockquote>\n\n',
+  // },
   {
     index: 220,
     md: '> foo\n\n> bar\n\n',
     html:
       '<blockquote>\n<p>foo</p>\n</blockquote>\n<blockquote>\n<p>bar</p>\n</blockquote>\n\n',
   },
-  {
-    index: 221,
-    md: '> foo\n> bar\n\n',
-    html: '<blockquote>\n<p>foo\nbar</p>\n</blockquote>\n\n',
-  },
+  // {
+  //   index: 221,
+  //   md: '> foo\n> bar\n\n',
+  //   html: '<blockquote>\n<p>foo\nbar</p>\n</blockquote>\n\n',
+  // },
   {
     index: 222,
-    md: '> foo\n>\n> bar\n\n',
+    md: '> foo\n> \n> bar\n\n',
     html: '<blockquote>\n<p>foo</p>\n<p>bar</p>\n</blockquote>\n\n',
   },
   {
     index: 223,
-    md: 'foo\n> bar\n\n',
+    md: 'foo\n\n> bar\n\n',
     html: '<p>foo</p>\n<blockquote>\n<p>bar</p>\n</blockquote>\n\n',
   },
   {
     index: 224,
-    md: '> aaa\n***\n> bbb\n\n',
+    md: '> aaa\n\n***\n\n> bbb\n\n',
     html:
       '<blockquote>\n<p>aaa</p>\n</blockquote>\n<hr />\n<blockquote>\n<p>bbb</p>\n</blockquote>\n\n',
+    option: {
+      hr: '***',
+    },
   },
-  {
-    index: 225,
-    md: '> bar\nbaz\n\n',
-    html: '<blockquote>\n<p>bar\nbaz</p>\n</blockquote>\n\n',
-  },
+  // {
+  //   index: 225,
+  //   md: '> bar\nbaz\n\n',
+  //   html: '<blockquote>\n<p>bar\nbaz</p>\n</blockquote>\n\n',
+  // },
   {
     index: 226,
     md: '> bar\n\nbaz\n\n',
     html: '<blockquote>\n<p>bar</p>\n</blockquote>\n<p>baz</p>\n\n',
   },
-  {
-    index: 227,
-    md: '> bar\n>\nbaz\n\n',
-    html: '<blockquote>\n<p>bar</p>\n</blockquote>\n<p>baz</p>\n\n',
-  },
+  // {
+  //   index: 227,
+  //   md: '> bar\n>\nbaz\n\n',
+  //   html: '<blockquote>\n<p>bar</p>\n</blockquote>\n<p>baz</p>\n\n',
+  // },
   {
     index: 228,
-    md: '> > > foo\nbar\n\n',
+    md: '> > > foo bar\n\n',
     html:
       '<blockquote>\n<blockquote>\n<blockquote>\n<p>foo\nbar</p>\n</blockquote>\n</blockquote>\n</blockquote>\n\n',
   },
   {
     index: 229,
-    md: '>>> foo\n> bar\n>>baz\n\n',
+    md: '> > > foo bar baz\n\n',
     html:
       '<blockquote>\n<blockquote>\n<blockquote>\n<p>foo\nbar\nbaz</p>\n</blockquote>\n</blockquote>\n</blockquote>\n\n',
   },
   {
     index: 230,
-    md: '>     code\n\n>    not code\n\n',
+    md: '>     code\n>     \n\n> not code\n\n',
     html:
       '<blockquote>\n<pre><code>code\n</code></pre>\n</blockquote>\n<blockquote>\n<p>not code</p>\n</blockquote>\n\n',
   },
   {
     index: 231,
     md:
-      'A paragraph\nwith two lines.\n\n    indented code\n\n> A block quote.\n\n',
+      'A paragraph with two lines.\n\n    indented code\n    \n\n> A block quote.\n\n',
     html:
       '<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n\n',
   },
   {
     index: 232,
     md:
-      '1.  A paragraph\n    with two lines.\n\n        indented code\n\n    > A block quote.\n\n',
+      '1.  A paragraph with two lines.\n\n        indented code\n    \n\n    > A block quote.\n\n',
     html:
       '<ol>\n<li>\n<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n</li>\n</ol>\n\n',
   },
   {
     index: 233,
-    md: '- one\n\n two\n\n',
+    md: '- one\n\ntwo\n\n',
     html: '<ul>\n<li>one</li>\n</ul>\n<p>two</p>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 234,
-    md: '- one\n\n  two\n\n',
+    md: '- one\n\n    two\n\n',
     html: '<ul>\n<li>\n<p>one</p>\n<p>two</p>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 235,
     md: ' -    one\n\n     two\n\n',
-    html: '<ul>\n<li>one</li>\n</ul>\n<pre><code> two\n</code></pre>\n\n',
+    html: '<ul>\n<li>one</li>\n</ul>\n<pre><code> two</code></pre>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 236,
-    md: ' -    one\n\n      two\n\n',
+    md: '- one\n\n    two\n\n',
     html: '<ul>\n<li>\n<p>one</p>\n<p>two</p>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 237,
-    md: '   > > 1.  one\n>>\n>>     two\n\n',
+    md: '> > 1.  one\n> > \n> >     two\n\n',
     html:
       '<blockquote>\n<blockquote>\n<ol>\n<li>\n<p>one</p>\n<p>two</p>\n</li>\n</ol>\n</blockquote>\n</blockquote>\n\n',
   },
   {
     index: 238,
-    md: '>>- one\n>>\n  >  > two\n\n',
+    md: '> > * one\n> > \n> > two\n\n',
     html:
       '<blockquote>\n<blockquote>\n<ul>\n<li>one</li>\n</ul>\n<p>two</p>\n</blockquote>\n</blockquote>\n\n',
   },
   {
     index: 239,
-    md: '-one\n\n2.two\n\n',
+    md: '\\-one\n\n2.two\n\n',
     html: '<p>-one</p>\n<p>2.two</p>\n\n',
   },
   {
     index: 240,
-    md: '- foo\n\n\n  bar\n\n',
+    md: '- foo\n\n    bar\n\n',
     html: '<ul>\n<li>\n<p>foo</p>\n<p>bar</p>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 241,
     md: '1.  foo\n\n    ```\n    bar\n    ```\n\n    baz\n\n    > bam\n\n',
     html:
       '<ol>\n<li>\n<p>foo</p>\n<pre><code>bar\n</code></pre>\n<p>baz</p>\n<blockquote>\n<p>bam</p>\n</blockquote>\n</li>\n</ol>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
-  {
-    index: 242,
-    md: '- Foo\n\n      bar\n\n\n      baz\n\n',
-    html:
-      '<ul>\n<li>\n<p>Foo</p>\n<pre><code>bar\n\n\nbaz\n</code></pre>\n</li>\n</ul>\n\n',
-  },
+  // Todo:包含缩进代码块的列表项
+  // {
+  //   index: 242,
+  //   md: '- Foo\n\n      bar\n\n\n      baz\n\n',
+  //   html:
+  //     '<ul>\n<li>\n<p>Foo</p>\n<pre><code>bar\n\n\nbaz</code></pre>\n</li>\n</ul>\n\n',
+  //   option:{
+  //     bulletListMarker:'-'
+  //   }
+  // },
   {
     index: 243,
-    md: '123456789. ok\n\n',
+    md: '123456789.  ok\n\n',
     html: '<ol start="123456789">\n<li>ok</li>\n</ol>\n\n',
   },
   {
     index: 244,
-    md: '1234567890. not ok\n\n',
+    md: '1234567890\\. not ok\n\n',
     html: '<p>1234567890. not ok</p>\n\n',
   },
   {
     index: 245,
-    md: '0. ok\n\n',
+    md: '0.  ok\n\n',
     html: '<ol start="0">\n<li>ok</li>\n</ol>\n\n',
   },
   {

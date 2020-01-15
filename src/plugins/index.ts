@@ -9,6 +9,7 @@ import { applyFenceRule } from './fencedCodeBlock';
 import { applyCodeRule } from './code';
 import { applyReferenceLinkRule } from './referenceLinks';
 import { applyTableRule } from './table';
+import { applyIndentedCodeBlockRule } from './indentedCodeBlock';
 const gfm = turndownPluginGfm.gfm;
 const tables = turndownPluginGfm.tables;
 const strikethrough = turndownPluginGfm.strikethrough;
@@ -30,6 +31,7 @@ export default (turndownService: TurndownService) => {
     applyCodeRule,
     applyReferenceLinkRule,
     applyTableRule,
+    applyIndentedCodeBlockRule,
   ]);
 
   // turndownService.keep(['div', 'style']);

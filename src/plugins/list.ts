@@ -16,6 +16,14 @@ export const applyListRule = (turndownService: TurndownService) => {
         var index = Array.prototype.indexOf.call(parent.children, node);
         prefix = (start ? Number(start) + index : index + 1) + '.  ';
       }
+      if (
+        parent &&
+        parent.nextSibling &&
+        parent.nextSibling.nodeName === 'PRE'
+      ) {
+        prefix = ' ' + prefix + '   ';
+      }
+
       return (
         prefix +
         content +
