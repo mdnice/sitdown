@@ -1392,12 +1392,12 @@ export default [
     html:
       '<table>\n<thead>\n<tr>\n<th style="text-align:center">abc</th>\n<th style="text-align:right">defghi</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style="text-align:center">bar</td>\n<td style="text-align:right">baz</td>\n</tr>\n</tbody>\n</table>\n\n',
   },
-  // {
-  //   index: 200,
-  //   md: '| f\\|oo |\n| --- |\n| b `\\|` az |\n| b **\\|** im |\n\n',
-  //   html:
-  //     '<table>\n<thead>\n<tr>\n<th>f|oo</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>b <code>\\|</code> az</td>\n</tr>\n<tr>\n<td>b <strong>|</strong> im</td>\n</tr>\n</tbody>\n</table>\n\n',
-  // },
+  {
+    index: 200,
+    md: '| f\\|oo |\n| --- |\n| b `\\|` az |\n| b **\\|** im |\n\n',
+    html:
+      '<table>\n<thead>\n<tr>\n<th>f|oo</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>b <code>\\|</code> az</td>\n</tr>\n<tr>\n<td>b <strong>|</strong> im</td>\n</tr>\n</tbody>\n</table>\n\n',
+  },
   {
     index: 201,
     md: '| abc | def |\n| --- | --- |\n| bar | baz |\n\n> bar\n\n',
