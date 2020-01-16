@@ -1679,68 +1679,84 @@ export default [
   },
   {
     index: 246,
-    md: '003. ok\n\n',
+    md: '3.  ok\n\n',
     html: '<ol start="3">\n<li>ok</li>\n</ol>\n\n',
   },
   {
     index: 247,
-    md: '-1. not ok\n\n',
+    md: '\\-1. not ok\n\n',
     html: '<p>-1. not ok</p>\n\n',
   },
-  {
-    index: 248,
-    md: '- foo\n\n      bar\n\n',
-    html:
-      '<ul>\n<li>\n<p>foo</p>\n<pre><code>bar\n</code></pre>\n</li>\n</ul>\n\n',
-  },
-  {
-    index: 249,
-    md: '  10.  foo\n\n           bar\n\n',
-    html:
-      '<ol start="10">\n<li>\n<p>foo</p>\n<pre><code>bar\n</code></pre>\n</li>\n</ol>\n\n',
-  },
+  // Todo:搞空格
+  // {
+  //   index: 248,
+  //   md: '- foo\n\n      bar\n\n',
+  //   html:
+  //     '<ul>\n<li>\n<p>foo</p>\n<pre><code>bar</code></pre>\n</li>\n</ul>\n\n',
+  //     option:{
+  //         bulletListMarker:'-'
+  //     }
+  // },
+  // {
+  //   index: 249,
+  //   md: '  10.  foo\n\n           bar\n\n',
+  //   html:
+  //     '<ol start="10">\n<li>\n<p>foo</p>\n<pre><code>bar</code></pre>\n</li>\n</ol>\n\n',
+  // },
   {
     index: 250,
-    md: '    indented code\n\nparagraph\n\n    more code\n\n',
+    md: '    indented code\n    \n\nparagraph\n\n    more code\n\n',
     html:
-      '<pre><code>indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code\n</code></pre>\n\n',
+      '<pre><code>indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code</code></pre>\n\n',
   },
-  {
-    index: 251,
-    md: '1.     indented code\n\n   paragraph\n\n       more code\n\n',
-    html:
-      '<ol>\n<li>\n<pre><code>indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code\n</code></pre>\n</li>\n</ol>\n\n',
-  },
-  {
-    index: 252,
-    md: '1.      indented code\n\n   paragraph\n\n       more code\n\n',
-    html:
-      '<ol>\n<li>\n<pre><code> indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code\n</code></pre>\n</li>\n</ol>\n\n',
-  },
-  {
-    index: 253,
-    md: '   foo\n\nbar\n\n',
-    html: '<p>foo</p>\n<p>bar</p>\n\n',
-  },
+  // Todo
+  // {
+  //   index: 251,
+  //   md: '1.     indented code\n\n   paragraph\n\n       more code\n\n',
+  //   html:
+  //     '<ol>\n<li>\n<pre><code>indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code</code></pre>\n</li>\n</ol>\n\n',
+  // },
+  // {
+  //   index: 252,
+  //   md: '1.      indented code\n\n   paragraph\n\n       more code\n\n',
+  //   html:
+  //     '<ol>\n<li>\n<pre><code> indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code</code></pre>\n</li>\n</ol>\n\n',
+  // },
+  // {
+  //   index: 253,
+  //   md: '   foo\n\nbar\n\n',
+  //   html: '<p>foo</p>\n<p>bar</p>\n\n',
+  // },
   {
     index: 254,
-    md: '-    foo\n\n  bar\n\n',
+    md: '- foo\n\nbar\n\n',
     html: '<ul>\n<li>foo</li>\n</ul>\n<p>bar</p>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 255,
-    md: '-  foo\n\n   bar\n\n',
+    md: '- foo\n\n    bar\n\n',
     html: '<ul>\n<li>\n<p>foo</p>\n<p>bar</p>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
-  {
-    index: 256,
-    md: '-\n  foo\n-\n  ```\n  bar\n  ```\n-\n      baz\n\n',
-    html:
-      '<ul>\n<li>foo</li>\n<li>\n<pre><code>bar\n</code></pre>\n</li>\n<li>\n<pre><code>baz\n</code></pre>\n</li>\n</ul>\n\n',
-  },
+  // Todo
+  // {
+  //   index: 256,
+  //   md: '- foo\n- ```\n  bar\n  ```\n-\n      baz\n\n',
+  //   html:
+  //     '<ul>\n<li>foo</li>\n<li>\n<pre><code>bar\n</code></pre>\n</li>\n<li>\n<pre><code>baz</code></pre>\n</li>\n</ul>\n\n',
+  //     option:{
+  //       bulletListMarker:'-',
+  //         codeBlockStyle:'fenced'
+  //     }
+  // },
   {
     index: 257,
-    md: '-   \n  foo\n\n',
+    md: '* foo\n\n',
     html: '<ul>\n<li>foo</li>\n</ul>\n\n',
   },
   {
