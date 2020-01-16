@@ -1,14 +1,35 @@
 import TurndownService from 'turndown';
+import {
+  findOrderListIndentNumber,
+  findParentNumber,
+  repeat,
+  IndentCodeIsListfirstChild,
+} from '../util';
 
-function hasListParent(node: TurndownService.Node): boolean {
-  if (!node.parentNode) {
-    return false;
+function caclListIndent(node: TurndownService.Node): number {
+  var nestULCount = findParentNumber(node, 'UL');
+  var nestOLCount = findParentNumber(node, 'OL');
+  if (nestOLCount) {
+    // Info:如果这个缩进代码父元素是有序列表，并它是第一个元素
+    const parentNode = node.parentNode;
+    const isFirstChild =
+      parentNode &&
+      parentNode.firstChild &&
+      parentNode.nodeName === 'LI' &&
+      parentNode.firstChild === node;
+    const IndentCodeIsfirstChild = IndentCodeIsListfirstChild(
+      parentNode as HTMLElement
+    );
+    return (
+      nestULCount * 2 +
+      nestOLCount * 4 +
+      4 +
+      findOrderListIndentNumber(node) +
+      (isFirstChild ? -4 : 0) +
+      (IndentCodeIsfirstChild ? -1 : 0)
+    );
   }
-  if (node.parentNode.nodeName === 'LI') {
-    return true;
-  } else {
-    return hasListParent(node.parentNode as HTMLElement);
-  }
+  return nestULCount * 2 + 4;
 }
 export const applyIndentedCodeBlockRule = (
   turndownService: TurndownService
@@ -24,9 +45,11 @@ export const applyIndentedCodeBlockRule = (
     },
 
     replacement: function(_: string, node) {
+      const indent = repeat(' ', caclListIndent(node));
       return node.firstChild && node.firstChild.textContent
-        ? (hasListParent(node) ? '\n\n        ' : '\n\n    ') +
-            node.firstChild.textContent.replace(/\n/g, '\n    ') +
+        ? '\n\n' +
+            indent +
+            node.firstChild.textContent.replace(/\n/g, '\n' + indent) +
             '\n\n'
         : '\n\n    \n\n';
     },

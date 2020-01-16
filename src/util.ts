@@ -54,26 +54,51 @@ export function fenceReplacement(
   );
 }
 
-export function codeReplacement(
+export function listReplacement(
   content: string,
-  _: HTMLElement | Document | DocumentFragment | Element,
-  options: Options
+  node: TurndownService.Node,
+  options: TurndownService.Options
 ) {
-  if (!content.trim()) return '';
+  var prefix = options.bulletListMarker + ' ';
+  var parent = node.parentNode;
+  var nestULCount = findParentNumber(node, 'UL');
+  var nestOLCount = findParentNumber(node, 'OL');
 
-  var delimiter = options.codeDelimiter ? options.codeDelimiter : '`';
-  var leadingSpace = '';
-  var trailingSpace = '';
-  var matches = content.match(/`+/gm);
-  if (matches) {
-    if (/^`/.test(content)) leadingSpace = ' ';
-    if (/`$/.test(content)) trailingSpace = ' ';
-    while (matches.indexOf(delimiter) !== -1) delimiter = delimiter + '`';
+  content = content
+    .replace(/^\n+/, '') // remove leading newlines
+    .replace(/\n+$/, '\n'); // replace trailing newlines with just a single one
+
+  if (IndentCodeIsListfirstChild(node) && nestOLCount) {
+    content = content.replace(/\n(\S)/gm, '\n   $1'); // indent
+  } else {
+    content = content.replace(/\n(\S)/gm, '\n    $1'); // indent
   }
 
-  return delimiter + leadingSpace + content + trailingSpace + delimiter;
-}
+  if (parent && parent.nodeName === 'OL') {
+    var start = (parent as HTMLElement).getAttribute('start');
+    var index = Array.prototype.indexOf.call(parent.children, node);
+    prefix = (start ? Number(start) + index : index + 1) + '.  ';
+  }
+  if (parent && parent.nextSibling && parent.nextSibling.nodeName === 'PRE') {
+    prefix = ' ' + prefix + '   ';
+  }
 
+  if (nestULCount > 1) {
+    prefix = repeat(' ', (nestULCount - 1) * 2) + prefix;
+  }
+  if (nestULCount && nestOLCount) {
+    const indent = findOrderListIndentNumber(node);
+    prefix = repeat(' ', nestULCount * 4 + indent) + prefix;
+  }
+  // var nestLICount = findParentNumber(node, 'LI');
+  // if (nestLICount) {
+  //   prefix = prefix.trimStart();
+  // }
+
+  return (
+    prefix + content + (node.nextSibling && !/\n$/.test(content) ? '\n' : '')
+  );
+}
 export function blankReplacement(
   content: string,
   node: TurndownService.Node & { isBlock?: boolean },
@@ -87,6 +112,10 @@ export function blankReplacement(
     return delimiter + ' ' + content + delimiter + '\n';
   } else if (node.nodeName.toLowerCase() === 'blockquote') {
     return '>';
+  } else if (node.nodeName.toLowerCase() === 'li') {
+    return listReplacement(content, node, options);
+  } else if (node.nodeName.toLowerCase() === 'ul') {
+    return content + '\n\n';
   }
   return node.isBlock ? '\n\n' : '';
 }
@@ -98,4 +127,47 @@ export function keepReplacement(
   return node.isBlock
     ? '\n\n' + (node as HTMLElement).outerHTML + '\n'
     : (node as HTMLElement).outerHTML;
+}
+
+export function findParentNumber(
+  node: TurndownService.Node,
+  parentName: string,
+  count = 0
+): number {
+  if (!node.parentNode) {
+    return count;
+  }
+  if (node.parentNode.nodeName === parentName) {
+    count++;
+  }
+
+  return findParentNumber(node.parentNode as HTMLElement, parentName, count);
+}
+
+export function findOrderListIndentNumber(
+  node: TurndownService.Node,
+  count = 0
+): number {
+  const parentName = 'OL';
+  const parent = node.parentNode as HTMLElement;
+  if (!parent) {
+    return count;
+  }
+  if (parent.nodeName === parentName) {
+    var start = parent.getAttribute('start');
+    if (start && start.length > 1) {
+      count += start.length - 1;
+    }
+  }
+
+  return findOrderListIndentNumber(parent, count);
+}
+
+export function IndentCodeIsListfirstChild(list: TurndownService.Node) {
+  return (
+    list &&
+    list.firstChild &&
+    list.nodeName === 'LI' &&
+    list.firstChild.nodeName === 'PRE'
+  );
 }

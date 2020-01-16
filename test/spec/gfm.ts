@@ -1582,7 +1582,7 @@ export default [
   {
     index: 232,
     md:
-      '1.  A paragraph with two lines.\n\n        indented code\n    \n\n    > A block quote.\n\n',
+      '1.  A paragraph with two lines.\n\n        indented code\n        \n\n    > A block quote.\n\n',
     html:
       '<ol>\n<li>\n<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n</li>\n</ol>\n\n',
   },
@@ -1652,16 +1652,15 @@ export default [
       codeBlockStyle: 'fenced',
     },
   },
-  // Todo:包含缩进代码块的列表项
-  // {
-  //   index: 242,
-  //   md: '- Foo\n\n      bar\n\n\n      baz\n\n',
-  //   html:
-  //     '<ul>\n<li>\n<p>Foo</p>\n<pre><code>bar\n\n\nbaz</code></pre>\n</li>\n</ul>\n\n',
-  //   option:{
-  //     bulletListMarker:'-'
-  //   }
-  // },
+  {
+    index: 242,
+    md: '- Foo\n\n      bar\n      \n      \n      baz\n\n',
+    html:
+      '<ul>\n<li>\n<p>Foo</p>\n<pre><code>bar\n\n\nbaz</code></pre>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
+  },
   {
     index: 243,
     md: '123456789.  ok\n\n',
@@ -1687,46 +1686,44 @@ export default [
     md: '\\-1. not ok\n\n',
     html: '<p>-1. not ok</p>\n\n',
   },
-  // Todo:搞空格
-  // {
-  //   index: 248,
-  //   md: '- foo\n\n      bar\n\n',
-  //   html:
-  //     '<ul>\n<li>\n<p>foo</p>\n<pre><code>bar</code></pre>\n</li>\n</ul>\n\n',
-  //     option:{
-  //         bulletListMarker:'-'
-  //     }
-  // },
-  // {
-  //   index: 249,
-  //   md: '  10.  foo\n\n           bar\n\n',
-  //   html:
-  //     '<ol start="10">\n<li>\n<p>foo</p>\n<pre><code>bar</code></pre>\n</li>\n</ol>\n\n',
-  // },
+  {
+    index: 248,
+    md: '- foo\n\n      bar\n\n',
+    html:
+      '<ul>\n<li>\n<p>foo</p>\n<pre><code>bar</code></pre>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
+  },
+  {
+    index: 249,
+    md: '10.  foo\n\n         bar\n\n',
+    html:
+      '<ol start="10">\n<li>\n<p>foo</p>\n<pre><code>bar</code></pre>\n</li>\n</ol>\n\n',
+  },
   {
     index: 250,
     md: '    indented code\n    \n\nparagraph\n\n    more code\n\n',
     html:
       '<pre><code>indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code</code></pre>\n\n',
   },
-  // Todo
-  // {
-  //   index: 251,
-  //   md: '1.     indented code\n\n   paragraph\n\n       more code\n\n',
-  //   html:
-  //     '<ol>\n<li>\n<pre><code>indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code</code></pre>\n</li>\n</ol>\n\n',
-  // },
-  // {
-  //   index: 252,
-  //   md: '1.      indented code\n\n   paragraph\n\n       more code\n\n',
-  //   html:
-  //     '<ol>\n<li>\n<pre><code> indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code</code></pre>\n</li>\n</ol>\n\n',
-  // },
-  // {
-  //   index: 253,
-  //   md: '   foo\n\nbar\n\n',
-  //   html: '<p>foo</p>\n<p>bar</p>\n\n',
-  // },
+  {
+    index: 251,
+    md: '1.     indented code\n   \n\n   paragraph\n\n       more code\n\n',
+    html:
+      '<ol>\n<li>\n<pre><code>indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code</code></pre>\n</li>\n</ol>\n\n',
+  },
+  {
+    index: 252,
+    md: '1.      indented code\n   \n\n   paragraph\n\n       more code\n\n',
+    html:
+      '<ol>\n<li>\n<pre><code> indented code\n</code></pre>\n<p>paragraph</p>\n<pre><code>more code</code></pre>\n</li>\n</ol>\n\n',
+  },
+  {
+    index: 253,
+    md: 'foo\n\nbar\n\n',
+    html: '<p>foo</p>\n<p>bar</p>\n\n',
+  },
   {
     index: 254,
     md: '- foo\n\nbar\n\n',
@@ -1761,22 +1758,31 @@ export default [
   },
   {
     index: 258,
-    md: '-\n\n  foo\n\n',
+    md: '- \n\nfoo\n\n',
     html: '<ul>\n<li></li>\n</ul>\n<p>foo</p>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 259,
-    md: '- foo\n-\n- bar\n\n',
+    md: '- foo\n- \n- bar\n\n',
     html: '<ul>\n<li>foo</li>\n<li></li>\n<li>bar</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 260,
-    md: '- foo\n-   \n- bar\n\n',
+    md: '- foo\n- \n- bar\n\n',
     html: '<ul>\n<li>foo</li>\n<li></li>\n<li>bar</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 261,
-    md: '1. foo\n2.\n3. bar\n\n',
+    md: '1.  foo\n2.  \n3.  bar\n\n',
     html: '<ol>\n<li>foo</li>\n<li></li>\n<li>bar</li>\n</ol>\n\n',
   },
   {
@@ -1786,100 +1792,119 @@ export default [
   },
   {
     index: 263,
-    md: 'foo\n*\n\nfoo\n1.\n\n',
+    md: 'foo \\*\n\nfoo 1.\n\n',
     html: '<p>foo\n*</p>\n<p>foo\n1.</p>\n\n',
   },
-  {
-    index: 264,
-    md:
-      ' 1.  A paragraph\n     with two lines.\n\n         indented code\n\n     > A block quote.\n\n',
-    html:
-      '<ol>\n<li>\n<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n</li>\n</ol>\n\n',
-  },
-  {
-    index: 265,
-    md:
-      '  1.  A paragraph\n      with two lines.\n\n          indented code\n\n      > A block quote.\n\n',
-    html:
-      '<ol>\n<li>\n<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n</li>\n</ol>\n\n',
-  },
-  {
-    index: 266,
-    md:
-      '   1.  A paragraph\n       with two lines.\n\n           indented code\n\n       > A block quote.\n\n',
-    html:
-      '<ol>\n<li>\n<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n</li>\n</ol>\n\n',
-  },
+  // {
+  //   index: 264,
+  //   md:
+  //     ' 1.  A paragraph\n     with two lines.\n\n         indented code\n\n     > A block quote.\n\n',
+  //   html:
+  //     '<ol>\n<li>\n<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n</li>\n</ol>\n\n',
+  // },
+  // {
+  //   index: 265,
+  //   md:
+  //     '  1.  A paragraph\n      with two lines.\n\n          indented code\n\n      > A block quote.\n\n',
+  //   html:
+  //     '<ol>\n<li>\n<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n</li>\n</ol>\n\n',
+  // },
+  // {
+  //   index: 266,
+  //   md:
+  //     '   1.  A paragraph\n       with two lines.\n\n           indented code\n\n       > A block quote.\n\n',
+  //   html:
+  //     '<ol>\n<li>\n<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n</li>\n</ol>\n\n',
+  // },
   {
     index: 267,
     md:
-      '    1.  A paragraph\n        with two lines.\n\n            indented code\n\n        > A block quote.\n\n',
+      '    1.  A paragraph\n        with two lines.\n    \n            indented code\n    \n        > A block quote.\n\n',
     html:
-      '<pre><code>1.  A paragraph\n    with two lines.\n\n        indented code\n\n    &gt; A block quote.\n</code></pre>\n\n',
+      '<pre><code>1.  A paragraph\n    with two lines.\n\n        indented code\n\n    &gt; A block quote.</code></pre>\n\n',
   },
-  {
-    index: 268,
-    md:
-      '  1.  A paragraph\nwith two lines.\n\n          indented code\n\n      > A block quote.\n\n',
-    html:
-      '<ol>\n<li>\n<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n</li>\n</ol>\n\n',
-  },
-  {
-    index: 269,
-    md: '  1.  A paragraph\n    with two lines.\n\n',
-    html: '<ol>\n<li>A paragraph\nwith two lines.</li>\n</ol>\n\n',
-  },
+  // {
+  //   index: 268,
+  //   md:
+  //     '  1.  A paragraph\nwith two lines.\n\n          indented code\n\n      > A block quote.\n\n',
+  //   html:
+  //     '<ol>\n<li>\n<p>A paragraph\nwith two lines.</p>\n<pre><code>indented code\n</code></pre>\n<blockquote>\n<p>A block quote.</p>\n</blockquote>\n</li>\n</ol>\n\n',
+  // },
+  // {
+  //   index: 269,
+  //   md: '  1.  A paragraph\n    with two lines.\n\n',
+  //   html: '<ol>\n<li>A paragraph\nwith two lines.</li>\n</ol>\n\n',
+  // },
   {
     index: 270,
-    md: '> 1. > Blockquote\ncontinued here.\n\n',
+    md: '> 1.  > Blockquote continued here.\n\n',
     html:
       '<blockquote>\n<ol>\n<li>\n<blockquote>\n<p>Blockquote\ncontinued here.</p>\n</blockquote>\n</li>\n</ol>\n</blockquote>\n\n',
   },
-  {
-    index: 271,
-    md: '> 1. > Blockquote\n> continued here.\n\n',
-    html:
-      '<blockquote>\n<ol>\n<li>\n<blockquote>\n<p>Blockquote\ncontinued here.</p>\n</blockquote>\n</li>\n</ol>\n</blockquote>\n\n',
-  },
+  // {
+  //   index: 271,
+  //   md: '> 1. > Blockquote\n> continued here.\n\n',
+  //   html:
+  //     '<blockquote>\n<ol>\n<li>\n<blockquote>\n<p>Blockquote\ncontinued here.</p>\n</blockquote>\n</li>\n</ol>\n</blockquote>\n\n',
+  // },
   {
     index: 272,
     md: '- foo\n  - bar\n    - baz\n      - boo\n\n',
     html:
       '<ul>\n<li>foo\n<ul>\n<li>bar\n<ul>\n<li>baz\n<ul>\n<li>boo</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 273,
-    md: '- foo\n - bar\n  - baz\n   - boo\n\n',
+    md: '- foo\n- bar\n- baz\n- boo\n\n',
     html:
       '<ul>\n<li>foo</li>\n<li>bar</li>\n<li>baz</li>\n<li>boo</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 274,
-    md: '10) foo\n    - bar\n\n',
+    md: '10.  foo\n     - bar\n\n',
     html:
       '<ol start="10">\n<li>foo\n<ul>\n<li>bar</li>\n</ul>\n</li>\n</ol>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 275,
-    md: '10) foo\n   - bar\n\n',
+    md: '10.  foo\n\n- bar\n\n',
     html: '<ol start="10">\n<li>foo</li>\n</ol>\n<ul>\n<li>bar</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 276,
-    md: '- - foo\n\n',
+    md: '-   - foo\n\n',
     html: '<ul>\n<li>\n<ul>\n<li>foo</li>\n</ul>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
-  {
-    index: 277,
-    md: '1. - 2. foo\n\n',
-    html:
-      '<ol>\n<li>\n<ul>\n<li>\n<ol start="2">\n<li>foo</li>\n</ol>\n</li>\n</ul>\n</li>\n</ol>\n\n',
-  },
+  // {
+  //   index: 277,
+  //   md: '1. - 2. foo\n\n',
+  //   html:
+  //     '<ol>\n<li>\n<ul>\n<li>\n<ol start="2">\n<li>foo</li>\n</ol>\n</li>\n</ul>\n</li>\n</ol>\n\n',
+  // },
   {
     index: 278,
-    md: '- # Foo\n- Bar\n  ---\n  baz\n\n',
+    md: '- Foo\n    ===\n- Bar\n    ---\n\n    baz\n\n',
     html:
-      '<ul>\n<li>\n<h1>Foo</h1>\n</li>\n<li>\n<h2>Bar</h2>\nbaz</li>\n</ul>\n\n',
+      '<ul>\n<li>\n<h1>Foo</h1>\n</li>\n<li>\n<h2>Bar</h2>\n<p>baz</p></li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+      headingStyle: 'setext',
+    },
   },
   {
     index: 279,

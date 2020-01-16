@@ -1,3 +1,4 @@
+// test
 import { Sitdown } from '../src';
 import Examples from './spec/gfm';
 import TurndownService from 'turndown';
@@ -22,24 +23,29 @@ Examples.forEach(example => {
 });
 
 describe('GFM', () => {
-  (Examples as Example[]).slice(0, 176).forEach(example => {
-    let sitdown = new Sitdown();
-    it(`gfm example${example.index} html to markdown works`, () => {
-      if (example.option) {
-        sitdown = new Sitdown(example.option);
-      }
-      if (example.enhance) {
-        example.enhance(sitdown.service);
-      }
-      const expected = sitdown.HTMLToMD(example.html);
-      expect(expected).toEqual(example.md);
-    });
+  (Examples as Example[])
+    .filter(example => example.index <= 278)
+    // .filter(example => example.index == 251)
+    .forEach(example => {
+      let sitdown = new Sitdown();
+      it(`gfm example${example.index} html to markdown works`, () => {
+        if (example.option) {
+          sitdown = new Sitdown(example.option);
+        }
+        if (example.enhance) {
+          example.enhance(sitdown.service);
+        }
+        const expected = sitdown.HTMLToMD(example.html);
+        // console.log('expected\n\n',expected);
+        // console.log('example.md\n\n',example.md);
+        expect(expected).toEqual(example.md);
+      });
 
-    it(`gfm example${example.index} markdown to html works`, () => {
-      const html = md.render(example.md);
-      expect(RootNode(html).innerHTML).toEqual(
-        RootNode(example.html).innerHTML
-      );
+      it(`gfm example${example.index} markdown to html works`, () => {
+        const html = md.render(example.md);
+        expect(RootNode(html).innerHTML).toEqual(
+          RootNode(example.html).innerHTML
+        );
+      });
     });
-  });
 });
