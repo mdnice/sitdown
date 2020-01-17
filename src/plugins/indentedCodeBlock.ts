@@ -1,4 +1,4 @@
-import TurndownService from 'turndown';
+import TurndownService, { Options } from 'turndown';
 import {
   findOrderListIndentNumber,
   findParentNumber,
@@ -6,7 +6,7 @@ import {
   IndentCodeIsListfirstChild,
 } from '../util';
 
-function caclListIndent(node: TurndownService.Node): number {
+function caclListIndent(node: TurndownService.Node, options: Options): number {
   var nestULCount = findParentNumber(node, 'UL');
   var nestOLCount = findParentNumber(node, 'OL');
   if (nestOLCount) {
@@ -18,7 +18,8 @@ function caclListIndent(node: TurndownService.Node): number {
       parentNode.nodeName === 'LI' &&
       parentNode.firstChild === node;
     const IndentCodeIsfirstChild = IndentCodeIsListfirstChild(
-      parentNode as HTMLElement
+      parentNode as HTMLElement,
+      options
     );
     return (
       nestULCount * 2 +
@@ -44,8 +45,8 @@ export const applyIndentedCodeBlockRule = (
       );
     },
 
-    replacement: function(_: string, node) {
-      const indent = repeat(' ', caclListIndent(node));
+    replacement: function(_: string, node, options: Options) {
+      const indent = repeat(' ', caclListIndent(node, options));
       return node.firstChild && node.firstChild.textContent
         ? '\n\n' +
             indent +

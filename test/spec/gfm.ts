@@ -1740,17 +1740,16 @@ export default [
       bulletListMarker: '-',
     },
   },
-  // Todo
-  // {
-  //   index: 256,
-  //   md: '- foo\n- ```\n  bar\n  ```\n-\n      baz\n\n',
-  //   html:
-  //     '<ul>\n<li>foo</li>\n<li>\n<pre><code>bar\n</code></pre>\n</li>\n<li>\n<pre><code>baz</code></pre>\n</li>\n</ul>\n\n',
-  //     option:{
-  //       bulletListMarker:'-',
-  //         codeBlockStyle:'fenced'
-  //     }
-  // },
+  {
+    index: 256,
+    md: '- foo\n- ```\n  bar\n  ```\n- ```\n  baz\n  ```\n\n',
+    html:
+      '<ul>\n<li>foo</li>\n<li>\n<pre><code>bar\n</code></pre>\n</li>\n<li>\n<pre><code>baz\n</code></pre>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+      codeBlockStyle: 'fenced',
+    },
+  },
   {
     index: 257,
     md: '* foo\n\n',
@@ -1884,18 +1883,21 @@ export default [
   },
   {
     index: 276,
-    md: '-   - foo\n\n',
+    md: '- - foo\n\n',
     html: '<ul>\n<li>\n<ul>\n<li>foo</li>\n</ul>\n</li>\n</ul>\n\n',
     option: {
       bulletListMarker: '-',
     },
   },
-  // {
-  //   index: 277,
-  //   md: '1. - 2. foo\n\n',
-  //   html:
-  //     '<ol>\n<li>\n<ul>\n<li>\n<ol start="2">\n<li>foo</li>\n</ol>\n</li>\n</ul>\n</li>\n</ol>\n\n',
-  // },
+  {
+    index: 277,
+    md: '1.  - 2.  foo\n\n',
+    html:
+      '<ol>\n<li>\n<ul>\n<li>\n<ol start="2">\n<li>foo</li>\n</ol>\n</li>\n</ul>\n</li>\n</ol>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
+  },
   {
     index: 278,
     md: '- Foo\n    ===\n- Bar\n    ---\n\n    baz\n\n',
@@ -1908,100 +1910,134 @@ export default [
   },
   {
     index: 279,
-    md: '- [ ] foo\n- [x] bar\n\n',
+    md: '- [ ]  foo\n- [x]  bar\n\n',
     html:
       '<ul>\n<li><input disabled="" type="checkbox"> foo</li>\n<li><input checked="" disabled="" type="checkbox"> bar</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 280,
-    md: '- [x] foo\n  - [ ] bar\n  - [x] baz\n- [ ] bim\n\n',
+    md: '- [x]  foo\n  - [ ]  bar\n  - [x]  baz\n- [ ]  bim\n\n',
     html:
       '<ul>\n<li><input checked="" disabled="" type="checkbox"> foo\n<ul>\n<li><input disabled="" type="checkbox"> bar</li>\n<li><input checked="" disabled="" type="checkbox"> baz</li>\n</ul>\n</li>\n<li><input disabled="" type="checkbox"> bim</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
-  {
-    index: 281,
-    md: '- foo\n- bar\n+ baz\n\n',
-    html:
-      '<ul>\n<li>foo</li>\n<li>bar</li>\n</ul>\n<ul>\n<li>baz</li>\n</ul>\n\n',
-  },
-  {
-    index: 282,
-    md: '1. foo\n2. bar\n3) baz\n\n',
-    html:
-      '<ol>\n<li>foo</li>\n<li>bar</li>\n</ol>\n<ol start="3">\n<li>baz</li>\n</ol>\n\n',
-  },
+  // {
+  //   index: 281,
+  //   md: '- foo\n- bar\n+ baz\n\n',
+  //   html:
+  //     '<ul>\n<li>foo</li>\n<li>bar</li>\n</ul>\n<ul>\n<li>baz</li>\n</ul>\n\n',
+  //   option: {
+  //     bulletListMarker: '-',
+  //   },
+  // },
+  // {
+  //   index: 282,
+  //   md: '1.  foo\n2.  bar\n\n3)  baz\n\n',
+  //   html:
+  //     '<ol>\n<li>foo</li>\n<li>bar</li>\n</ol>\n<ol start="3">\n<li>baz</li>\n</ol>\n\n',
+  // },
   {
     index: 283,
-    md: 'Foo\n- bar\n- baz\n\n',
+    md: 'Foo\n\n- bar\n- baz\n\n',
     html: '<p>Foo</p>\n<ul>\n<li>bar</li>\n<li>baz</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 284,
     md:
-      'The number of windows in my house is\n14.  The number of doors is 6.\n\n',
+      'The number of windows in my house is 14. The number of doors is 6.\n\n',
     html:
       '<p>The number of windows in my house is\n14.  The number of doors is 6.</p>\n\n',
   },
   {
     index: 285,
     md:
-      'The number of windows in my house is\n1.  The number of doors is 6.\n\n',
+      'The number of windows in my house is\n\n1.  The number of doors is 6.\n\n',
     html:
       '<p>The number of windows in my house is</p>\n<ol>\n<li>The number of doors is 6.</li>\n</ol>\n\n',
   },
-  {
-    index: 286,
-    md: '- foo\n\n- bar\n\n\n- baz\n\n',
-    html:
-      '<ul>\n<li>\n<p>foo</p>\n</li>\n<li>\n<p>bar</p>\n</li>\n<li>\n<p>baz</p>\n</li>\n</ul>\n\n',
-  },
-  {
-    index: 287,
-    md: '- foo\n  - bar\n    - baz\n\n\n      bim\n\n',
-    html:
-      '<ul>\n<li>foo\n<ul>\n<li>bar\n<ul>\n<li>\n<p>baz</p>\n<p>bim</p>\n</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n\n',
-  },
+  // {
+  //   index: 286,
+  //   md: '- foo\n- bar\n- baz\n\n',
+  //   html:
+  //     '<ul>\n<li>\n<p>foo</p>\n</li>\n<li>\n<p>bar</p>\n</li>\n<li>\n<p>baz</p>\n</li>\n</ul>\n\n',
+  //   option: {
+  //     bulletListMarker: '-',
+  //   },
+  // },
+  // {
+  //   index: 287,
+  //   md: '- foo\n  - bar\n    - baz\n\n\n      bim\n\n',
+  //   html:
+  //     '<ul>\n<li>foo\n<ul>\n<li>bar\n<ul>\n<li>\n<p>baz</p>\n<p>bim</p>\n</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n\n',
+  //   option: {
+  //     bulletListMarker: '-',
+  //   },
+  // },
   {
     index: 288,
     md: '- foo\n- bar\n\n<!-- -->\n\n- baz\n- bim\n\n',
     html:
       '<ul>\n<li>foo</li>\n<li>bar</li>\n</ul>\n<!-- -->\n<ul>\n<li>baz</li>\n<li>bim</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 289,
-    md: '-   foo\n\n    notcode\n\n-   foo\n\n<!-- -->\n\n    code\n\n',
+    md: '- foo\n\n    notcode\n- foo\n\n<!-- -->\n\n    code\n\n',
     html:
-      '<ul>\n<li>\n<p>foo</p>\n<p>notcode</p>\n</li>\n<li>\n<p>foo</p>\n</li>\n</ul>\n<!-- -->\n<pre><code>code\n</code></pre>\n\n',
+      '<ul>\n<li>\n<p>foo</p>\n<p>notcode</p>\n</li>\n<li>\n<p>foo</p>\n</li>\n</ul>\n<!-- -->\n<pre><code>code</code></pre>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
-  {
-    index: 290,
-    md: '- a\n - b\n  - c\n   - d\n  - e\n - f\n- g\n\n',
-    html:
-      '<ul>\n<li>a</li>\n<li>b</li>\n<li>c</li>\n<li>d</li>\n<li>e</li>\n<li>f</li>\n<li>g</li>\n</ul>\n\n',
-  },
-  {
-    index: 291,
-    md: '1. a\n\n  2. b\n\n   3. c\n\n',
-    html:
-      '<ol>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n<li>\n<p>c</p>\n</li>\n</ol>\n\n',
-  },
+  // Info：没有必要测
+  // {
+  //   index: 290,
+  //   md: '- a\n - b\n  - c\n   - d\n  - e\n - f\n- g\n\n',
+  //   html:
+  //     '<ul>\n<li>a</li>\n<li>b</li>\n<li>c</li>\n<li>d</li>\n<li>e</li>\n<li>f</li>\n<li>g</li>\n</ul>\n\n',
+  //   option: {
+  //     bulletListMarker: '-',
+  //   },
+  // },
+  // {
+  //   index: 291,
+  //   md: '1. a\n\n  2. b\n\n   3. c\n\n',
+  //   html:
+  //     '<ol>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n<li>\n<p>c</p>\n</li>\n</ol>\n\n',
+  // },
   {
     index: 292,
     md: '- a\n - b\n  - c\n   - d\n    - e\n\n',
     html:
       '<ul>\n<li>a</li>\n<li>b</li>\n<li>c</li>\n<li>d\n- e</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 293,
     md: '1. a\n\n  2. b\n\n    3. c\n\n',
     html:
-      '<ol>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n</ol>\n<pre><code>3. c\n</code></pre>\n\n',
+      '<ol>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n</ol>\n<pre><code>3. c</code></pre>\n\n',
   },
   {
     index: 294,
     md: '- a\n- b\n\n- c\n\n',
     html:
       '<ul>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n<li>\n<p>c</p>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 295,

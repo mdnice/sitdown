@@ -59,6 +59,7 @@ export function listReplacement(
   node: TurndownService.Node,
   options: TurndownService.Options
 ) {
+  // Todo:另起一行的列表（无序和有序）
   var prefix = options.bulletListMarker + ' ';
   var parent = node.parentNode;
   var nestULCount = findParentNumber(node, 'UL');
@@ -68,8 +69,10 @@ export function listReplacement(
     .replace(/^\n+/, '') // remove leading newlines
     .replace(/\n+$/, '\n'); // replace trailing newlines with just a single one
 
-  if (IndentCodeIsListfirstChild(node) && nestOLCount) {
+  if (IndentCodeIsListfirstChild(node, options) && nestOLCount) {
     content = content.replace(/\n(\S)/gm, '\n   $1'); // indent
+  } else if (options.codeBlockStyle === 'fenced' && nestULCount) {
+    content = content.replace(/\n(\S)/gm, '\n  $1'); // indent
   } else {
     content = content.replace(/\n(\S)/gm, '\n    $1'); // indent
   }
@@ -90,10 +93,16 @@ export function listReplacement(
     const indent = findOrderListIndentNumber(node);
     prefix = repeat(' ', nestULCount * 4 + indent) + prefix;
   }
-  // var nestLICount = findParentNumber(node, 'LI');
-  // if (nestLICount) {
-  //   prefix = prefix.trimStart();
-  // }
+  // Info：嵌套列表且父列表为空
+  var nestListAndParentIsEmpty =
+    nestOLCount + nestULCount > 1 &&
+    node.parentNode &&
+    node.parentNode.parentNode &&
+    (node.parentNode.parentNode as HTMLElement).innerHTML ===
+      (node.parentNode as HTMLElement).outerHTML;
+  if (nestListAndParentIsEmpty) {
+    prefix = prefix.trimStart();
+  }
 
   return (
     prefix + content + (node.nextSibling && !/\n$/.test(content) ? '\n' : '')
@@ -163,8 +172,12 @@ export function findOrderListIndentNumber(
   return findOrderListIndentNumber(parent, count);
 }
 
-export function IndentCodeIsListfirstChild(list: TurndownService.Node) {
+export function IndentCodeIsListfirstChild(
+  list: TurndownService.Node,
+  options: Options
+) {
   return (
+    options.codeBlockStyle !== 'fenced' &&
     list &&
     list.firstChild &&
     list.nodeName === 'LI' &&

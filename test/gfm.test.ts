@@ -4,9 +4,10 @@ import Examples from './spec/gfm';
 import TurndownService from 'turndown';
 import MarkdownIt from 'markdown-it';
 import { RootNode } from './root';
+const taskList = require('./spec/md-it-plugin-taskList');
 const md = new MarkdownIt({
   html: true,
-});
+}).use(taskList);
 
 interface Example {
   index: number;
@@ -24,7 +25,7 @@ Examples.forEach(example => {
 
 describe('GFM', () => {
   (Examples as Example[])
-    .filter(example => example.index <= 278)
+    .filter(example => example.index <= 291)
     // .filter(example => example.index == 251)
     .forEach(example => {
       let sitdown = new Sitdown();
