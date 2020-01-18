@@ -1,9 +1,5 @@
 import TurndownService from '../../../lib/turndown';
-import  {
-  fenceReplacement,
-  isCode,
-  listReplacement,
-} from '../../util';
+import { fenceReplacement, isCode, listReplacement } from '../../util';
 import { Options } from '../../types';
 import { isFence } from '../../util/isFence';
 
