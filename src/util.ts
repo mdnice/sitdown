@@ -59,29 +59,28 @@ export function listReplacement(
   node: TurndownService.Node,
   options: TurndownService.Options
 ) {
-  // Todo:另起一行的列表（无序和有序）
   var parent = node.parentNode;
   var nestULCount = findParentNumber(node, 'UL');
   var nestOLCount = findParentNumber(node, 'OL');
+  var nestCount = nestULCount + nestOLCount;
+  var needNewBlank = node.firstChild && node.firstChild.nodeName === 'P';
   var newList =
     parent &&
     parent.previousSibling &&
     parent.previousSibling.nodeName === parent.nodeName;
   var bulletListMarker = newList ? '+' : options.bulletListMarker;
   var prefix = bulletListMarker + ' ';
-  debugger;
 
+  var replaceTaget = `\n    ${repeat(' ', nestCount - 1)}$1`;
+  if (IndentCodeIsListfirstChild(node, options) && nestOLCount) {
+    replaceTaget = `\n   ${repeat(' ', nestCount - 1)}$1`;
+  } else if (options.codeBlockStyle === 'fenced' && nestULCount) {
+    replaceTaget = `\n  ${repeat(' ', nestCount - 1)}$1`;
+  }
   content = content
     .replace(/^\n+/, '') // remove leading newlines
-    .replace(/\n+$/, '\n'); // replace trailing newlines with just a single one
-
-  if (IndentCodeIsListfirstChild(node, options) && nestOLCount) {
-    content = content.replace(/\n(\S)/gm, '\n   $1'); // indent
-  } else if (options.codeBlockStyle === 'fenced' && nestULCount) {
-    content = content.replace(/\n(\S)/gm, '\n  $1'); // indent
-  } else {
-    content = content.replace(/\n(\S)/gm, '\n    $1'); // indent
-  }
+    .replace(/\n+$/, '\n') // replace trailing newlines with just a single one
+    .replace(/\n(\S)/gm, replaceTaget); // indent
 
   if (parent && parent.nodeName === 'OL') {
     var start = (parent as HTMLElement).getAttribute('start');
@@ -112,7 +111,10 @@ export function listReplacement(
   }
 
   return (
-    prefix + content + (node.nextSibling && !/\n$/.test(content) ? '\n' : '')
+    prefix +
+    content +
+    (node.nextSibling && !/\n$/.test(content) ? '\n' : '') +
+    (needNewBlank ? '\n' : '')
   );
 }
 export function blankReplacement(

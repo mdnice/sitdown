@@ -1963,24 +1963,24 @@ export default [
     html:
       '<p>The number of windows in my house is</p>\n<ol>\n<li>The number of doors is 6.</li>\n</ol>\n\n',
   },
-  // {
-  //   index: 286,
-  //   md: '- foo\n- bar\n- baz\n\n',
-  //   html:
-  //     '<ul>\n<li>\n<p>foo</p>\n</li>\n<li>\n<p>bar</p>\n</li>\n<li>\n<p>baz</p>\n</li>\n</ul>\n\n',
-  //   option: {
-  //     bulletListMarker: '-',
-  //   },
-  // },
-  // {
-  //   index: 287,
-  //   md: '- foo\n  - bar\n    - baz\n\n\n      bim\n\n',
-  //   html:
-  //     '<ul>\n<li>foo\n<ul>\n<li>bar\n<ul>\n<li>\n<p>baz</p>\n<p>bim</p>\n</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n\n',
-  //   option: {
-  //     bulletListMarker: '-',
-  //   },
-  // },
+  {
+    index: 286,
+    md: '- foo\n\n- bar\n\n- baz\n\n',
+    html:
+      '<ul>\n<li>\n<p>foo</p>\n</li>\n<li>\n<p>bar</p>\n</li>\n<li>\n<p>baz</p>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
+  },
+  {
+    index: 287,
+    md: '- foo\n  - bar\n    - baz\n\n      bim\n\n',
+    html:
+      '<ul>\n<li>foo\n<ul>\n<li>bar\n<ul>\n<li>\n<p>baz</p>\n<p>bim</p>\n</li>\n</ul>\n</li>\n</ul>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
+  },
   {
     index: 288,
     md: '- foo\n- bar\n\n<!-- -->\n\n- baz\n- bim\n\n',
@@ -1992,7 +1992,7 @@ export default [
   },
   {
     index: 289,
-    md: '- foo\n\n    notcode\n- foo\n\n<!-- -->\n\n    code\n\n',
+    md: '- foo\n\n    notcode\n\n- foo\n\n<!-- -->\n\n    code\n\n',
     html:
       '<ul>\n<li>\n<p>foo</p>\n<p>notcode</p>\n</li>\n<li>\n<p>foo</p>\n</li>\n</ul>\n<!-- -->\n<pre><code>code</code></pre>\n\n',
     option: {
