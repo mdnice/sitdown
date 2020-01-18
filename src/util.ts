@@ -60,10 +60,16 @@ export function listReplacement(
   options: TurndownService.Options
 ) {
   // Todo:另起一行的列表（无序和有序）
-  var prefix = options.bulletListMarker + ' ';
   var parent = node.parentNode;
   var nestULCount = findParentNumber(node, 'UL');
   var nestOLCount = findParentNumber(node, 'OL');
+  var newList =
+    parent &&
+    parent.previousSibling &&
+    parent.previousSibling.nodeName === parent.nodeName;
+  var bulletListMarker = newList ? '+' : options.bulletListMarker;
+  var prefix = bulletListMarker + ' ';
+  debugger;
 
   content = content
     .replace(/^\n+/, '') // remove leading newlines
@@ -80,7 +86,8 @@ export function listReplacement(
   if (parent && parent.nodeName === 'OL') {
     var start = (parent as HTMLElement).getAttribute('start');
     var index = Array.prototype.indexOf.call(parent.children, node);
-    prefix = (start ? Number(start) + index : index + 1) + '.  ';
+    prefix =
+      (start ? Number(start) + index : index + 1) + (newList ? ')  ' : '.  ');
   }
   if (parent && parent.nextSibling && parent.nextSibling.nodeName === 'PRE') {
     prefix = ' ' + prefix + '   ';

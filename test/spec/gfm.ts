@@ -1926,21 +1926,21 @@ export default [
       bulletListMarker: '-',
     },
   },
-  // {
-  //   index: 281,
-  //   md: '- foo\n- bar\n+ baz\n\n',
-  //   html:
-  //     '<ul>\n<li>foo</li>\n<li>bar</li>\n</ul>\n<ul>\n<li>baz</li>\n</ul>\n\n',
-  //   option: {
-  //     bulletListMarker: '-',
-  //   },
-  // },
-  // {
-  //   index: 282,
-  //   md: '1.  foo\n2.  bar\n\n3)  baz\n\n',
-  //   html:
-  //     '<ol>\n<li>foo</li>\n<li>bar</li>\n</ol>\n<ol start="3">\n<li>baz</li>\n</ol>\n\n',
-  // },
+  {
+    index: 281,
+    md: '- foo\n- bar\n\n+ baz\n\n',
+    html:
+      '<ul>\n<li>foo</li>\n<li>bar</li>\n</ul>\n<ul>\n<li>baz</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
+  },
+  {
+    index: 282,
+    md: '1.  foo\n2.  bar\n\n3)  baz\n\n',
+    html:
+      '<ol>\n<li>foo</li>\n<li>bar</li>\n</ol>\n<ol start="3">\n<li>baz</li>\n</ol>\n\n',
+  },
   {
     index: 283,
     md: 'Foo\n\n- bar\n- baz\n\n',
