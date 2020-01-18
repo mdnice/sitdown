@@ -2015,24 +2015,24 @@ export default [
   //   html:
   //     '<ol>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n<li>\n<p>c</p>\n</li>\n</ol>\n\n',
   // },
-  {
-    index: 292,
-    md: '- a\n - b\n  - c\n   - d\n    - e\n\n',
-    html:
-      '<ul>\n<li>a</li>\n<li>b</li>\n<li>c</li>\n<li>d\n- e</li>\n</ul>\n\n',
-    option: {
-      bulletListMarker: '-',
-    },
-  },
+  // {
+  //   index: 292,
+  //   md: '- a\n - b\n  - c\n   - d\n    - e\n\n',
+  //   html:
+  //     '<ul>\n<li>a</li>\n<li>b</li>\n<li>c</li>\n<li>d\n- e</li>\n</ul>\n\n',
+  //   option: {
+  //     bulletListMarker: '-',
+  //   },
+  // },
   {
     index: 293,
-    md: '1. a\n\n  2. b\n\n    3. c\n\n',
+    md: '1.  a\n\n  2.  b\n\n    3. c\n\n',
     html:
       '<ol>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n</ol>\n<pre><code>3. c</code></pre>\n\n',
   },
   {
     index: 294,
-    md: '- a\n- b\n\n- c\n\n',
+    md: '- a\n\n- b\n\n- c\n\n',
     html:
       '<ul>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n<li>\n<p>c</p>\n</li>\n</ul>\n\n',
     option: {
@@ -2041,37 +2041,47 @@ export default [
   },
   {
     index: 295,
-    md: '* a\n*\n\n* c\n\n',
+    md: '* a\n\n* \n* c\n\n',
     html:
       '<ul>\n<li>\n<p>a</p>\n</li>\n<li></li>\n<li>\n<p>c</p>\n</li>\n</ul>\n\n',
   },
   {
     index: 296,
-    md: '- a\n- b\n\n  c\n- d\n\n',
+    md: '- a\n\n- b\n\n    c\n\n- d\n\n',
     html:
       '<ul>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n<p>c</p>\n</li>\n<li>\n<p>d</p>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
-  {
-    index: 297,
-    md: '- a\n- b\n\n  [ref]: /url\n- d\n\n',
-    html:
-      '<ul>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n<li>\n<p>d</p>\n</li>\n</ul>\n\n',
-  },
+  // {
+  //   index: 297,
+  //   md: '- a\n- b\n\n  [ref]: /url\n- d\n\n',
+  //   html:
+  //     '<ul>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n</li>\n<li>\n<p>d</p>\n</li>\n</ul>\n\n',
+  // },
   {
     index: 298,
     md: '- a\n- ```\n  b\n\n\n  ```\n- c\n\n',
     html:
       '<ul>\n<li>a</li>\n<li>\n<pre><code>b\n\n\n</code></pre>\n</li>\n<li>c</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 299,
-    md: '- a\n  - b\n\n    c\n- d\n\n',
+    md: '- a\n  - b\n\n     c\n- d\n\n',
     html:
       '<ul>\n<li>a\n<ul>\n<li>\n<p>b</p>\n<p>c</p>\n</li>\n</ul>\n</li>\n<li>d</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 300,
-    md: '* a\n  > b\n  >\n* c\n\n',
+    md: '* a\n    > b\n* c\n\n',
     html:
       '<ul>\n<li>a\n<blockquote>\n<p>b</p>\n</blockquote>\n</li>\n<li>c</li>\n</ul>\n\n',
   },

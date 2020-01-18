@@ -63,13 +63,14 @@ export function listReplacement(
   var nestULCount = findParentNumber(node, 'UL');
   var nestOLCount = findParentNumber(node, 'OL');
   var nestCount = nestULCount + nestOLCount;
-  var isLoose = node.firstChild && node.firstChild.nodeName === 'P';// Todo:isBlock
+  var isLoose = node.firstChild && node.firstChild.nodeName === 'P'; // Todo:isBlock
   var newList =
     parent &&
     parent.previousSibling &&
     parent.previousSibling.nodeName === parent.nodeName;
   var bulletListMarker = newList ? '+' : options.bulletListMarker;
   var prefix = bulletListMarker + ' ';
+  debugger;
 
   var replaceTaget = `\n    ${repeat(' ', nestCount - 1)}$1`;
   if (IndentCodeIsListfirstChild(node, options) && nestOLCount) {
