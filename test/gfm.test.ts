@@ -33,9 +33,6 @@ describe('GFM', () => {
         if (example.option) {
           sitdown = new Sitdown(example.option);
         }
-        if (example.enhance) {
-          example.enhance(sitdown.service);
-        }
         const expected = sitdown.HTMLToMD(example.html);
         // console.log('expected\n\n',expected);
         // console.log('example.md\n\n',example.md);
