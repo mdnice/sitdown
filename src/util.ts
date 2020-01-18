@@ -63,7 +63,7 @@ export function listReplacement(
   var nestULCount = findParentNumber(node, 'UL');
   var nestOLCount = findParentNumber(node, 'OL');
   var nestCount = nestULCount + nestOLCount;
-  var needNewBlank = node.firstChild && node.firstChild.nodeName === 'P';
+  var isLoose = node.firstChild && node.firstChild.nodeName === 'P';// Todo:isBlock
   var newList =
     parent &&
     parent.previousSibling &&
@@ -89,7 +89,11 @@ export function listReplacement(
       (start ? Number(start) + index : index + 1) + (newList ? ')  ' : '.  ');
   }
   if (parent && parent.nextSibling && parent.nextSibling.nodeName === 'PRE') {
-    prefix = ' ' + prefix + '   ';
+    if (!isLoose) prefix = ' ' + prefix + '   '; // example 235
+    if (parent.lastChild === node && isLoose) {
+      // example 293
+      prefix = '  ' + prefix;
+    }
   }
 
   if (nestULCount > 1) {
@@ -114,7 +118,7 @@ export function listReplacement(
     prefix +
     content +
     (node.nextSibling && !/\n$/.test(content) ? '\n' : '') +
-    (needNewBlank ? '\n' : '')
+    (isLoose ? '\n' : '')
   );
 }
 export function blankReplacement(
