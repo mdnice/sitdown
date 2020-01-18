@@ -18,7 +18,7 @@ export default [
   },
   {
     index: 4,
-    md: '- foo\n\n    bar\n\n',
+    md: '- foo\n\n  bar\n\n',
     html: '<ul>\n<li>\n<p>foo</p>\n<p>bar</p>\n</li>\n</ul>\n\n',
     option: {
       bulletListMarker: '-',
@@ -534,7 +534,7 @@ export default [
   },
   {
     index: 78,
-    md: '- foo\n\n    bar\n\n',
+    md: '- foo\n\n  bar\n\n',
     html: '<ul>\n<li>\n<p>foo</p>\n<p>bar</p>\n</li>\n</ul>\n\n',
     option: {
       bulletListMarker: '-',
@@ -1596,7 +1596,7 @@ export default [
   },
   {
     index: 234,
-    md: '- one\n\n    two\n\n',
+    md: '- one\n\n  two\n\n',
     html: '<ul>\n<li>\n<p>one</p>\n<p>two</p>\n</li>\n</ul>\n\n',
     option: {
       bulletListMarker: '-',
@@ -1612,7 +1612,7 @@ export default [
   },
   {
     index: 236,
-    md: '- one\n\n    two\n\n',
+    md: '- one\n\n  two\n\n',
     html: '<ul>\n<li>\n<p>one</p>\n<p>two</p>\n</li>\n</ul>\n\n',
     option: {
       bulletListMarker: '-',
@@ -1637,7 +1637,7 @@ export default [
   },
   {
     index: 240,
-    md: '- foo\n\n    bar\n\n',
+    md: '- foo\n\n  bar\n\n',
     html: '<ul>\n<li>\n<p>foo</p>\n<p>bar</p>\n</li>\n</ul>\n\n',
     option: {
       bulletListMarker: '-',
@@ -1734,7 +1734,7 @@ export default [
   },
   {
     index: 255,
-    md: '- foo\n\n    bar\n\n',
+    md: '- foo\n\n  bar\n\n',
     html: '<ul>\n<li>\n<p>foo</p>\n<p>bar</p>\n</li>\n</ul>\n\n',
     option: {
       bulletListMarker: '-',
@@ -1900,7 +1900,7 @@ export default [
   },
   {
     index: 278,
-    md: '- Foo\n    ===\n- Bar\n    ---\n\n    baz\n\n',
+    md: '- Foo\n  ===\n- Bar\n  ---\n\n  baz\n\n',
     html:
       '<ul>\n<li>\n<h1>Foo</h1>\n</li>\n<li>\n<h2>Bar</h2>\n<p>baz</p></li>\n</ul>\n\n',
     option: {
@@ -1992,7 +1992,7 @@ export default [
   },
   {
     index: 289,
-    md: '- foo\n\n    notcode\n\n- foo\n\n<!-- -->\n\n    code\n\n',
+    md: '- foo\n\n  notcode\n\n- foo\n\n<!-- -->\n\n    code\n\n',
     html:
       '<ul>\n<li>\n<p>foo</p>\n<p>notcode</p>\n</li>\n<li>\n<p>foo</p>\n</li>\n</ul>\n<!-- -->\n<pre><code>code</code></pre>\n\n',
     option: {
@@ -2047,7 +2047,7 @@ export default [
   },
   {
     index: 296,
-    md: '- a\n\n- b\n\n    c\n\n- d\n\n',
+    md: '- a\n\n- b\n\n  c\n\n- d\n\n',
     html:
       '<ul>\n<li>\n<p>a</p>\n</li>\n<li>\n<p>b</p>\n<p>c</p>\n</li>\n<li>\n<p>d</p>\n</li>\n</ul>\n\n',
     option: {
@@ -2072,7 +2072,7 @@ export default [
   },
   {
     index: 299,
-    md: '- a\n  - b\n\n     c\n- d\n\n',
+    md: '- a\n  - b\n\n    c\n- d\n\n',
     html:
       '<ul>\n<li>a\n<ul>\n<li>\n<p>b</p>\n<p>c</p>\n</li>\n</ul>\n</li>\n<li>d</li>\n</ul>\n\n',
     option: {
@@ -2081,7 +2081,7 @@ export default [
   },
   {
     index: 300,
-    md: '* a\n    > b\n* c\n\n',
+    md: '* a\n  > b\n* c\n\n',
     html:
       '<ul>\n<li>a\n<blockquote>\n<p>b</p>\n</blockquote>\n</li>\n<li>c</li>\n</ul>\n\n',
   },

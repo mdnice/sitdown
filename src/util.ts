@@ -75,13 +75,11 @@ export function listReplacement(
 
   var replaceTaget = `\n    ${repeat(' ', nestCount - 1)}$1`;
   if (IndentCodeIsListfirstChild(node, options) && nestOLCount) {
-    replaceTaget = `\n   ${repeat(' ', nestCount - 1)}$1`;
-  } else if (options.codeBlockStyle === 'fenced' && nestULCount) {
-    replaceTaget = `\n  ${repeat(' ', nestCount - 1)}$1`;
+    replaceTaget = `\n  ${repeat(' ', nestCount)}$1`;
+  } else if (nestULCount) {
+    replaceTaget = `\n${repeat(' ', nestCount * 2)}$1`;
   }
-  // else if (node.lastChild && node.lastChild.nodeName === 'P' && nestULCount) {
-  //   replaceTaget = `\n  ${repeat(' ', nestCount - 1)}$1`;
-  // }
+
   content = content
     .replace(/^\n+/, '') // remove leading newlines
     .replace(/\n+$/, '\n') // replace trailing newlines with just a single one
