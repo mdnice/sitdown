@@ -1,25 +1,27 @@
 import TurndownService from '../../../../lib/turndown';
 import {
   findOrderListIndentNumber,
-  findParentNumber,
   IndentCodeIsListfirstChild,
   repeat,
 } from '../../../util';
+import { ListNode } from './listNode';
 
 export function listReplacement(
   content: string,
   node: TurndownService.Node,
   options: TurndownService.Options
 ) {
-  var parent = node.parentNode;
-  var nestULCount = findParentNumber(node, 'UL');
-  var nestOLCount = findParentNumber(node, 'OL');
-  var nestCount = nestULCount + nestOLCount;
-  var isLoose = node.firstChild && node.firstChild.nodeName === 'P'; // Todo:isBlock
-  var newList =
-    parent &&
-    parent.previousSibling &&
-    parent.previousSibling.nodeName === parent.nodeName;
+  var listNode = new ListNode(node);
+  var {
+    parent,
+    parentIsOL,
+    nestULCount,
+    nestOLCount,
+    nestCount,
+    isLoose,
+    isNewList: newList,
+  } = listNode;
+
   var bulletListMarker = newList ? '+' : options.bulletListMarker;
   var prefix = bulletListMarker + ' ';
 
@@ -35,15 +37,15 @@ export function listReplacement(
     .replace(/\n+$/, '\n') // replace trailing newlines with just a single one
     .replace(/\n(\S)/gm, replaceTaget); // indent
 
-  if (parent && parent.nodeName === 'OL') {
+  if (parent && parentIsOL) {
     var start = (parent as HTMLElement).getAttribute('start');
     var index = Array.prototype.indexOf.call(parent.children, node);
     prefix =
       (start ? Number(start) + index : index + 1) + (newList ? ')  ' : '.  ');
   }
-  if (parent && parent.nextSibling && parent.nextSibling.nodeName === 'PRE') {
+  if (listNode.followCode) {
     if (!isLoose) prefix = ' ' + prefix + '   '; // example 235
-    if (parent.lastChild === node && isLoose) {
+    if (listNode.inLast && isLoose) {
       // example 293
       prefix = '  ' + prefix;
     }
@@ -57,13 +59,7 @@ export function listReplacement(
     prefix = repeat(' ', nestULCount * 4 + indent) + prefix;
   }
   // Info：嵌套列表且父列表为空
-  var nestListAndParentIsEmpty =
-    nestOLCount + nestULCount > 1 &&
-    node.parentNode &&
-    node.parentNode.parentNode &&
-    (node.parentNode.parentNode as HTMLElement).innerHTML ===
-      (node.parentNode as HTMLElement).outerHTML;
-  if (nestListAndParentIsEmpty) {
+  if (listNode.nestListAndParentIsEmpty) {
     prefix = prefix.trimStart();
   }
 
