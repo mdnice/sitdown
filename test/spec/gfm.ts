@@ -2090,34 +2090,50 @@ export default [
     md: '- a\n  > b\n  ```\n  c\n  ```\n- d\n\n',
     html:
       '<ul>\n<li>a\n<blockquote>\n<p>b</p>\n</blockquote>\n<pre><code>c\n</code></pre>\n</li>\n<li>d</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 302,
     md: '- a\n\n',
     html: '<ul>\n<li>a</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 303,
     md: '- a\n  - b\n\n',
     html: '<ul>\n<li>a\n<ul>\n<li>b</li>\n</ul>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 304,
-    md: '1. ```\n   foo\n   ```\n\n   bar\n\n',
+    md: '1.  ```\n    foo\n    ```\n\n    bar\n\n',
     html:
       '<ol>\n<li>\n<pre><code>foo\n</code></pre>\n<p>bar</p>\n</li>\n</ol>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
   {
     index: 305,
-    md: '* foo\n  * bar\n\n  baz\n\n',
+    md: '* foo\n\n  * bar\n\n  baz\n\n',
     html:
       '<ul>\n<li>\n<p>foo</p>\n<ul>\n<li>bar</li>\n</ul>\n<p>baz</p>\n</li>\n</ul>\n\n',
   },
   {
     index: 306,
-    md: '- a\n  - b\n  - c\n\n- d\n  - e\n  - f\n\n',
+    md: '- a\n\n  - b\n  - c\n\n- d\n\n  - e\n  - f\n\n',
     html:
       '<ul>\n<li>\n<p>a</p>\n<ul>\n<li>b</li>\n<li>c</li>\n</ul>\n</li>\n<li>\n<p>d</p>\n<ul>\n<li>e</li>\n<li>f</li>\n</ul>\n</li>\n</ul>\n\n',
+    option: {
+      bulletListMarker: '-',
+    },
   },
   {
     index: 307,

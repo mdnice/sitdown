@@ -43,8 +43,10 @@ export function fenceReplacement(
   var endFence =
     options.endFence != undefined ? options.endFence : options.fence;
 
+  var parent = node.parentNode;
+  var parentIsList = parent && parent.nodeName === 'LI';
   return (
-    '\n\n' +
+    (parentIsList ? '\n' : '\n\n') +
     startFence +
     language +
     '\n' +
@@ -70,7 +72,6 @@ export function listReplacement(
     parent.previousSibling.nodeName === parent.nodeName;
   var bulletListMarker = newList ? '+' : options.bulletListMarker;
   var prefix = bulletListMarker + ' ';
-  debugger;
 
   var replaceTaget = `\n    ${repeat(' ', nestCount - 1)}$1`;
   if (IndentCodeIsListfirstChild(node, options) && nestOLCount) {
@@ -78,6 +79,9 @@ export function listReplacement(
   } else if (options.codeBlockStyle === 'fenced' && nestULCount) {
     replaceTaget = `\n  ${repeat(' ', nestCount - 1)}$1`;
   }
+  // else if (node.lastChild && node.lastChild.nodeName === 'P' && nestULCount) {
+  //   replaceTaget = `\n  ${repeat(' ', nestCount - 1)}$1`;
+  // }
   content = content
     .replace(/^\n+/, '') // remove leading newlines
     .replace(/\n+$/, '\n') // replace trailing newlines with just a single one

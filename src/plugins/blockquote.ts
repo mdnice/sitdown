@@ -7,9 +7,9 @@ export const applyBlockquoteRule = (turndownService: TurndownService) => {
     replacement: function(content, node) {
       var parent = node.parentNode;
       var parentIsList = parent && parent.nodeName === 'LI';
-      content = content.replace(/^\n+|\n+$/g, '');
-      content = content.replace(/^/gm, '> ');
-      return (parentIsList ? '\n' : '\n\n') + content + '\n\n';
+      var blank = parentIsList ? '\n' : '\n\n';
+      content = content.replace(/^\n+|\n+$/g, '').replace(/^/gm, '> ');
+      return blank + content + blank;
     },
   });
 };
