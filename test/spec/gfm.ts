@@ -390,7 +390,7 @@ export default [
   {
     index: 61,
     md:
-      '\\`Foo\n-----\n\n\\`\n\n<a title="a lot\n---------------\n\nof dashes"/>\n\n',
+      '\\`Foo\n-----\n\n\\`\n\n\\<a title="a lot\n----------------\n\nof dashes"/>\n\n',
     html:
       '<h2>`Foo</h2>\n<p>`</p>\n<h2>&lt;a title=&quot;a lot</h2>\n<p>of dashes&quot;/&gt;</p>\n\n',
     option: {
@@ -2137,24 +2137,24 @@ export default [
   },
   {
     index: 307,
-    md: '`hi`lo`\n\n',
+    md: '`hi`lo\\`\n\n',
     html: '<p><code>hi</code>lo`</p>\n\n',
   },
   {
     index: 308,
     md:
-      '\\!\\"\\#\\$\\%\\&\\\'\\(\\)\\*\\+\\,\\-\\.\\/\\:\\;\\<\\=\\>\\?\\@\\[\\\\\\]\\^\\_\\`\\{\\|\\}\\~\n\n',
+      '\\!"#\\$\\%\\&\'\\(\\)\\*+,-./:;\\<=>\\?\\@\\[\\\\\\]\\^\\_\\`\\{|\\}\\~\n\n',
     html: "<p>!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~</p>\n\n",
   },
   {
     index: 309,
-    md: '\\→\\A\\a\\ \\3\\φ\\«\n\n',
+    md: '\\\\ \\\\A\\\\a\\\\ \\\\3\\\\φ\\\\«\n\n',
     html: '<p>\\→\\A\\a\\ \\3\\φ\\«</p>\n\n',
   },
   {
     index: 310,
     md:
-      '\\*not emphasized*\n\\<br/> not a tag\n\\[not a link](/foo)\n\\`not code`\n1\\. not a list\n\\* not a list\n\\# not a heading\n\\[foo]: /url "not a reference"\n\\&ouml; not a character entity\n\n',
+      '\\*not emphasized\\* \\<br/> not a tag \\[not a link\\]\\(/foo\\) \\`not code\\` 1. not a list \\* not a list # not a heading \\[foo\\]: /url "not a reference" \\&ouml; not a character entity\n\n',
     html:
       '<p>*not emphasized*\n&lt;br/&gt; not a tag\n[not a link](/foo)\n`not code`\n1. not a list\n* not a list\n# not a heading\n[foo]: /url &quot;not a reference&quot;\n&amp;ouml; not a character entity</p>\n\n',
   },
@@ -2162,141 +2162,155 @@ export default [
     index: 311,
     md: '\\\\*emphasis*\n\n',
     html: '<p>\\<em>emphasis</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 312,
-    md: 'foo\\\nbar\n\n',
+    md: 'foo  \nbar\n\n',
     html: '<p>foo<br />\nbar</p>\n\n',
   },
   {
     index: 313,
-    md: '`` \\[\\` ``\n\n',
+    md: '``\\[\\` ``\n\n',
     html: '<p><code>\\[\\`</code></p>\n\n',
   },
   {
     index: 314,
     md: '    \\[\\]\n\n',
-    html: '<pre><code>\\[\\]\n</code></pre>\n\n',
+    html: '<pre><code>\\[\\]</code></pre>\n\n',
   },
   {
     index: 315,
     md: '~~~\n\\[\\]\n~~~\n\n',
     html: '<pre><code>\\[\\]\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+      fence: '~~~',
+    },
   },
-  {
-    index: 316,
-    md: '<http://example.com?find=\\*>\n\n',
-    html:
-      '<p><a href="http://example.com?find=%5C*">http://example.com?find=\\*</a></p>\n\n',
-  },
-  {
-    index: 317,
-    md: '<a href="/bar\\/)">\n\n',
-    html: '<a href="/bar\\/)">\n\n',
-  },
+  // Todo:支持自动链接后
+  // {
+  //   index: 316,
+  //   md: '<http://example.com?find=\\*>\n\n',
+  //   html:
+  //     '<p><a href="http://example.com?find=%5C*">http://example.com?find=\\*</a></p>\n\n',
+  // },
+  // {
+  //   index: 317,
+  //   md: '<a href="/bar\\/)">\n\n',
+  //   html: '<a href="/bar\\/)">\n\n',
+  // },
   {
     index: 318,
-    md: '[foo](/bar\\* "ti\\*tle")\n\n',
+    md: '[foo](/bar* "ti*tle")\n\n',
     html: '<p><a href="/bar*" title="ti*tle">foo</a></p>\n\n',
   },
   {
     index: 319,
-    md: '[foo]\n\n[foo]: /bar\\* "ti\\*tle"\n\n',
+    md: '[foo]: /bar\\* "ti\\*tle"\n\n[foo]\n\n',
     html: '<p><a href="/bar*" title="ti*tle">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 320,
-    md: '``` foo\\+bar\nfoo\n```\n\n',
+    md: '```foo+bar\nfoo\n```\n\n',
     html: '<pre><code class="language-foo+bar">foo\n</code></pre>\n\n',
+    option: {
+      codeBlockStyle: 'fenced',
+    },
   },
-  {
-    index: 321,
-    md:
-      '&nbsp; &amp; &copy; &AElig; &Dcaron;\n&frac34; &HilbertSpace; &DifferentialD;\n&ClockwiseContourIntegral; &ngE;\n\n',
-    html: '<p>  &amp; © Æ Ď\n¾ ℋ ⅆ\n∲ ≧̸</p>\n\n',
-  },
-  {
-    index: 322,
-    md: '&#35; &#1234; &#992; &#0;\n\n',
-    html: '<p># Ӓ Ϡ �</p>\n\n',
-  },
-  {
-    index: 323,
-    md: '&#X22; &#XD06; &#xcab;\n\n',
-    html: '<p>&quot; ആ ಫ</p>\n\n',
-  },
-  {
-    index: 324,
-    md:
-      '&nbsp &x; &#; &#x;\n&#87654321;\n&#abcdef0;\n&ThisIsNotDefined; &hi?;\n\n',
-    html:
-      '<p>&amp;nbsp &amp;x; &amp;#; &amp;#x;\n&amp;#87654321;\n&amp;#abcdef0;\n&amp;ThisIsNotDefined; &amp;hi?;</p>\n\n',
-  },
-  {
-    index: 325,
-    md: '&copy\n\n',
-    html: '<p>&amp;copy</p>\n\n',
-  },
-  {
-    index: 326,
-    md: '&MadeUpEntity;\n\n',
-    html: '<p>&amp;MadeUpEntity;</p>\n\n',
-  },
-  {
-    index: 327,
-    md: '<a href="&ouml;&ouml;.html">\n\n',
-    html: '<a href="&ouml;&ouml;.html">\n\n',
-  },
-  {
-    index: 328,
-    md: '[foo](/f&ouml;&ouml; "f&ouml;&ouml;")\n\n',
-    html: '<p><a href="/f%C3%B6%C3%B6" title="föö">foo</a></p>\n\n',
-  },
-  {
-    index: 329,
-    md: '[foo]\n\n[foo]: /f&ouml;&ouml; "f&ouml;&ouml;"\n\n',
-    html: '<p><a href="/f%C3%B6%C3%B6" title="föö">foo</a></p>\n\n',
-  },
-  {
-    index: 330,
-    md: '``` f&ouml;&ouml;\nfoo\n```\n\n',
-    html: '<pre><code class="language-föö">foo\n</code></pre>\n\n',
-  },
+  // {
+  //   index: 321,
+  //   md:
+  //     '&nbsp; &amp; &copy; &AElig; &Dcaron;\n&frac34; &HilbertSpace; &DifferentialD;\n&ClockwiseContourIntegral; &ngE;\n\n',
+  //   html: '<p>  &amp; © Æ Ď\n¾ ℋ ⅆ\n∲ ≧̸</p>\n\n',
+  // },
+  // {
+  //   index: 322,
+  //   md: '&#35; &#1234; &#992; &#0;\n\n',
+  //   html: '<p># Ӓ Ϡ �</p>\n\n',
+  // },
+  // {
+  //   index: 323,
+  //   md: '&#X22; &#XD06; &#xcab;\n\n',
+  //   html: '<p>&quot; ആ ಫ</p>\n\n',
+  // },
+  // {
+  //   index: 324,
+  //   md:
+  //     '&nbsp &x; &#; &#x;\n&#87654321;\n&#abcdef0;\n&ThisIsNotDefined; &hi?;\n\n',
+  //   html:
+  //     '<p>&amp;nbsp &amp;x; &amp;#; &amp;#x;\n&amp;#87654321;\n&amp;#abcdef0;\n&amp;ThisIsNotDefined; &amp;hi?;</p>\n\n',
+  // },
+  // {
+  //   index: 325,
+  //   md: '&copy\n\n',
+  //   html: '<p>&amp;copy</p>\n\n',
+  // },
+  // {
+  //   index: 326,
+  //   md: '&MadeUpEntity;\n\n',
+  //   html: '<p>&amp;MadeUpEntity;</p>\n\n',
+  // },
+  // {
+  //   index: 327,
+  //   md: '<a href="&ouml;&ouml;.html">\n\n',
+  //   html: '<a href="&ouml;&ouml;.html">\n\n',
+  // },
+  // {
+  //   index: 328,
+  //   md: '[foo](/f&ouml;&ouml; "f&ouml;&ouml;")\n\n',
+  //   html: '<p><a href="/f%C3%B6%C3%B6" title="föö">foo</a></p>\n\n',
+  // },
+  // {
+  //   index: 329,
+  //   md: '[foo]\n\n[foo]: /f&ouml;&ouml; "f&ouml;&ouml;"\n\n',
+  //   html: '<p><a href="/f%C3%B6%C3%B6" title="föö">foo</a></p>\n\n',
+  // },
+  // {
+  //   index: 330,
+  //   md: '``` f&ouml;&ouml;\nfoo\n```\n\n',
+  //   html: '<pre><code class="language-föö">foo\n</code></pre>\n\n',
+  // },
   {
     index: 331,
     md: '`f&ouml;&ouml;`\n\n',
     html: '<p><code>f&amp;ouml;&amp;ouml;</code></p>\n\n',
   },
-  {
-    index: 332,
-    md: '    f&ouml;f&ouml;\n\n',
-    html: '<pre><code>f&amp;ouml;f&amp;ouml;\n</code></pre>\n\n',
-  },
-  {
-    index: 333,
-    md: '&#42;foo&#42;\n*foo*\n\n',
-    html: '<p>*foo*\n<em>foo</em></p>\n\n',
-  },
-  {
-    index: 334,
-    md: '&#42; foo\n\n* foo\n\n',
-    html: '<p>* foo</p>\n<ul>\n<li>foo</li>\n</ul>\n\n',
-  },
-  {
-    index: 335,
-    md: 'foo&#10;&#10;bar\n\n',
-    html: '<p>foo\n\nbar</p>\n\n',
-  },
-  {
-    index: 336,
-    md: '&#9;foo\n\n',
-    html: '<p>→foo</p>\n\n',
-  },
-  {
-    index: 337,
-    md: '[a](url &quot;tit&quot;)\n\n',
-    html: '<p>[a](url &quot;tit&quot;)</p>\n\n',
-  },
+  // {
+  //   index: 332,
+  //   md: '    f&ouml;f&ouml;\n\n',
+  //   html: '<pre><code>f&amp;ouml;f&amp;ouml;\n</code></pre>\n\n',
+  // },
+  // {
+  //   index: 333,
+  //   md: '&#42;foo&#42;\n*foo*\n\n',
+  //   html: '<p>*foo*\n<em>foo</em></p>\n\n',
+  // },
+  // {
+  //   index: 334,
+  //   md: '&#42; foo\n\n* foo\n\n',
+  //   html: '<p>* foo</p>\n<ul>\n<li>foo</li>\n</ul>\n\n',
+  // },
+  // {
+  //   index: 335,
+  //   md: 'foo&#10;&#10;bar\n\n',
+  //   html: '<p>foo\n\nbar</p>\n\n',
+  // },
+  // {
+  //   index: 336,
+  //   md: '&#9;foo\n\n',
+  //   html: '<p>→foo</p>\n\n',
+  // },
+  // {
+  //   index: 337,
+  //   md: '[a](url &quot;tit&quot;)\n\n',
+  //   html: '<p>[a](url &quot;tit&quot;)</p>\n\n',
+  // },
   {
     index: 338,
     md: '`foo`\n\n',
