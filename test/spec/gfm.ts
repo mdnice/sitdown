@@ -762,7 +762,7 @@ export default [
   },
   {
     index: 108,
-    md: '``` ```\naaa\n\n',
+    md: '```  ```\naaa\n\n',
     html: '<p><code> </code>\naaa</p>\n\n',
     option: {
       codeBlockStyle: 'fenced',
@@ -2318,7 +2318,7 @@ export default [
   },
   {
     index: 339,
-    md: '`` foo ` bar ``\n\n',
+    md: '``foo ` bar``\n\n',
     html: '<p><code>foo ` bar</code></p>\n\n',
   },
   {
@@ -2328,12 +2328,12 @@ export default [
   },
   {
     index: 341,
-    md: '`  ``  `\n\n',
+    md: '` `` `\n\n',
     html: '<p><code> `` </code></p>\n\n',
   },
   {
     index: 342,
-    md: '` a`\n\n',
+    md: '`a`\n\n',
     html: '<p><code> a</code></p>\n\n',
   },
   {
@@ -2343,27 +2343,27 @@ export default [
   },
   {
     index: 344,
-    md: '` `\n`  `\n\n',
-    html: '<p><code> </code>\n<code>  </code></p>\n\n',
+    md: '` `\n` `\n\n',
+    html: '<p><code> </code>\n<code></code></p>\n\n',
   },
   {
     index: 345,
-    md: '``\nfoo\nbar  \nbaz\n``\n\n',
+    md: '`foo bar baz`\n\n',
     html: '<p><code>foo bar   baz</code></p>\n\n',
   },
-  {
-    index: 346,
-    md: '``\nfoo \n``\n\n',
-    html: '<p><code>foo </code></p>\n\n',
-  },
+  // {
+  //   index: 346,
+  //   md: '``\nfoo \n``\n\n',
+  //   html: '<p><code>foo </code></p>\n\n',
+  // },
   {
     index: 347,
-    md: '`foo   bar \nbaz`\n\n',
+    md: '`foo bar baz`\n\n',
     html: '<p><code>foo   bar  baz</code></p>\n\n',
   },
   {
     index: 348,
-    md: '`foo\\`bar`\n\n',
+    md: '`foo\\`bar\\`\n\n',
     html: '<p><code>foo\\</code>bar`</p>\n\n',
   },
   {
@@ -2373,52 +2373,53 @@ export default [
   },
   {
     index: 350,
-    md: '` foo `` bar `\n\n',
+    md: '`foo `` bar`\n\n',
     html: '<p><code>foo `` bar</code></p>\n\n',
   },
   {
     index: 351,
-    md: '*foo`*`\n\n',
+    md: '\\*foo`*`\n\n',
     html: '<p>*foo<code>*</code></p>\n\n',
   },
   {
     index: 352,
-    md: '[not a `link](/foo`)\n\n',
+    md: '\\[not a `link](/foo`\\)\n\n',
     html: '<p>[not a <code>link](/foo</code>)</p>\n\n',
   },
   {
     index: 353,
-    md: '`<a href="`">`\n\n',
+    md: '`<a href="`">\\`\n\n',
     html: '<p><code>&lt;a href=&quot;</code>&quot;&gt;`</p>\n\n',
   },
-  {
-    index: 354,
-    md: '<a href="`">`\n\n',
-    html: '<p><a href="`">`</p>\n\n',
-  },
+  // {
+  //   index: 354,
+  //   md: '<a href="`">`\n\n',
+  //   html: '<p><a href="`">`</p>\n\n',
+  // },
   {
     index: 355,
-    md: '`<http://foo.bar.`baz>`\n\n',
+    md: '`<http://foo.bar.`baz>\\`\n\n',
     html: '<p><code>&lt;http://foo.bar.</code>baz&gt;`</p>\n\n',
   },
-  {
-    index: 356,
-    md: '<http://foo.bar.`baz>`\n\n',
-    html: '<p><a href="http://foo.bar.%60baz">http://foo.bar.`baz</a>`</p>\n\n',
-  },
+  // Todo：自动链接
+  // {
+  //   index: 356,
+  //   md: '<http://foo.bar.`baz>`\n\n',
+  //   html: '<p><a href="http://foo.bar.%60baz">http://foo.bar.`baz</a>`</p>\n\n',
+  // },
   {
     index: 357,
-    md: '```foo``\n\n',
+    md: '\\`\\`\\`foo\\`\\`\n\n',
     html: '<p>```foo``</p>\n\n',
   },
   {
     index: 358,
-    md: '`foo\n\n',
+    md: '\\`foo\n\n',
     html: '<p>`foo</p>\n\n',
   },
   {
     index: 359,
-    md: '`foo``bar``\n\n',
+    md: '\\`foo`bar`\n\n',
     html: '<p>`foo<code>bar</code></p>\n\n',
   },
   {

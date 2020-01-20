@@ -1,3 +1,4 @@
+// blank
 import TurndownService from '../../../lib/turndown';
 import { fenceReplacement, isCode, listReplacement } from '../../util';
 import { Options } from '../../types';
@@ -13,7 +14,13 @@ export function blankReplacement(
   } else if (isCode(node)) {
     var delimiter = options.codeDelimiter ? options.codeDelimiter : '`';
 
-    return delimiter + ' ' + content + delimiter + '\n';
+    return (
+      delimiter +
+      (options.codeBlockStyle === 'fenced' ? ' ' : '') +
+      (content || ' ') +
+      delimiter +
+      '\n'
+    );
   } else if (node.nodeName.toLowerCase() === 'blockquote') {
     return '>';
   } else if (node.nodeName.toLowerCase() === 'li') {
@@ -21,5 +28,5 @@ export function blankReplacement(
   } else if (node.nodeName.toLowerCase() === 'ul') {
     return content + '\n\n';
   }
-  return node.isBlock ? '\n\n' : '';
+  return node.isBlock ? content + '\n\n' : '';
 }
