@@ -13,6 +13,7 @@ import { applyIndentedCodeBlockRule } from './indentedCodeBlock';
 import { applyBlockquoteRule } from './blockquote';
 import { applyEmRule } from './em';
 import { applyDelRule } from './del';
+import { applyLinkRule } from './link';
 const gfm = turndownPluginGfm.gfm;
 const tables = turndownPluginGfm.tables;
 const strikethrough = turndownPluginGfm.strikethrough;
@@ -38,6 +39,7 @@ export default (turndownService: TurndownService) => {
     applyBlockquoteRule,
     applyEmRule,
     applyDelRule,
+    applyLinkRule,
   ]);
 
   // turndownService.keep(['div', 'style']);

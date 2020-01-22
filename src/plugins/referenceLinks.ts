@@ -34,8 +34,12 @@ export const applyReferenceLinkRule = (turndownService: TurndownService) => {
           reference = '[' + content + ']: ' + href + title;
           break;
         default:
-          replacement = '[' + content + ']';
-          reference = '[' + content + ']: ' + href + title;
+          var id =
+            this.references && this.references.length
+              ? 'ref' + (this.references.length + 1)
+              : 'ref';
+          replacement = '[' + content + '][' + id + ']';
+          reference = '[' + id + ']: ' + href + title;
       }
 
       this.references && this.references.push(reference);
