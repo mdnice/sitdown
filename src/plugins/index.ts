@@ -11,6 +11,8 @@ import { applyReferenceLinkRule } from './referenceLinks';
 import { applyTableRule } from './table';
 import { applyIndentedCodeBlockRule } from './indentedCodeBlock';
 import { applyBlockquoteRule } from './blockquote';
+import { applyEmRule } from './em';
+import { applyDelRule } from './del';
 const gfm = turndownPluginGfm.gfm;
 const tables = turndownPluginGfm.tables;
 const strikethrough = turndownPluginGfm.strikethrough;
@@ -34,6 +36,8 @@ export default (turndownService: TurndownService) => {
     applyTableRule,
     applyIndentedCodeBlockRule,
     applyBlockquoteRule,
+    applyEmRule,
+    applyDelRule,
   ]);
 
   // turndownService.keep(['div', 'style']);

@@ -2426,31 +2426,49 @@ export default [
     index: 360,
     md: '*foo bar*\n\n',
     html: '<p><em>foo bar</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 361,
-    md: 'a * foo bar*\n\n',
+    md: 'a \\* foo bar\\*\n\n',
     html: '<p>a * foo bar*</p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 362,
-    md: 'a*"foo"*\n\n',
+    md: 'a\\*"foo"\\*\n\n',
     html: '<p>a*&quot;foo&quot;*</p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 363,
-    md: '* a *\n\n',
+    md: '\\* a \\*\n\n',
     html: '<p>* a *</p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 364,
     md: 'foo*bar*\n\n',
     html: '<p>foo<em>bar</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 365,
     md: '5*6*78\n\n',
     html: '<p>5<em>6</em>78</p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 366,
@@ -2459,102 +2477,108 @@ export default [
   },
   {
     index: 367,
-    md: '_ foo bar_\n\n',
+    md: '\\_ foo bar\\_\n\n',
     html: '<p>_ foo bar_</p>\n\n',
   },
   {
     index: 368,
-    md: 'a_"foo"_\n\n',
+    md: 'a\\_"foo"\\_\n\n',
     html: '<p>a_&quot;foo&quot;_</p>\n\n',
   },
   {
     index: 369,
-    md: 'foo_bar_\n\n',
+    md: 'foo\\_bar\\_\n\n',
     html: '<p>foo_bar_</p>\n\n',
   },
   {
     index: 370,
-    md: '5_6_78\n\n',
+    md: '5\\_6\\_78\n\n',
     html: '<p>5_6_78</p>\n\n',
   },
   {
     index: 371,
-    md: 'пристаням_стремятся_\n\n',
+    md: 'пристаням\\_стремятся\\_\n\n',
     html: '<p>пристаням_стремятся_</p>\n\n',
   },
   {
     index: 372,
-    md: 'aa_"bb"_cc\n\n',
+    md: 'aa\\_"bb"\\_cc\n\n',
     html: '<p>aa_&quot;bb&quot;_cc</p>\n\n',
   },
   {
     index: 373,
-    md: 'foo-_(bar)_\n\n',
+    md: 'foo-_\\(bar\\)_\n\n',
     html: '<p>foo-<em>(bar)</em></p>\n\n',
   },
   {
     index: 374,
-    md: '_foo*\n\n',
+    md: '\\_foo\\*\n\n',
     html: '<p>_foo*</p>\n\n',
   },
   {
     index: 375,
-    md: '*foo bar *\n\n',
+    md: '\\*foo bar \\*\n\n',
     html: '<p>*foo bar *</p>\n\n',
   },
   {
     index: 376,
-    md: '*foo bar\n*\n\n',
+    md: '\\*foo bar \\*\n\n',
     html: '<p>*foo bar\n*</p>\n\n',
   },
   {
     index: 377,
-    md: '*(*foo)\n\n',
+    md: '\\*\\(\\*foo\\)\n\n',
     html: '<p>*(*foo)</p>\n\n',
   },
   {
     index: 378,
-    md: '*(*foo*)*\n\n',
+    md: '*\\(*foo*\\)*\n\n',
     html: '<p><em>(<em>foo</em>)</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 379,
     md: '*foo*bar\n\n',
     html: '<p><em>foo</em>bar</p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 380,
-    md: '_foo bar _\n\n',
+    md: '\\_foo bar \\_\n\n',
     html: '<p>_foo bar _</p>\n\n',
   },
   {
     index: 381,
-    md: '_(_foo)\n\n',
+    md: '\\_\\(\\_foo\\)\n\n',
     html: '<p>_(_foo)</p>\n\n',
   },
   {
     index: 382,
-    md: '_(_foo_)_\n\n',
+    md: '_\\(_foo_\\)_\n\n',
     html: '<p><em>(<em>foo</em>)</em></p>\n\n',
   },
   {
     index: 383,
-    md: '_foo_bar\n\n',
+    md: '\\_foo\\_bar\n\n',
     html: '<p>_foo_bar</p>\n\n',
   },
   {
     index: 384,
-    md: '_пристаням_стремятся\n\n',
+    md: '\\_пристаням\\_стремятся\n\n',
     html: '<p>_пристаням_стремятся</p>\n\n',
   },
   {
     index: 385,
-    md: '_foo_bar_baz_\n\n',
+    md: '_foo\\_bar\\_baz_\n\n',
     html: '<p><em>foo_bar_baz</em></p>\n\n',
   },
   {
     index: 386,
-    md: '_(bar)_.\n\n',
+    md: '_\\(bar\\)_.\n\n',
     html: '<p><em>(bar)</em>.</p>\n\n',
   },
   {
@@ -2564,12 +2588,12 @@ export default [
   },
   {
     index: 388,
-    md: '** foo bar**\n\n',
+    md: '\\*\\* foo bar\\*\\*\n\n',
     html: '<p>** foo bar**</p>\n\n',
   },
   {
     index: 389,
-    md: 'a**"foo"**\n\n',
+    md: 'a\\*\\*"foo"\\*\\*\n\n',
     html: '<p>a**&quot;foo&quot;**</p>\n\n',
   },
   {
@@ -2581,73 +2605,91 @@ export default [
     index: 391,
     md: '__foo bar__\n\n',
     html: '<p><strong>foo bar</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 392,
-    md: '__ foo bar__\n\n',
+    md: '\\_\\_ foo bar\\_\\_\n\n',
     html: '<p>__ foo bar__</p>\n\n',
   },
   {
     index: 393,
-    md: '__\nfoo bar__\n\n',
+    md: '\\_\\_ foo bar\\_\\_\n\n',
     html: '<p>__\nfoo bar__</p>\n\n',
   },
   {
     index: 394,
-    md: 'a__"foo"__\n\n',
+    md: 'a\\_\\_"foo"\\_\\_\n\n',
     html: '<p>a__&quot;foo&quot;__</p>\n\n',
   },
   {
     index: 395,
-    md: 'foo__bar__\n\n',
+    md: 'foo\\_\\_bar\\_\\_\n\n',
     html: '<p>foo__bar__</p>\n\n',
   },
   {
     index: 396,
-    md: '5__6__78\n\n',
+    md: '5\\_\\_6\\_\\_78\n\n',
     html: '<p>5__6__78</p>\n\n',
   },
   {
     index: 397,
-    md: 'пристаням__стремятся__\n\n',
+    md: 'пристаням\\_\\_стремятся\\_\\_\n\n',
     html: '<p>пристаням__стремятся__</p>\n\n',
   },
   {
     index: 398,
     md: '__foo, __bar__, baz__\n\n',
     html: '<p><strong>foo, <strong>bar</strong>, baz</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 399,
-    md: 'foo-__(bar)__\n\n',
+    md: 'foo-__\\(bar\\)__\n\n',
     html: '<p>foo-<strong>(bar)</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 400,
-    md: '**foo bar **\n\n',
+    md: '\\*\\*foo bar \\*\\*\n\n',
     html: '<p>**foo bar **</p>\n\n',
   },
   {
     index: 401,
-    md: '**(**foo)\n\n',
+    md: '\\*\\*\\(\\*\\*foo\\)\n\n',
     html: '<p>**(**foo)</p>\n\n',
   },
   {
     index: 402,
-    md: '*(**foo**)*\n\n',
+    md: '*\\(**foo**\\)*\n\n',
     html: '<p><em>(<strong>foo</strong>)</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 403,
     md:
-      '**Gomphocarpus (*Gomphocarpus physocarpus*, syn.\n*Asclepias physocarpa*)**\n\n',
+      '**Gomphocarpus \\(*Gomphocarpus physocarpus*, syn. *Asclepias physocarpa*\\)**\n\n',
     html:
       '<p><strong>Gomphocarpus (<em>Gomphocarpus physocarpus</em>, syn.\n<em>Asclepias physocarpa</em>)</strong></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 404,
     md: '**foo "*bar*" foo**\n\n',
     html: '<p><strong>foo &quot;<em>bar</em>&quot; foo</strong></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 405,
@@ -2656,53 +2698,71 @@ export default [
   },
   {
     index: 406,
-    md: '__foo bar __\n\n',
+    md: '\\_\\_foo bar \\_\\_\n\n',
     html: '<p>__foo bar __</p>\n\n',
   },
   {
     index: 407,
-    md: '__(__foo)\n\n',
+    md: '\\_\\_\\(\\_\\_foo\\)\n\n',
     html: '<p>__(__foo)</p>\n\n',
   },
   {
     index: 408,
-    md: '_(__foo__)_\n\n',
+    md: '_\\(__foo__\\)_\n\n',
     html: '<p><em>(<strong>foo</strong>)</em></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 409,
-    md: '__foo__bar\n\n',
+    md: '\\_\\_foo\\_\\_bar\n\n',
     html: '<p>__foo__bar</p>\n\n',
   },
   {
     index: 410,
-    md: '__пристаням__стремятся\n\n',
+    md: '\\_\\_пристаням\\_\\_стремятся\n\n',
     html: '<p>__пристаням__стремятся</p>\n\n',
   },
   {
     index: 411,
-    md: '__foo__bar__baz__\n\n',
+    md: '__foo\\_\\_bar\\_\\_baz__\n\n',
     html: '<p><strong>foo__bar__baz</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 412,
-    md: '__(bar)__.\n\n',
+    md: '__\\(bar\\)__.\n\n',
     html: '<p><strong>(bar)</strong>.</p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 413,
     md: '*foo [bar](/url)*\n\n',
     html: '<p><em>foo <a href="/url">bar</a></em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 414,
-    md: '*foo\nbar*\n\n',
+    md: '*foo bar*\n\n',
     html: '<p><em>foo\nbar</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 415,
     md: '_foo __bar__ baz_\n\n',
     html: '<p><em>foo <strong>bar</strong> baz</em></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 416,
@@ -2718,45 +2778,69 @@ export default [
     index: 418,
     md: '*foo *bar**\n\n',
     html: '<p><em>foo <em>bar</em></em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 419,
     md: '*foo **bar** baz*\n\n',
     html: '<p><em>foo <strong>bar</strong> baz</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 420,
     md: '*foo**bar**baz*\n\n',
     html: '<p><em>foo<strong>bar</strong>baz</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 421,
-    md: '*foo**bar*\n\n',
+    md: '*foo\\*\\*bar*\n\n',
     html: '<p><em>foo**bar</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 422,
     md: '***foo** bar*\n\n',
     html: '<p><em><strong>foo</strong> bar</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 423,
     md: '*foo **bar***\n\n',
     html: '<p><em>foo <strong>bar</strong></em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 424,
     md: '*foo**bar***\n\n',
     html: '<p><em>foo<strong>bar</strong></em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 425,
     md: 'foo***bar***baz\n\n',
     html: '<p>foo<em><strong>bar</strong></em>baz</p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 426,
-    md: 'foo******bar*********baz\n\n',
+    md: 'foo******bar******\\*\\*\\*baz\n\n',
     html:
       '<p>foo<strong><strong><strong>bar</strong></strong></strong>***baz</p>\n\n',
   },
@@ -2764,20 +2848,26 @@ export default [
     index: 427,
     md: '*foo **bar *baz* bim** bop*\n\n',
     html: '<p><em>foo <strong>bar <em>baz</em> bim</strong> bop</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 428,
     md: '*foo [*bar*](/url)*\n\n',
     html: '<p><em>foo <a href="/url"><em>bar</em></a></em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 429,
-    md: '** is not an empty emphasis\n\n',
+    md: '\\*\\* is not an empty emphasis\n\n',
     html: '<p>** is not an empty emphasis</p>\n\n',
   },
   {
     index: 430,
-    md: '**** is not an empty strong emphasis\n\n',
+    md: '\\*\\*\\*\\* is not an empty strong emphasis\n\n',
     html: '<p>**** is not an empty strong emphasis</p>\n\n',
   },
   {
@@ -2787,23 +2877,32 @@ export default [
   },
   {
     index: 432,
-    md: '**foo\nbar**\n\n',
+    md: '**foo bar**\n\n',
     html: '<p><strong>foo\nbar</strong></p>\n\n',
   },
   {
     index: 433,
     md: '__foo _bar_ baz__\n\n',
     html: '<p><strong>foo <em>bar</em> baz</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 434,
     md: '__foo __bar__ baz__\n\n',
     html: '<p><strong>foo <strong>bar</strong> baz</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 435,
     md: '____foo__ bar__\n\n',
     html: '<p><strong><strong>foo</strong> bar</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 436,
@@ -2814,61 +2913,85 @@ export default [
     index: 437,
     md: '**foo *bar* baz**\n\n',
     html: '<p><strong>foo <em>bar</em> baz</strong></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 438,
     md: '**foo*bar*baz**\n\n',
     html: '<p><strong>foo<em>bar</em>baz</strong></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 439,
     md: '***foo* bar**\n\n',
     html: '<p><strong><em>foo</em> bar</strong></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 440,
     md: '**foo *bar***\n\n',
     html: '<p><strong>foo <em>bar</em></strong></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 441,
-    md: '**foo *bar **baz**\nbim* bop**\n\n',
+    md: '**foo *bar **baz** bim* bop**\n\n',
     html:
       '<p><strong>foo <em>bar <strong>baz</strong>\nbim</em> bop</strong></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 442,
     md: '**foo [*bar*](/url)**\n\n',
     html: '<p><strong>foo <a href="/url"><em>bar</em></a></strong></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 443,
-    md: '__ is not an empty emphasis\n\n',
+    md: '\\_\\_ is not an empty emphasis\n\n',
     html: '<p>__ is not an empty emphasis</p>\n\n',
   },
   {
     index: 444,
-    md: '____ is not an empty strong emphasis\n\n',
+    md: '\\_\\_\\_\\_ is not an empty strong emphasis\n\n',
     html: '<p>____ is not an empty strong emphasis</p>\n\n',
   },
   {
     index: 445,
-    md: 'foo ***\n\n',
+    md: 'foo \\*\\*\\*\n\n',
     html: '<p>foo ***</p>\n\n',
   },
   {
     index: 446,
     md: 'foo *\\**\n\n',
     html: '<p>foo <em>*</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 447,
-    md: 'foo *_*\n\n',
+    md: 'foo *\\_*\n\n',
     html: '<p>foo <em>_</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 448,
-    md: 'foo *****\n\n',
+    md: 'foo \\*\\*\\*\\*\\*\n\n',
     html: '<p>foo *****</p>\n\n',
   },
   {
@@ -2878,42 +3001,54 @@ export default [
   },
   {
     index: 450,
-    md: 'foo **_**\n\n',
+    md: 'foo **\\_**\n\n',
     html: '<p>foo <strong>_</strong></p>\n\n',
   },
   {
     index: 451,
-    md: '**foo*\n\n',
+    md: '\\**foo*\n\n',
     html: '<p>*<em>foo</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 452,
-    md: '*foo**\n\n',
+    md: '*foo*\\*\n\n',
     html: '<p><em>foo</em>*</p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 453,
-    md: '***foo**\n\n',
+    md: '\\***foo**\n\n',
     html: '<p>*<strong>foo</strong></p>\n\n',
   },
   {
     index: 454,
-    md: '****foo*\n\n',
+    md: '\\*\\*\\**foo*\n\n',
     html: '<p>***<em>foo</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 455,
-    md: '**foo***\n\n',
+    md: '**foo**\\*\n\n',
     html: '<p><strong>foo</strong>*</p>\n\n',
   },
   {
     index: 456,
-    md: '*foo****\n\n',
+    md: '*foo*\\*\\*\\*\n\n',
     html: '<p><em>foo</em>***</p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 457,
-    md: 'foo ___\n\n',
+    md: 'foo \\_\\_\\_\n\n',
     html: '<p>foo ___</p>\n\n',
   },
   {
@@ -2923,52 +3058,64 @@ export default [
   },
   {
     index: 459,
-    md: 'foo _*_\n\n',
+    md: 'foo _\\*_\n\n',
     html: '<p>foo <em>*</em></p>\n\n',
   },
   {
     index: 460,
-    md: 'foo _____\n\n',
+    md: 'foo \\_\\_\\_\\_\\_\n\n',
     html: '<p>foo _____</p>\n\n',
   },
   {
     index: 461,
     md: 'foo __\\___\n\n',
     html: '<p>foo <strong>_</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 462,
-    md: 'foo __*__\n\n',
+    md: 'foo __\\*__\n\n',
     html: '<p>foo <strong>*</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 463,
-    md: '__foo_\n\n',
+    md: '\\__foo_\n\n',
     html: '<p>_<em>foo</em></p>\n\n',
   },
   {
     index: 464,
-    md: '_foo__\n\n',
+    md: '_foo_\\_\n\n',
     html: '<p><em>foo</em>_</p>\n\n',
   },
   {
     index: 465,
-    md: '___foo__\n\n',
+    md: '\\___foo__\n\n',
     html: '<p>_<strong>foo</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 466,
-    md: '____foo_\n\n',
+    md: '\\_\\_\\__foo_\n\n',
     html: '<p>___<em>foo</em></p>\n\n',
   },
   {
     index: 467,
-    md: '__foo___\n\n',
+    md: '__foo__\\_\n\n',
     html: '<p><strong>foo</strong>_</p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 468,
-    md: '_foo____\n\n',
+    md: '_foo_\\_\\_\\_\n\n',
     html: '<p><em>foo</em>___</p>\n\n',
   },
   {
@@ -2980,11 +3127,17 @@ export default [
     index: 470,
     md: '*_foo_*\n\n',
     html: '<p><em><em>foo</em></em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 471,
     md: '__foo__\n\n',
     html: '<p><strong>foo</strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 472,
@@ -3000,6 +3153,9 @@ export default [
     index: 474,
     md: '____foo____\n\n',
     html: '<p><strong><strong>foo</strong></strong></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 475,
@@ -3010,87 +3166,108 @@ export default [
     index: 476,
     md: '***foo***\n\n',
     html: '<p><em><strong>foo</strong></em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 477,
     md: '_____foo_____\n\n',
     html: '<p><em><strong><strong>foo</strong></strong></em></p>\n\n',
+    option: {
+      strongDelimiter: '__',
+    },
   },
   {
     index: 478,
-    md: '*foo _bar* baz_\n\n',
+    md: '*foo \\_bar* baz\\_\n\n',
     html: '<p><em>foo _bar</em> baz_</p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 479,
-    md: '*foo __bar *baz bim__ bam*\n\n',
+    md: '*foo __bar \\*baz bim__ bam*\n\n',
     html: '<p><em>foo <strong>bar *baz bim</strong> bam</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+      strongDelimiter: '__',
+    },
   },
   {
     index: 480,
-    md: '**foo **bar baz**\n\n',
+    md: '\\*\\*foo **bar baz**\n\n',
     html: '<p>**foo <strong>bar baz</strong></p>\n\n',
   },
   {
     index: 481,
-    md: '*foo *bar baz*\n\n',
+    md: '\\*foo *bar baz*\n\n',
     html: '<p>*foo <em>bar baz</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 482,
-    md: '*[bar*](/url)\n\n',
+    md: '\\*[bar\\*](/url)\n\n',
     html: '<p>*<a href="/url">bar*</a></p>\n\n',
   },
   {
     index: 483,
-    md: '_foo [bar_](/url)\n\n',
+    md: '\\_foo [bar\\_](/url)\n\n',
     html: '<p>_foo <a href="/url">bar_</a></p>\n\n',
   },
   {
     index: 484,
-    md: '*<img src="foo" title="*"/>\n\n',
-    html: '<p>*<img src="foo" title="*"/></p>\n\n',
+    md: '\\*![](foo "*")\n\n',
+    html: '<p>*<img src="foo" alt="" title="*"/></p>\n\n',
   },
-  {
-    index: 485,
-    md: '**<a href="**">\n\n',
-    html: '<p>**<a href="**"></p>\n\n',
-  },
-  {
-    index: 486,
-    md: '__<a href="__">\n\n',
-    html: '<p>__<a href="__"></p>\n\n',
-  },
+  // Todo：链接完成后
+  // {
+  //   index: 485,
+  //   md: '\\*\\*<a href="**">\n\n',
+  //   html: '<p>**<a href="**"></p>\n\n',
+  // },
+  // {
+  //   index: 486,
+  //   md: '\\_\\_<a href="__">\n\n',
+  //   html: '<p>__<a href="__"></p>\n\n',
+  // },
   {
     index: 487,
     md: '*a `*`*\n\n',
     html: '<p><em>a <code>*</code></em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 488,
     md: '_a `_`_\n\n',
     html: '<p><em>a <code>_</code></em></p>\n\n',
   },
-  {
-    index: 489,
-    md: '**a<http://foo.bar/?q=**>\n\n',
-    html:
-      '<p>**a<a href="http://foo.bar/?q=**">http://foo.bar/?q=**</a></p>\n\n',
-  },
-  {
-    index: 490,
-    md: '__a<http://foo.bar/?q=__>\n\n',
-    html:
-      '<p>__a<a href="http://foo.bar/?q=__">http://foo.bar/?q=__</a></p>\n\n',
-  },
+  // Todo：自动链接
+  // {
+  //   index: 489,
+  //   md: '**a<http://foo.bar/?q=**>\n\n',
+  //   html:
+  //     '<p>**a<a href="http://foo.bar/?q=**">http://foo.bar/?q=**</a></p>\n\n',
+  // },
+  // {
+  //   index: 490,
+  //   md: '__a<http://foo.bar/?q=__>\n\n',
+  //   html:
+  //     '<p>__a<a href="http://foo.bar/?q=__">http://foo.bar/?q=__</a></p>\n\n',
+  // },
   {
     index: 491,
-    md: '~~Hi~~ Hello, world!\n\n',
-    html: '<p><del>Hi</del> Hello, world!</p>\n\n',
+    md: '~~Hi~~ Hello, world\\!\n\n',
+    html: '<p><s>Hi</s> Hello, world!</p>\n\n',
   },
   {
     index: 492,
-    md: 'This ~~has a\n\nnew paragraph~~.\n\n',
+    md: 'This \\~\\~has a\n\nnew paragraph\\~\\~.\n\n',
     html: '<p>This ~~has a</p>\n<p>new paragraph~~.</p>\n\n',
   },
   {
