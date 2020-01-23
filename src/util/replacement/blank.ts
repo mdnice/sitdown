@@ -1,8 +1,10 @@
 // blank
 import TurndownService from '../../../lib/turndown';
-import { fenceReplacement, isCode, listReplacement } from '../../util';
+import { isCode } from '../isCode';
+import { isFence } from '../isFence';
+import { fenceReplacement } from './fence';
+import { listReplacement } from './list';
 import { Options } from '../../types';
-import { isFence } from '../../util/isFence';
 
 export function blankReplacement(
   content: string,
