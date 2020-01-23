@@ -3561,200 +3561,359 @@ export default [
   },
   {
     index: 541,
-    md: '[foo *bar [baz][ref]*][ref]\n\n[ref]: /uri\n\n',
+    // md: '[foo *bar [baz][ref]*][ref]\n\n[ref]: /uri\n\n',
+    md:
+      '[ref]: /uri\n' +
+      '[ref2]: /uri\n' +
+      '\n' +
+      '\\[foo *bar [baz][ref]*\\][ref][ref2]\n\n',
     html:
       '<p>[foo <em>bar <a href="/uri">baz</a></em>]<a href="/uri">ref</a></p>\n\n',
+    option: {
+      emDelimiter: '*',
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 542,
-    md: '*[foo*][ref]\n\n[ref]: /uri\n\n',
+    md: '[ref]: /uri\n\n\\*[foo\\*][ref]\n\n',
     html: '<p>*<a href="/uri">foo*</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 543,
-    md: '[foo *bar][ref]*\n\n[ref]: /uri\n\n',
+    md: '[ref]: /uri\n\n[foo \\*bar][ref]\\*\n\n',
     html: '<p><a href="/uri">foo *bar</a>*</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
-  {
-    index: 544,
-    md: '[foo <bar attr="][ref]">\n\n[ref]: /uri\n\n',
-    html: '<p>[foo <bar attr="][ref]"></p>\n\n',
-  },
+  // {
+  //   index: 544,
+  //   md: '[foo <bar attr="][ref]">\n\n[ref]: /uri\n\n',
+  //   html: '<p>[foo <bar attr="][ref]"></p>\n\n',
+  //   option:{
+  //     linkStyle: 'referenced',
+  //   }
+  // },
   {
     index: 545,
-    md: '[foo`][ref]`\n\n[ref]: /uri\n\n',
+    // md: '\\[foo`][ref]`\n\n[ref]: /uri\n\n',
+    md: '\\[foo`][ref]`\n\n',
     html: '<p>[foo<code>][ref]</code></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 546,
-    md: '[foo<http://example.com/?search=][ref]>\n\n[ref]: /uri\n\n',
+    // md: '[foo<http://example.com/?search=][ref]>\n\n[ref]: /uri\n\n',
+    md:
+      '[ref]: http://example.com/?search=][ref]\n' +
+      '\n' +
+      '\\[foo[http://example.com/\\?search=\\]\\[ref\\]][ref]\n\n',
     html:
       '<p>[foo<a href="http://example.com/?search=%5D%5Bref%5D">http://example.com/?search=][ref]</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
-  {
-    index: 547,
-    md: '[foo][BaR]\n\n[bar]: /url "title"\n\n',
-    html: '<p><a href="/url" title="title">foo</a></p>\n\n',
-  },
-  {
-    index: 548,
-    md: '[ẞ]\n\n[SS]: /url\n\n',
-    html: '<p><a href="/url">ẞ</a></p>\n\n',
-  },
-  {
-    index: 549,
-    md: '[Foo\n  bar]: /url\n\n[Baz][Foo bar]\n\n',
-    html: '<p><a href="/url">Baz</a></p>\n\n',
-  },
+  // {
+  //   index: 547,
+  //   md: '[foo][BaR]\n\n[bar]: /url "title"\n\n',
+  //   html: '<p><a href="/url" title="title">foo</a></p>\n\n',
+  //   option:{
+  //     linkStyle: 'referenced',
+  //   }
+  // },
+  // {
+  //   index: 548,
+  //   md: '[ẞ]\n\n[SS]: /url\n\n',
+  //   html: '<p><a href="/url">ẞ</a></p>\n\n',
+  //   option:{
+  //     linkStyle: 'referenced',
+  //   }
+  // },
+  // {
+  //   index: 549,
+  //   md: '[Foo\n  bar]: /url\n\n[Baz][Foo bar]\n\n',
+  //   html: '<p><a href="/url">Baz</a></p>\n\n',
+  //   option:{
+  //     linkStyle: 'referenced',
+  //   }
+  // },
   {
     index: 550,
-    md: '[foo] [bar]\n\n[bar]: /url "title"\n\n',
+    // md: '[foo] [bar]\n\n[bar]: /url "title"\n\n',
+    md: '[ref]: /url "title"\n' + '\n' + '\\[foo\\] [bar][ref]\n\n',
     html: '<p>[foo] <a href="/url" title="title">bar</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 551,
-    md: '[foo]\n[bar]\n\n[bar]: /url "title"\n\n',
+    md: '[ref]: /url "title"\n' + '\n' + '\\[foo\\] [bar][ref]\n\n',
     html: '<p>[foo]\n<a href="/url" title="title">bar</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
-  {
-    index: 552,
-    md: '[foo]: /url1\n\n[foo]: /url2\n\n[bar][foo]\n\n',
-    html: '<p><a href="/url1">bar</a></p>\n\n',
-  },
-  {
-    index: 553,
-    md: '[bar][foo\\!]\n\n[foo!]: /url\n\n',
-    html: '<p>[bar][foo!]</p>\n\n',
-  },
+  // {
+  //   index: 552,
+  //   md: '[foo]: /url1\n\n[foo]: /url2\n\n[bar][foo]\n\n',
+  //   html: '<p><a href="/url1">bar</a></p>\n\n',
+  //   option:{
+  //     linkStyle: 'referenced',
+  //   }
+  // },
+  // {
+  //   index: 553,
+  //   md: '[bar][foo\\!]\n\n[foo!]: /url\n\n',
+  //   html: '<p>[bar][foo!]</p>\n\n',
+  //   option:{
+  //     linkStyle: 'referenced',
+  //   }
+  // },
   {
     index: 554,
-    md: '[foo][ref[]\n\n[ref[]: /uri\n\n',
+    // md: '[foo][ref[]\n\n[ref[]: /uri\n\n',
+    md: '\\[foo\\]\\[ref\\[\\]\n' + '\n' + '\\[ref\\[\\]: /uri\n\n',
     html: '<p>[foo][ref[]</p>\n<p>[ref[]: /uri</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 555,
-    md: '[foo][ref[bar]]\n\n[ref[bar]]: /uri\n\n',
+    // md: '[foo][ref[bar]]\n\n[ref[bar]]: /uri\n\n',
+    md: '\\[foo\\]\\[ref\\[bar\\]\\]\n' + '\n' + '\\[ref\\[bar\\]\\]: /uri\n\n',
     html: '<p>[foo][ref[bar]]</p>\n<p>[ref[bar]]: /uri</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 556,
-    md: '[[[foo]]]\n\n[[[foo]]]: /url\n\n',
+    // md: '[[[foo]]]\n\n[[[foo]]]: /url\n\n',
+    md: '\\[\\[\\[foo\\]\\]\\]\n' + '\n' + '\\[\\[\\[foo\\]\\]\\]: /url\n\n',
     html: '<p>[[[foo]]]</p>\n<p>[[[foo]]]: /url</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
-  {
-    index: 557,
-    md: '[foo][ref\\[]\n\n[ref\\[]: /uri\n\n',
-    html: '<p><a href="/uri">foo</a></p>\n\n',
-  },
+  // {
+  //   index: 557,
+  //   md: '[foo][ref\\[]\n\n[ref\\[]: /uri\n\n',
+  //   html: '<p><a href="/uri">foo</a></p>\n\n',
+  //   option:{
+  //     linkStyle: 'referenced',
+  //   }
+  // },
   {
     index: 558,
-    md: '[bar\\\\]: /uri\n\n[bar\\\\]\n\n',
+    md: '[ref]: /uri\n' + '\n' + '[bar\\\\][ref]\n\n',
     html: '<p><a href="/uri">bar\\</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 559,
-    md: '[]\n\n[]: /uri\n\n',
+    // md: '[]\n\n[]: /uri\n\n',
+    md: '\\[\\]\n' + '\n' + '\\[\\]: /uri\n\n',
     html: '<p>[]</p>\n<p>[]: /uri</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 560,
-    md: '[\n ]\n\n[\n ]: /uri\n\n',
+    // md: '[\n ]\n\n[\n ]: /uri\n\n',
+    md: '\\[ \\]\n' + '\n' + '\\[ \\]: /uri\n\n',
     html: '<p>[\n]</p>\n<p>[\n]: /uri</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 561,
-    md: '[foo][]\n\n[foo]: /url "title"\n\n',
+    md: '[foo]: /url "title"\n\n[foo][]\n\n',
     html: '<p><a href="/url" title="title">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'collapsed',
+    },
   },
   {
     index: 562,
-    md: '[*foo* bar][]\n\n[*foo* bar]: /url "title"\n\n',
+    md: '[*foo* bar]: /url "title"\n\n[*foo* bar][]\n\n',
     html: '<p><a href="/url" title="title"><em>foo</em> bar</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'collapsed',
+      emDelimiter: '*',
+    },
   },
-  {
-    index: 563,
-    md: '[Foo][]\n\n[foo]: /url "title"\n\n',
-    html: '<p><a href="/url" title="title">Foo</a></p>\n\n',
-  },
+  // {
+  //   index: 563,
+  //   md: '[Foo][]\n\n[foo]: /url "title"\n\n',
+  //   html: '<p><a href="/url" title="title">Foo</a></p>\n\n',
+  //   option:{
+  //     linkStyle: 'referenced',
+  //     linkReferenceStyle:'shortcut'
+  //   }
+  // },
   {
     index: 564,
-    md: '[foo] \n[]\n\n[foo]: /url "title"\n\n',
+    md: '[foo]: /url "title"\n\n[foo] \\[\\]\n\n',
     html: '<p><a href="/url" title="title">foo</a>\n[]</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'shortcut',
+    },
   },
   {
     index: 565,
-    md: '[foo]\n\n[foo]: /url "title"\n\n',
+    md: '[foo]: /url "title"\n\n[foo]\n\n',
     html: '<p><a href="/url" title="title">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'shortcut',
+    },
   },
   {
     index: 566,
-    md: '[*foo* bar]\n\n[*foo* bar]: /url "title"\n\n',
+    md: '[*foo* bar]: /url "title"\n\n[*foo* bar]\n\n',
     html: '<p><a href="/url" title="title"><em>foo</em> bar</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'shortcut',
+      emDelimiter: '*',
+    },
   },
   {
     index: 567,
-    md: '[[*foo* bar]]\n\n[*foo* bar]: /url "title"\n\n',
+    md: '[*foo* bar]: /url "title"\n\n\\[[*foo* bar]\\]\n\n',
     html: '<p>[<a href="/url" title="title"><em>foo</em> bar</a>]</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'shortcut',
+      emDelimiter: '*',
+    },
   },
   {
     index: 568,
-    md: '[[bar [foo]\n\n[foo]: /url\n\n',
+    md: '[foo]: /url\n\n\\[\\[bar [foo]\n\n',
     html: '<p>[[bar <a href="/url">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'shortcut',
+    },
   },
-  {
-    index: 569,
-    md: '[Foo]\n\n[foo]: /url "title"\n\n',
-    html: '<p><a href="/url" title="title">Foo</a></p>\n\n',
-  },
+  // {
+  //   index: 569,
+  //   md: '[Foo]\n\n[foo]: /url "title"\n\n',
+  //   html: '<p><a href="/url" title="title">Foo</a></p>\n\n',
+  //   option:{
+  //     linkStyle: 'referenced',
+  //     linkReferenceStyle:'shortcut'
+  //   }
+  // },
   {
     index: 570,
-    md: '[foo] bar\n\n[foo]: /url\n\n',
+    md: '[foo]: /url\n\n[foo] bar\n\n',
     html: '<p><a href="/url">foo</a> bar</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'shortcut',
+    },
   },
-  {
-    index: 571,
-    md: '\\[foo]\n\n[foo]: /url "title"\n\n',
-    html: '<p>[foo]</p>\n\n',
-  },
+  // {
+  //   index: 571,
+  //   md: '\\[foo]\n\n[foo]: /url "title"\n\n',
+  //   html: '<p>[foo]</p>\n\n',
+  //      option:{
+  //     linkStyle: 'referenced',
+  //     linkReferenceStyle:'shortcut'
+  //   }
+  // },
   {
     index: 572,
-    md: '[foo*]: /url\n\n*[foo*]\n\n',
+    md: '[foo\\*]: /url\n\n\\*[foo\\*]\n\n',
     html: '<p>*<a href="/url">foo*</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'shortcut',
+    },
   },
-  {
-    index: 573,
-    md: '[foo][bar]\n\n[foo]: /url1\n[bar]: /url2\n\n',
-    html: '<p><a href="/url2">foo</a></p>\n\n',
-  },
+  // {
+  //   index: 573,
+  //   md: '[foo][bar]\n\n[foo]: /url1\n[bar]: /url2\n\n',
+  //   html: '<p><a href="/url2">foo</a></p>\n\n',
+  //      option:{
+  //     linkStyle: 'referenced',
+  //   }
+  // },
   {
     index: 574,
-    md: '[foo][]\n\n[foo]: /url1\n\n',
+    md: '[foo]: /url1\n\n[foo][]\n\n',
     html: '<p><a href="/url1">foo</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'collapsed',
+    },
   },
-  {
-    index: 575,
-    md: '[foo]()\n\n[foo]: /url1\n\n',
-    html: '<p><a href="">foo</a></p>\n\n',
-  },
+  // {
+  //   index: 575,
+  //   md: '[foo]()\n\n[foo]: /url1\n\n',
+  //   html: '<p><a href="">foo</a></p>\n\n',
+  //   option: {
+  //     linkStyle: 'referenced',
+  //     linkReferenceStyle: 'collapsed',
+  //   },
+  // },
   {
     index: 576,
-    md: '[foo](not a link)\n\n[foo]: /url1\n\n',
+    // md: '[foo](not a link)\n\n[foo]: /url1\n\n',
+    md: '[foo]: /url1\n' + '\n' + '[foo]\\(not a link\\)\n\n',
     html: '<p><a href="/url1">foo</a>(not a link)</p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'shortcut',
+    },
   },
   {
     index: 577,
-    md: '[foo][bar][baz]\n\n[baz]: /url\n\n',
+    // md: '[foo][bar][baz]\n\n[baz]: /url\n\n',
+    md: '[bar]: /url\n' + '\n' + '\\[foo\\][bar]\n\n',
     html: '<p>[foo]<a href="/url">bar</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'shortcut',
+    },
   },
   {
     index: 578,
-    md: '[foo][bar][baz]\n\n[baz]: /url1\n[bar]: /url2\n\n',
+    // md: '[foo][bar][baz]\n\n[baz]: /url1\n[bar]: /url2\n\n',
+    md:
+      '[ref]: /url2\n' + '[ref2]: /url1\n' + '\n' + '[foo][ref][baz][ref2]\n\n',
     html: '<p><a href="/url2">foo</a><a href="/url1">baz</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+    },
   },
   {
     index: 579,
-    md: '[foo][bar][baz]\n\n[baz]: /url1\n[foo]: /url2\n\n',
+    // md: '[foo][bar][baz]\n\n[baz]: /url1\n[foo]: /url2\n\n',
+    md: '[bar]: /url1\n' + '\n' + '\\[foo\\][bar]\n\n',
     html: '<p>[foo]<a href="/url1">bar</a></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      linkReferenceStyle: 'shortcut',
+    },
   },
   {
     index: 580,
