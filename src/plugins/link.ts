@@ -11,11 +11,16 @@ export const applyLinkRule = (turndownService: TurndownService) => {
 
     replacement: function(content, node) {
       var href = (node as HTMLElement).getAttribute('href');
+      // Info:autolink
+      var normalizeHref = href
+        ? decodeURIComponent(href).replace('mailto:', '')
+        : '';
+      if (node.firstChild && normalizeHref === node.firstChild.nodeValue) {
+        return '<' + node.firstChild.nodeValue + '>';
+      }
       if (
         href &&
-        decodeURIComponent(href)
-          .split('')
-          .some(char => specialChars.includes(char))
+        normalizeHref.split('').some(char => specialChars.includes(char))
       ) {
         href = '<' + decodeURIComponent(href) + '>';
       }

@@ -25,8 +25,8 @@ Examples.forEach(example => {
 
 describe('GFM', () => {
   (Examples as Example[])
-    .filter(example => example.index <= 601)
-    // .filter(example => example.index > 586 && example.index <= 590)
+    .filter(example => example.index <= 620)
+    // .filter(example => example.index > 601 && example.index == 612)
     .forEach(example => {
       let sitdown = new Sitdown();
       it(`gfm example${example.index} html to markdown works`, () => {

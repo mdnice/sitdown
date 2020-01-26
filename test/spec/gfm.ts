@@ -3503,8 +3503,7 @@ export default [
   },
   {
     index: 534,
-    md:
-      '\\[foo[http://example.com/\\?search=\\]\\(uri\\)](<http://example.com/?search=](uri)>)\n\n',
+    md: '\\[foo<http://example.com/?search=](uri)>\n\n',
     html:
       '<p>[foo<a href="http://example.com/?search=%5D(uri)">http://example.com/?search=](uri)</a></p>\n\n',
   },
@@ -4086,7 +4085,7 @@ export default [
   },
   {
     index: 610,
-    md: '<http://foo.bar/baz bim>\n\n',
+    md: '\\<http://foo.bar/baz bim>\n\n',
     html: '<p>&lt;http://foo.bar/baz bim&gt;</p>\n\n',
   },
   {
@@ -4109,27 +4108,27 @@ export default [
   },
   {
     index: 614,
-    md: '<foo\\+@bar.example.com>\n\n',
+    md: '\\<foo+\\@bar.example.com>\n\n',
     html: '<p>&lt;foo+@bar.example.com&gt;</p>\n\n',
   },
   {
     index: 615,
-    md: '<>\n\n',
+    md: '\\<>\n\n',
     html: '<p>&lt;&gt;</p>\n\n',
   },
   {
     index: 616,
-    md: '< http://foo.bar >\n\n',
+    md: '\\< http://foo.bar >\n\n',
     html: '<p>&lt; http://foo.bar &gt;</p>\n\n',
   },
   {
     index: 617,
-    md: '<m:abc>\n\n',
+    md: '\\<m:abc>\n\n',
     html: '<p>&lt;m:abc&gt;</p>\n\n',
   },
   {
     index: 618,
-    md: '<foo.bar.baz>\n\n',
+    md: '\\<foo.bar.baz>\n\n',
     html: '<p>&lt;foo.bar.baz&gt;</p>\n\n',
   },
   {
@@ -4139,7 +4138,7 @@ export default [
   },
   {
     index: 620,
-    md: 'foo@bar.example.com\n\n',
+    md: 'foo\\@bar.example.com\n\n',
     html: '<p>foo@bar.example.com</p>\n\n',
   },
   {
