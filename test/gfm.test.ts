@@ -25,7 +25,7 @@ Examples.forEach(example => {
 
 describe('GFM', () => {
   (Examples as Example[])
-    .filter(example => example.index <= 620)
+    .filter(example => example.index <= 631)
     // .filter(example => example.index > 601 && example.index == 612)
     .forEach(example => {
       let sitdown = new Sitdown();

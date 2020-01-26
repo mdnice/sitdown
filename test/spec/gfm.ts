@@ -2199,13 +2199,12 @@ export default [
       fence: '~~~',
     },
   },
-  // Todo:支持自动链接后
-  // {
-  //   index: 316,
-  //   md: '<http://example.com?find=\\*>\n\n',
-  //   html:
-  //     '<p><a href="http://example.com?find=%5C*">http://example.com?find=\\*</a></p>\n\n',
-  // },
+  {
+    index: 316,
+    md: '<http://example.com?find=\\*>\n\n',
+    html:
+      '<p><a href="http://example.com?find=%5C*">http://example.com?find=\\*</a></p>\n\n',
+  },
   // {
   //   index: 317,
   //   md: '<a href="/bar\\/)">\n\n',
@@ -2411,12 +2410,11 @@ export default [
     md: '`<http://foo.bar.`baz>\\`\n\n',
     html: '<p><code>&lt;http://foo.bar.</code>baz&gt;`</p>\n\n',
   },
-  // Todo：自动链接
-  // {
-  //   index: 356,
-  //   md: '<http://foo.bar.`baz>`\n\n',
-  //   html: '<p><a href="http://foo.bar.%60baz">http://foo.bar.`baz</a>`</p>\n\n',
-  // },
+  {
+    index: 356,
+    md: '<http://foo.bar.`baz>\\`\n\n',
+    html: '<p><a href="http://foo.bar.%60baz">http://foo.bar.`baz</a>`</p>\n\n',
+  },
   {
     index: 357,
     md: '\\`\\`\\`foo\\`\\`\n\n',
@@ -3233,7 +3231,6 @@ export default [
     md: '\\*![](foo "*")\n\n',
     html: '<p>*<img src="foo" alt="" title="*"/></p>\n\n',
   },
-  // Todo：链接完成后
   // {
   //   index: 485,
   //   md: '\\*\\*<a href="**">\n\n',
@@ -3257,19 +3254,18 @@ export default [
     md: '_a `_`_\n\n',
     html: '<p><em>a <code>_</code></em></p>\n\n',
   },
-  // Todo：自动链接
-  // {
-  //   index: 489,
-  //   md: '**a<http://foo.bar/?q=**>\n\n',
-  //   html:
-  //     '<p>**a<a href="http://foo.bar/?q=**">http://foo.bar/?q=**</a></p>\n\n',
-  // },
-  // {
-  //   index: 490,
-  //   md: '__a<http://foo.bar/?q=__>\n\n',
-  //   html:
-  //     '<p>__a<a href="http://foo.bar/?q=__">http://foo.bar/?q=__</a></p>\n\n',
-  // },
+  {
+    index: 489,
+    md: '\\*\\*a<http://foo.bar/?q=**>\n\n',
+    html:
+      '<p>**a<a href="http://foo.bar/?q=**">http://foo.bar/?q=**</a></p>\n\n',
+  },
+  {
+    index: 490,
+    md: '\\_\\_a<http://foo.bar/?q=__>\n\n',
+    html:
+      '<p>__a<a href="http://foo.bar/?q=__">http://foo.bar/?q=__</a></p>\n\n',
+  },
   {
     index: 491,
     md: '~~Hi~~ Hello, world\\!\n\n',
@@ -3467,7 +3463,7 @@ export default [
       emDelimiter: '*',
     },
   },
-  // Todo：图片
+  // Todo
   // {
   //   index: 528,
   //   md: '![[[foo](uri1)](uri2)](uri3)\n\n',
@@ -4141,75 +4137,75 @@ export default [
     md: 'foo\\@bar.example.com\n\n',
     html: '<p>foo@bar.example.com</p>\n\n',
   },
-  {
-    index: 621,
-    md: 'www.commonmark.org\n\n',
-    html:
-      '<p><a href="http://www.commonmark.org">www.commonmark.org</a></p>\n\n',
-  },
-  {
-    index: 622,
-    md: 'Visit www.commonmark.org/help for more information.\n\n',
-    html:
-      '<p>Visit <a href="http://www.commonmark.org/help">www.commonmark.org/help</a> for more information.</p>\n\n',
-  },
-  {
-    index: 623,
-    md: 'Visit www.commonmark.org.\n\nVisit www.commonmark.org/a.b.\n\n',
-    html:
-      '<p>Visit <a href="http://www.commonmark.org">www.commonmark.org</a>.</p>\n<p>Visit <a href="http://www.commonmark.org/a.b">www.commonmark.org/a.b</a>.</p>\n\n',
-  },
-  {
-    index: 624,
-    md:
-      'www.google.com/search?q=Markup+(business)\n\nwww.google.com/search?q=Markup+(business)))\n\n(www.google.com/search?q=Markup+(business))\n\n(www.google.com/search?q=Markup+(business)\n\n',
-    html:
-      '<p><a href="http://www.google.com/search?q=Markup+(business)">www.google.com/search?q=Markup+(business)</a></p>\n<p><a href="http://www.google.com/search?q=Markup+(business)">www.google.com/search?q=Markup+(business)</a>))</p>\n<p>(<a href="http://www.google.com/search?q=Markup+(business)">www.google.com/search?q=Markup+(business)</a>)</p>\n<p>(<a href="http://www.google.com/search?q=Markup+(business)">www.google.com/search?q=Markup+(business)</a></p>\n\n',
-  },
-  {
-    index: 625,
-    md: 'www.google.com/search?q=(business))+ok\n\n',
-    html:
-      '<p><a href="http://www.google.com/search?q=(business))+ok">www.google.com/search?q=(business))+ok</a></p>\n\n',
-  },
-  {
-    index: 626,
-    md:
-      'www.google.com/search?q=commonmark&hl=en\n\nwww.google.com/search?q=commonmark&hl;\n\n',
-    html:
-      '<p><a href="http://www.google.com/search?q=commonmark&amp;hl=en">www.google.com/search?q=commonmark&amp;hl=en</a></p>\n<p><a href="http://www.google.com/search?q=commonmark">www.google.com/search?q=commonmark</a>&amp;hl;</p>\n\n',
-  },
-  {
-    index: 627,
-    md: 'www.commonmark.org/he<lp\n\n',
-    html:
-      '<p><a href="http://www.commonmark.org/he">www.commonmark.org/he</a>&lt;lp</p>\n\n',
-  },
-  {
-    index: 628,
-    md:
-      'http://commonmark.org\n\n(Visit https://encrypted.google.com/search?q=Markup+(business))\n\n',
-    html:
-      '<p><a href="http://commonmark.org">http://commonmark.org</a></p>\n<p>(Visit <a href="https://encrypted.google.com/search?q=Markup+(business)">https://encrypted.google.com/search?q=Markup+(business)</a>)</p>\n\n',
-  },
-  {
-    index: 629,
-    md: 'foo@bar.baz\n\n',
-    html: '<p><a href="mailto:foo@bar.baz">foo@bar.baz</a></p>\n\n',
-  },
-  {
-    index: 630,
-    md:
-      "hello@mail+xyz.example isn't valid, but hello+xyz@mail.example is.\n\n",
-    html:
-      '<p>hello@mail+xyz.example isn\'t valid, but <a href="mailto:hello+xyz@mail.example">hello+xyz@mail.example</a> is.</p>\n\n',
-  },
-  {
-    index: 631,
-    md: 'a.b-c_d@a.b\n\na.b-c_d@a.b.\n\na.b-c_d@a.b-\n\na.b-c_d@a.b_\n\n',
-    html:
-      '<p><a href="mailto:a.b-c_d@a.b">a.b-c_d@a.b</a></p>\n<p><a href="mailto:a.b-c_d@a.b">a.b-c_d@a.b</a>.</p>\n<p>a.b-c_d@a.b-</p>\n<p>a.b-c_d@a.b_</p>\n\n',
-  },
+  // {
+  //   index: 621,
+  //   md: 'www.commonmark.org\n\n',
+  //   html:
+  //     '<p><a href="http://www.commonmark.org">www.commonmark.org</a></p>\n\n',
+  // },
+  // {
+  //   index: 622,
+  //   md: 'Visit www.commonmark.org/help for more information.\n\n',
+  //   html:
+  //     '<p>Visit <a href="http://www.commonmark.org/help">www.commonmark.org/help</a> for more information.</p>\n\n',
+  // },
+  // {
+  //   index: 623,
+  //   md: 'Visit www.commonmark.org.\n\nVisit www.commonmark.org/a.b.\n\n',
+  //   html:
+  //     '<p>Visit <a href="http://www.commonmark.org">www.commonmark.org</a>.</p>\n<p>Visit <a href="http://www.commonmark.org/a.b">www.commonmark.org/a.b</a>.</p>\n\n',
+  // },
+  // {
+  //   index: 624,
+  //   md:
+  //     'www.google.com/search?q=Markup+(business)\n\nwww.google.com/search?q=Markup+(business)))\n\n(www.google.com/search?q=Markup+(business))\n\n(www.google.com/search?q=Markup+(business)\n\n',
+  //   html:
+  //     '<p><a href="http://www.google.com/search?q=Markup+(business)">www.google.com/search?q=Markup+(business)</a></p>\n<p><a href="http://www.google.com/search?q=Markup+(business)">www.google.com/search?q=Markup+(business)</a>))</p>\n<p>(<a href="http://www.google.com/search?q=Markup+(business)">www.google.com/search?q=Markup+(business)</a>)</p>\n<p>(<a href="http://www.google.com/search?q=Markup+(business)">www.google.com/search?q=Markup+(business)</a></p>\n\n',
+  // },
+  // {
+  //   index: 625,
+  //   md: 'www.google.com/search?q=(business))+ok\n\n',
+  //   html:
+  //     '<p><a href="http://www.google.com/search?q=(business))+ok">www.google.com/search?q=(business))+ok</a></p>\n\n',
+  // },
+  // {
+  //   index: 626,
+  //   md:
+  //     'www.google.com/search?q=commonmark&hl=en\n\nwww.google.com/search?q=commonmark&hl;\n\n',
+  //   html:
+  //     '<p><a href="http://www.google.com/search?q=commonmark&amp;hl=en">www.google.com/search?q=commonmark&amp;hl=en</a></p>\n<p><a href="http://www.google.com/search?q=commonmark">www.google.com/search?q=commonmark</a>&amp;hl;</p>\n\n',
+  // },
+  // {
+  //   index: 627,
+  //   md: 'www.commonmark.org/he<lp\n\n',
+  //   html:
+  //     '<p><a href="http://www.commonmark.org/he">www.commonmark.org/he</a>&lt;lp</p>\n\n',
+  // },
+  // {
+  //   index: 628,
+  //   md:
+  //     'http://commonmark.org\n\n(Visit https://encrypted.google.com/search?q=Markup+(business))\n\n',
+  //   html:
+  //     '<p><a href="http://commonmark.org">http://commonmark.org</a></p>\n<p>(Visit <a href="https://encrypted.google.com/search?q=Markup+(business)">https://encrypted.google.com/search?q=Markup+(business)</a>)</p>\n\n',
+  // },
+  // {
+  //   index: 629,
+  //   md: 'foo@bar.baz\n\n',
+  //   html: '<p><a href="mailto:foo@bar.baz">foo@bar.baz</a></p>\n\n',
+  // },
+  // {
+  //   index: 630,
+  //   md:
+  //     "hello@mail+xyz.example isn't valid, but hello+xyz@mail.example is.\n\n",
+  //   html:
+  //     '<p>hello@mail+xyz.example isn\'t valid, but <a href="mailto:hello+xyz@mail.example">hello+xyz@mail.example</a> is.</p>\n\n',
+  // },
+  // {
+  //   index: 631,
+  //   md: 'a.b-c_d@a.b\n\na.b-c_d@a.b.\n\na.b-c_d@a.b-\n\na.b-c_d@a.b_\n\n',
+  //   html:
+  //     '<p><a href="mailto:a.b-c_d@a.b">a.b-c_d@a.b</a></p>\n<p><a href="mailto:a.b-c_d@a.b">a.b-c_d@a.b</a>.</p>\n<p>a.b-c_d@a.b-</p>\n<p>a.b-c_d@a.b_</p>\n\n',
+  // },
   {
     index: 632,
     md: '<a><bab><c2c>\n\n',
