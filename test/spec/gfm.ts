@@ -3922,32 +3922,41 @@ export default [
   },
   {
     index: 581,
-    md: '![foo *bar*]\n\n[foo *bar*]: train.jpg "train & tracks"\n\n',
+    // md: '![foo *bar*]\n\n[foo *bar*]: train.jpg "train & tracks"\n\n',
+    md: '![foo bar](train.jpg "train & tracks")\n\n',
     html:
       '<p><img src="train.jpg" alt="foo bar" title="train &amp; tracks" /></p>\n\n',
+    option: {
+      linkStyle: 'referenced',
+      emDelimiter: '*',
+    },
   },
-  {
-    index: 582,
-    md: '![foo ![bar](/url)](/url2)\n\n',
-    html: '<p><img src="/url2" alt="foo bar" /></p>\n\n',
-  },
-  {
-    index: 583,
-    md: '![foo [bar](/url)](/url2)\n\n',
-    html: '<p><img src="/url2" alt="foo bar" /></p>\n\n',
-  },
-  {
-    index: 584,
-    md: '![foo *bar*][]\n\n[foo *bar*]: train.jpg "train & tracks"\n\n',
-    html:
-      '<p><img src="train.jpg" alt="foo bar" title="train &amp; tracks" /></p>\n\n',
-  },
-  {
-    index: 585,
-    md: '![foo *bar*][foobar]\n\n[FOOBAR]: train.jpg "train & tracks"\n\n',
-    html:
-      '<p><img src="train.jpg" alt="foo bar" title="train &amp; tracks" /></p>\n\n',
-  },
+  // {
+  //   index: 582,
+  //   md: '![foo ![bar](/url)](/url2)\n\n',
+  //   html: '<p><img src="/url2" alt="foo bar" /></p>\n\n',
+  // },
+  // {
+  //   index: 583,
+  //   md: '![foo [bar](/url)](/url2)\n\n',
+  //   html: '<p><img src="/url2" alt="foo bar" /></p>\n\n',
+  // },
+  // {
+  //   index: 584,
+  //   md: '![foo *bar*][]\n\n[foo *bar*]: train.jpg "train & tracks"\n\n',
+  //   html:
+  //     '<p><img src="train.jpg" alt="foo bar" title="train &amp; tracks" /></p>\n\n',
+  //   option:{
+  //     linkStyle:'referenced',
+  //     emDelimiter: '*',
+  //   }
+  // },
+  // {
+  //   index: 585,
+  //   md: '![foo *bar*][foobar]\n\n[FOOBAR]: train.jpg "train & tracks"\n\n',
+  //   html:
+  //     '<p><img src="train.jpg" alt="foo bar" title="train &amp; tracks" /></p>\n\n',
+  // },
   {
     index: 586,
     md: '![foo](train.jpg)\n\n',
@@ -3955,13 +3964,13 @@ export default [
   },
   {
     index: 587,
-    md: 'My ![foo bar](/path/to/train.jpg  "title"   )\n\n',
+    md: 'My ![foo bar](/path/to/train.jpg "title")\n\n',
     html:
       '<p>My <img src="/path/to/train.jpg" alt="foo bar" title="title" /></p>\n\n',
   },
   {
     index: 588,
-    md: '![foo](<url>)\n\n',
+    md: '![foo](url)\n\n',
     html: '<p><img src="url" alt="foo" /></p>\n\n',
   },
   {
@@ -3969,66 +3978,69 @@ export default [
     md: '![](/url)\n\n',
     html: '<p><img src="/url" alt="" /></p>\n\n',
   },
-  {
-    index: 590,
-    md: '![foo][bar]\n\n[bar]: /url\n\n',
-    html: '<p><img src="/url" alt="foo" /></p>\n\n',
-  },
-  {
-    index: 591,
-    md: '![foo][bar]\n\n[BAR]: /url\n\n',
-    html: '<p><img src="/url" alt="foo" /></p>\n\n',
-  },
-  {
-    index: 592,
-    md: '![foo][]\n\n[foo]: /url "title"\n\n',
-    html: '<p><img src="/url" alt="foo" title="title" /></p>\n\n',
-  },
-  {
-    index: 593,
-    md: '![*foo* bar][]\n\n[*foo* bar]: /url "title"\n\n',
-    html: '<p><img src="/url" alt="foo bar" title="title" /></p>\n\n',
-  },
-  {
-    index: 594,
-    md: '![Foo][]\n\n[foo]: /url "title"\n\n',
-    html: '<p><img src="/url" alt="Foo" title="title" /></p>\n\n',
-  },
-  {
-    index: 595,
-    md: '![foo] \n[]\n\n[foo]: /url "title"\n\n',
-    html: '<p><img src="/url" alt="foo" title="title" />\n[]</p>\n\n',
-  },
-  {
-    index: 596,
-    md: '![foo]\n\n[foo]: /url "title"\n\n',
-    html: '<p><img src="/url" alt="foo" title="title" /></p>\n\n',
-  },
-  {
-    index: 597,
-    md: '![*foo* bar]\n\n[*foo* bar]: /url "title"\n\n',
-    html: '<p><img src="/url" alt="foo bar" title="title" /></p>\n\n',
-  },
-  {
-    index: 598,
-    md: '![[foo]]\n\n[[foo]]: /url "title"\n\n',
-    html: '<p>![[foo]]</p>\n<p>[[foo]]: /url &quot;title&quot;</p>\n\n',
-  },
-  {
-    index: 599,
-    md: '![Foo]\n\n[foo]: /url "title"\n\n',
-    html: '<p><img src="/url" alt="Foo" title="title" /></p>\n\n',
-  },
-  {
-    index: 600,
-    md: '!\\[foo]\n\n[foo]: /url "title"\n\n',
-    html: '<p>![foo]</p>\n\n',
-  },
-  {
-    index: 601,
-    md: '\\![foo]\n\n[foo]: /url "title"\n\n',
-    html: '<p>!<a href="/url" title="title">foo</a></p>\n\n',
-  },
+  // {
+  //   index: 590,
+  //   md: '![foo][bar]\n\n[bar]: /url\n\n',
+  //   html: '<p><img src="/url" alt="foo" /></p>\n\n',
+  //   option:{
+  //     linkStyle:'referenced',
+  //   }
+  // },
+  // {
+  //   index: 591,
+  //   md: '![foo][bar]\n\n[BAR]: /url\n\n',
+  //   html: '<p><img src="/url" alt="foo" /></p>\n\n',
+  // },
+  // {
+  //   index: 592,
+  //   md: '![foo][]\n\n[foo]: /url "title"\n\n',
+  //   html: '<p><img src="/url" alt="foo" title="title" /></p>\n\n',
+  // },
+  // {
+  //   index: 593,
+  //   md: '![*foo* bar][]\n\n[*foo* bar]: /url "title"\n\n',
+  //   html: '<p><img src="/url" alt="foo bar" title="title" /></p>\n\n',
+  // },
+  // {
+  //   index: 594,
+  //   md: '![Foo][]\n\n[foo]: /url "title"\n\n',
+  //   html: '<p><img src="/url" alt="Foo" title="title" /></p>\n\n',
+  // },
+  // {
+  //   index: 595,
+  //   md: '![foo] \n[]\n\n[foo]: /url "title"\n\n',
+  //   html: '<p><img src="/url" alt="foo" title="title" />\n[]</p>\n\n',
+  // },
+  // {
+  //   index: 596,
+  //   md: '![foo]\n\n[foo]: /url "title"\n\n',
+  //   html: '<p><img src="/url" alt="foo" title="title" /></p>\n\n',
+  // },
+  // {
+  //   index: 597,
+  //   md: '![*foo* bar]\n\n[*foo* bar]: /url "title"\n\n',
+  //   html: '<p><img src="/url" alt="foo bar" title="title" /></p>\n\n',
+  // },
+  // {
+  //   index: 598,
+  //   md: '![[foo]]\n\n[[foo]]: /url "title"\n\n',
+  //   html: '<p>![[foo]]</p>\n<p>[[foo]]: /url &quot;title&quot;</p>\n\n',
+  // },
+  // {
+  //   index: 599,
+  //   md: '![Foo]\n\n[foo]: /url "title"\n\n',
+  //   html: '<p><img src="/url" alt="Foo" title="title" /></p>\n\n',
+  // },
+  // {
+  //   index: 600,
+  //   md: '!\\[foo]\n\n[foo]: /url "title"\n\n',
+  //   html: '<p>![foo]</p>\n\n',
+  // },
+  // {
+  //   index: 601,
+  //   md: '\\![foo]\n\n[foo]: /url "title"\n\n',
+  //   html: '<p>!<a href="/url" title="title">foo</a></p>\n\n',
+  // },
   {
     index: 602,
     md: '<http://foo.bar.baz>\n\n',
