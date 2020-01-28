@@ -4324,101 +4324,115 @@ export default [
     md: '\\<a href=""">\n\n',
     html: '<p>&lt;a href=&quot;&quot;&quot;&gt;</p>\n\n',
   },
-  {
-    index: 653,
-    md:
-      '<strong> <title> <style> <em>\n\n<blockquote>\n  <xmp> is disallowed.  <XMP> is also disallowed.\n</blockquote>\n\n',
-    html:
-      '<p><strong> &lt;title> &lt;style> <em></p>\n<blockquote>\n  &lt;xmp> is disallowed.  &lt;XMP> is also disallowed.\n</blockquote>\n\n',
-  },
+  // Todo:消毒无效标签
+  // {
+  //   index: 653,
+  //   // md:
+  //   //   '<strong> <title> <style> <em>\n\n<blockquote>\n  <xmp> is disallowed.  <XMP> is also disallowed.\n</blockquote>\n\n',
+  //   md:
+  //     '<strong>&lt;title&gt; &lt;style&gt;<em></em></strong>\n' +
+  //       '\n' +
+  //       '<strong><em><blockquote>&lt;xmp&gt; is disallowed. &lt;XMP&gt; is also disallowed.</blockquote></em></strong>\n\n',
+  //   html:
+  //     '<p><strong> &lt;title> &lt;style> <em></p>\n<blockquote>\n  &lt;xmp> is disallowed.  &lt;XMP> is also disallowed.\n</blockquote>\n\n',
+  //         option:{
+  //             keepFilter: ['strong','em'],
+  //         }
+  // },
   {
     index: 654,
     md: 'foo  \nbaz\n\n',
     html: '<p>foo<br />\nbaz</p>\n\n',
   },
-  {
-    index: 655,
-    md: 'foo\\\nbaz\n\n',
-    html: '<p>foo<br />\nbaz</p>\n\n',
-  },
+  // {
+  //   index: 655,
+  //   md: 'foo\\\nbaz\n\n',
+  //   html: '<p>foo<br />\nbaz</p>\n\n',
+  // },
   {
     index: 656,
-    md: 'foo       \nbaz\n\n',
+    md: 'foo  \nbaz\n\n',
     html: '<p>foo<br />\nbaz</p>\n\n',
   },
   {
     index: 657,
-    md: 'foo  \n     bar\n\n',
+    md: 'foo  \nbar\n\n',
     html: '<p>foo<br />\nbar</p>\n\n',
   },
-  {
-    index: 658,
-    md: 'foo\\\n     bar\n\n',
-    html: '<p>foo<br />\nbar</p>\n\n',
-  },
+  // {
+  //   index: 658,
+  //   md: 'foo\\\n     bar\n\n',
+  //   html: '<p>foo<br />\nbar</p>\n\n',
+  // },
   {
     index: 659,
     md: '*foo  \nbar*\n\n',
     html: '<p><em>foo<br />\nbar</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 660,
-    md: '*foo\\\nbar*\n\n',
+    md: '*foo  \nbar*\n\n',
     html: '<p><em>foo<br />\nbar</em></p>\n\n',
+    option: {
+      emDelimiter: '*',
+    },
   },
   {
     index: 661,
-    md: '`code  \nspan`\n\n',
+    md: '`code span`\n\n',
     html: '<p><code>code   span</code></p>\n\n',
   },
   {
     index: 662,
-    md: '`code\\\nspan`\n\n',
+    md: '`code\\ span`\n\n',
     html: '<p><code>code\\ span</code></p>\n\n',
   },
-  {
-    index: 663,
-    md: '<a href="foo  \nbar">\n\n',
-    html: '<p><a href="foo  \nbar"></p>\n\n',
-  },
-  {
-    index: 664,
-    md: '<a href="foo\\\nbar">\n\n',
-    html: '<p><a href="foo\\\nbar"></p>\n\n',
-  },
+  // {
+  //   index: 663,
+  //   md: '<a href="foo  \nbar">\n\n',
+  //   html: '<p><a href="foo  \nbar"></p>\n\n',
+  // },
+  // {
+  //   index: 664,
+  //   md: '<a href="foo\\\nbar">\n\n',
+  //   html: '<p><a href="foo\\\nbar"></p>\n\n',
+  // },
   {
     index: 665,
-    md: 'foo\\\n\n',
+    md: 'foo\\\\\n\n',
     html: '<p>foo\\</p>\n\n',
   },
   {
     index: 666,
-    md: 'foo  \n\n',
+    md: 'foo\n\n',
     html: '<p>foo</p>\n\n',
   },
   {
     index: 667,
-    md: '### foo\\\n\n',
+    md: '### foo\\\\\n\n',
     html: '<h3>foo\\</h3>\n\n',
   },
   {
     index: 668,
-    md: '### foo  \n\n',
+    md: '### foo\n\n',
     html: '<h3>foo</h3>\n\n',
   },
   {
     index: 669,
-    md: 'foo\nbaz\n\n',
+    md: 'foo baz\n\n',
     html: '<p>foo\nbaz</p>\n\n',
   },
-  {
-    index: 670,
-    md: 'foo \n baz\n\n',
-    html: '<p>foo\nbaz</p>\n\n',
-  },
+  // {
+  //   index: 670,
+  //   md: 'foo \n baz\n\n',
+  //   html: '<p>foo\nbaz</p>\n\n',
+  // },
   {
     index: 671,
-    md: "hello $.;'there\n\n",
+    md: "hello \\$.;'there\n\n",
     html: "<p>hello $.;'there</p>\n\n",
   },
   {
@@ -4428,7 +4442,7 @@ export default [
   },
   {
     index: 673,
-    md: 'Multiple     spaces\n\n',
+    md: 'Multiple spaces\n\n',
     html: '<p>Multiple     spaces</p>\n\n',
   },
 ];
