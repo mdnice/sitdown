@@ -5,75 +5,75 @@
 // TypeScript Version: 2.7
 
 declare class TurndownService {
-    constructor(options?: TurndownService.Options)
+  constructor(options?: TurndownService.Options);
 
-    addRule(key: string, rule: TurndownService.Rule): this;
-    keep(filter: TurndownService.Filter): this;
-    remove(filter: TurndownService.Filter): this;
-    use(plugins: TurndownService.Plugin | TurndownService.Plugin[]): this;
-    escape(str: string): string;
+  addRule(key: string, rule: TurndownService.Rule): this;
+  keep(filter: TurndownService.Filter): this;
+  remove(filter: TurndownService.Filter): this;
+  use(plugins: TurndownService.Plugin | TurndownService.Plugin[]): this;
+  escape(str: string): string;
 
-    turndown(html: string | TurndownService.Node): string;
+  turndown(html: string | TurndownService.Node): string;
 
-    options: TurndownService.Options;
-    rules: TurndownService.Rules;
+  options: TurndownService.Options;
+  rules: TurndownService.Rules;
 }
 
 export = TurndownService;
 
 declare namespace TurndownService {
-    interface Options {
-        headingStyle?: "setext" | "atx";
-        hr?: string;
-        br?: string;
-        bulletListMarker?: "-" | "+" | "*";
-        codeBlockStyle?: "indented" | "fenced";
-        emDelimiter?: "_" | "*";
-        fence?: "```" | "~~~";
-        strongDelimiter?: "__" | "**";
-        linkStyle?: "inlined" | "referenced";
-        linkReferenceStyle?: "full" | "collapsed" | "shortcut";
+  interface Options {
+    headingStyle?: 'setext' | 'atx';
+    hr?: string;
+    br?: string;
+    bulletListMarker?: '-' | '+' | '*';
+    codeBlockStyle?: 'indented' | 'fenced';
+    emDelimiter?: '_' | '*';
+    fence?: '```' | '~~~';
+    strongDelimiter?: '__' | '**';
+    linkStyle?: 'inlined' | 'referenced';
+    linkReferenceStyle?: 'full' | 'collapsed' | 'shortcut';
 
-        keepReplacement?: ReplacementFunction;
-        blankReplacement?: ReplacementFunction;
-        defaultReplacement?: ReplacementFunction;
-        keepFilter?: Filter;
-    }
+    keepReplacement?: ReplacementFunction;
+    blankReplacement?: ReplacementFunction;
+    defaultReplacement?: ReplacementFunction;
+    keepFilter?: Filter;
+  }
 
-    interface Rule {
-        references?: string[];
-        filter: Filter;
-        replacement?: ReplacementFunction;
-        append?: () => void;
-        unshift?: () => void;
-    }
+  interface Rule {
+    references?: string[];
+    filter: Filter;
+    replacement?: ReplacementFunction;
+    append?: () => void;
+    unshift?: () => void;
+  }
 
-    interface Rules {
-        options: Options;
-        array: Rule[];
+  interface Rules {
+    options: Options;
+    array: Rule[];
 
-        blankRule: ReplacementFunction;
-        defaultRule: ReplacementFunction;
-        keepReplacement: ReplacementFunction;
+    blankRule: ReplacementFunction;
+    defaultRule: ReplacementFunction;
+    keepReplacement: ReplacementFunction;
 
-        add(key: Filter, rule: Rule): void;
-        forEach(callback: (rule: Rule, index: number) => any): void;
-        forNode(node: Node): Rule;
-        keep(filter: Filter): void;
-        remove(filter: Filter): void;
-    }
+    add(key: Filter, rule: Rule): void;
+    forEach(callback: (rule: Rule, index: number) => any): void;
+    forNode(node: Node): Rule;
+    keep(filter: Filter): void;
+    remove(filter: Filter): void;
+  }
 
-    type Plugin = (service: TurndownService) => void;
-    type Node = HTMLElement;
+  type Plugin = (service: TurndownService) => void;
+  type Node = HTMLElement;
 
-    type Filter = TagName | TagName[] | FilterFunction;
-    type FilterFunction = (node: HTMLElement, options: Options) => boolean;
+  type Filter = TagName | TagName[] | FilterFunction;
+  type FilterFunction = (node: HTMLElement, options: Options) => boolean;
 
-    type ReplacementFunction = (
-        content: string,
-        node: Node,
-        options: Options,
-    ) => string;
+  type ReplacementFunction = (
+    content: string,
+    node: Node,
+    options: Options
+  ) => string;
 
-    type TagName = keyof HTMLElementTagNameMap;
+  type TagName = keyof HTMLElementTagNameMap;
 }
