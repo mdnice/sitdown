@@ -4241,61 +4241,61 @@ export default [
     md: '\\<33> \\<\\_\\_>\n\n',
     html: '<p>&lt;33&gt; &lt;__&gt;</p>\n\n',
   },
-  // {
-  //   index: 638,
-  //   md: '<a h*#ref="hi">\n\n',
-  //   html: '<p>&lt;a h*#ref=&quot;hi&quot;&gt;</p>\n\n',
-  // },
-  // {
-  //   index: 639,
-  //   md: "<a href=\"hi'> <a href=hi'>\n\n",
-  //   html: "<p>&lt;a href=&quot;hi'&gt; &lt;a href=hi'&gt;</p>\n\n",
-  // },
-  // {
-  //   index: 640,
-  //   md: '< a><\nfoo><bar/ >\n<foo bar=baz\nbim!bop />\n\n',
-  //   html:
-  //     '<p>&lt; a&gt;&lt;\nfoo&gt;&lt;bar/ &gt;\n&lt;foo bar=baz\nbim!bop /&gt;</p>\n\n',
-  // },
-  // {
-  //   index: 641,
-  //   md: "<a href='bar'title=title>\n\n",
-  //   html: "<p>&lt;a href='bar'title=title&gt;</p>\n\n",
-  // },
+  {
+    index: 638,
+    md: '\\<a h\\*#ref="hi">\n\n',
+    html: '<p>&lt;a h*#ref=&quot;hi&quot;&gt;</p>\n\n',
+  },
+  {
+    index: 639,
+    md: "\\<a href=\"hi'> \\<a href=hi'>\n\n",
+    html: "<p>&lt;a href=&quot;hi'&gt; &lt;a href=hi'&gt;</p>\n\n",
+  },
+  {
+    index: 640,
+    md: '\\< a>\\< foo>\\<bar/ > \\<foo bar=baz bim\\!bop />\n\n',
+    html:
+      '<p>&lt; a&gt;&lt;\nfoo&gt;&lt;bar/ &gt;\n&lt;foo bar=baz\nbim!bop /&gt;</p>\n\n',
+  },
+  {
+    index: 641,
+    md: "\\<a href='bar'title=title>\n\n",
+    html: "<p>&lt;a href='bar'title=title&gt;</p>\n\n",
+  },
   // {
   //   index: 642,
   //   md: '</a></foo >\n\n',
   //   html: '<p></a></foo ></p>\n\n',
   // },
-  // {
-  //   index: 643,
-  //   md: '</a href="foo">\n\n',
-  //   html: '<p>&lt;/a href=&quot;foo&quot;&gt;</p>\n\n',
-  // },
-  // {
-  //   index: 644,
-  //   md: 'foo <!-- this is a\ncomment - with hyphen -->\n\n',
-  //   html: '<p>foo <!-- this is a\ncomment - with hyphen --></p>\n\n',
-  // },
-  // {
-  //   index: 645,
-  //   md: 'foo <!-- not a comment -- two hyphens -->\n\n',
-  //   html: '<p>foo &lt;!-- not a comment -- two hyphens --&gt;</p>\n\n',
-  // },
-  // {
-  //   index: 646,
-  //   md: 'foo <!--> foo -->\n\nfoo <!-- foo--->\n\n',
-  //   html:
-  //     '<p>foo &lt;!--&gt; foo --&gt;</p>\n<p>foo &lt;!-- foo---&gt;</p>\n\n',
-  // },
+  {
+    index: 643,
+    md: '\\</a href="foo">\n\n',
+    html: '<p>&lt;/a href=&quot;foo&quot;&gt;</p>\n\n',
+  },
+  {
+    index: 644,
+    md: 'foo<!-- this is a\ncomment \\- with hyphen \\-->\n\n',
+    html: '<p>foo <!-- this is a\ncomment - with hyphen --></p>\n\n',
+  },
+  {
+    index: 645,
+    md: 'foo \\<\\!-- not a comment \\-- two hyphens \\-->\n\n',
+    html: '<p>foo &lt;!-- not a comment -- two hyphens --&gt;</p>\n\n',
+  },
+  {
+    index: 646,
+    md: 'foo \\<\\!--> foo \\-->\n\nfoo \\<\\!-- foo--->\n\n',
+    html:
+      '<p>foo &lt;!--&gt; foo --&gt;</p>\n<p>foo &lt;!-- foo---&gt;</p>\n\n',
+  },
   // {
   //   index: 647,
-  //   md: 'foo <?php echo $a; ?>\n\n',
+  //   md: 'foo<?php echo $a; ?>\n\n',
   //   html: '<p>foo <?php echo $a; ?></p>\n\n',
   // },
   // {
   //   index: 648,
-  //   md: 'foo <!ELEMENT br EMPTY>\n\n',
+  //   md: 'foo<!ELEMENT br EMPTY>\n\n',
   //   html: '<p>foo <!ELEMENT br EMPTY></p>\n\n',
   // },
   // {
@@ -4305,19 +4305,25 @@ export default [
   // },
   // {
   //   index: 650,
-  //   md: 'foo <a href="&ouml;">\n\n',
+  //   md: 'foo<a href="&ouml;">\n\n',
   //   html: '<p>foo <a href="&ouml;"></p>\n\n',
+  //     option:{
+  //         keepFilter: ['a'],
+  //     }
   // },
   // {
   //   index: 651,
-  //   md: 'foo <a href="\\*">\n\n',
+  //   md: 'foo<a href="\\*" />\n\n',
   //   html: '<p>foo <a href="\\*"></p>\n\n',
+  //     option:{
+  //         keepFilter: ['a'],
+  //     }
   // },
-  // {
-  //   index: 652,
-  //   md: '<a href="\\"">\n\n',
-  //   html: '<p>&lt;a href=&quot;&quot;&quot;&gt;</p>\n\n',
-  // },
+  {
+    index: 652,
+    md: '\\<a href=""">\n\n',
+    html: '<p>&lt;a href=&quot;&quot;&quot;&gt;</p>\n\n',
+  },
   {
     index: 653,
     md:
