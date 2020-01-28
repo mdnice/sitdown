@@ -1,4 +1,4 @@
-import TurndownService from '../../lib/turndown';
+import TurndownService from '../lib/turndown';
 import { Options } from '../types';
 
 export function IndentCodeIsListfirstChild(

@@ -1,4 +1,4 @@
-import TurndownService from '../../lib/turndown';
+import TurndownService from '../lib/turndown';
 // @ts-ignore
 import * as turndownPluginGfm from 'turndown-plugin-gfm';
 import { applyListRule } from './list';

@@ -1,5 +1,5 @@
 import { Options } from '../types';
-import TurndownService from '../../lib/turndown';
+import TurndownService from '../lib/turndown';
 
 export function isKeep(options: Options, node: TurndownService.Node): boolean {
   const filters = options.keepFilter ? options.keepFilter : ['div', 'style'];

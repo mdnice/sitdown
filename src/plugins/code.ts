@@ -1,4 +1,4 @@
-import TurndownService from 'turndown';
+import TurndownService from '../lib/turndown';
 import { Options } from '../types';
 
 export const applyCodeRule = (turndownService: TurndownService) => {

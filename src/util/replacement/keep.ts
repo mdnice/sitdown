@@ -1,4 +1,4 @@
-import TurndownService from '../../../lib/turndown';
+import TurndownService from '../../lib/turndown';
 
 export function keepReplacement(
   content: string,

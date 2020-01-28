@@ -1,5 +1,5 @@
 import { Options } from '../types';
-import TurndownService from 'turndown';
+import TurndownService from '../lib/turndown';
 
 export function isFence(options: Options, node: TurndownService.Node): boolean {
   return !!(

@@ -1,4 +1,4 @@
-import TurndownService from 'turndown';
+import TurndownService from '../lib/turndown';
 import { repeat, escape } from '../util';
 
 var escapes: [RegExp, string][] = [[/\s#/g, ' \\#']];

@@ -918,5 +918,4 @@ function canConvert (input) {
   )
 }
 
-module.exports = TurndownService;
-module.exports.default = TurndownService;
+export default TurndownService;

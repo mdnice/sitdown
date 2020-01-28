@@ -1,4 +1,4 @@
-import TurndownService, { Options } from 'turndown';
+import TurndownService, { Options } from '../lib/turndown';
 import {
   findOrderListIndentNumber,
   findParentNumber,

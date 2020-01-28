@@ -1,5 +1,5 @@
 // del
-import TurndownService from 'turndown';
+import TurndownService from '../lib/turndown';
 
 export const applyDelRule = (turndownService: TurndownService) => {
   turndownService.addRule('del', {

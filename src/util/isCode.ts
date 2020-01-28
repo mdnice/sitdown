@@ -1,4 +1,4 @@
-import TurndownService from '../../lib/turndown';
+import TurndownService from '../lib/turndown';
 
 export function isCode(node: TurndownService.Node) {
   var hasSiblings = node.previousSibling || node.nextSibling;

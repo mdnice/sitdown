@@ -1,4 +1,4 @@
-import TurndownService from '../../../../lib/turndown';
+import TurndownService from '../../../lib/turndown';
 import { findParentNumber } from '../../findParentNumber';
 import { repeat } from '../../repeat';
 import { IndentCodeIsListfirstChild } from '../../indentCodeIsListfirstChild';
