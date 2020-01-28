@@ -4206,115 +4206,118 @@ export default [
   //   html:
   //     '<p><a href="mailto:a.b-c_d@a.b">a.b-c_d@a.b</a></p>\n<p><a href="mailto:a.b-c_d@a.b">a.b-c_d@a.b</a>.</p>\n<p>a.b-c_d@a.b-</p>\n<p>a.b-c_d@a.b_</p>\n\n',
   // },
-  {
-    index: 632,
-    md: '<a><bab><c2c>\n\n',
-    html: '<p><a><bab><c2c></p>\n\n',
-  },
-  {
-    index: 633,
-    md: '<a/><b2/>\n\n',
-    html: '<p><a/><b2/></p>\n\n',
-  },
-  {
-    index: 634,
-    md: '<a  /><b2\ndata="foo" >\n\n',
-    html: '<p><a  /><b2\ndata="foo" ></p>\n\n',
-  },
-  {
-    index: 635,
-    md:
-      '<a foo="bar" bam = \'baz <em>"</em>\'\n_boolean zoop:33=zoop:33 />\n\n',
-    html:
-      '<p><a foo="bar" bam = \'baz <em>"</em>\'\n_boolean zoop:33=zoop:33 /></p>\n\n',
-  },
+  // {
+  //   index: 632,
+  //   md: '<a><bab><c2c>\n\n',
+  //   html: '<p><a><bab><c2c></p>\n\n',
+  // },
+  // {
+  //   index: 633,
+  //   md: '<a/><b2/>\n\n',
+  //   html: '<p><a/><b2/></p>\n\n',
+  // },
+  // {
+  //   index: 634,
+  //   md: '<a  /><b2\ndata="foo" >\n\n',
+  //   html: '<p><a  /><b2\ndata="foo" ></p>\n\n',
+  // },
+  // {
+  //   index: 635,
+  //   md:
+  //     '<a foo="bar" bam = \'baz <em>"</em>\'\n_boolean zoop:33=zoop:33 />\n\n',
+  //   html:
+  //     '<p><a foo="bar" bam = \'baz <em>"</em>\'\n_boolean zoop:33=zoop:33 /></p>\n\n',
+  // },
   {
     index: 636,
-    md: 'Foo <responsive-image src="foo.jpg" />\n\n',
+    md: 'Foo<responsive-image src="foo.jpg" />\n\n',
     html: '<p>Foo <responsive-image src="foo.jpg" /></p>\n\n',
+    option: {
+      keepFilter: ['responsive-image'],
+    },
   },
   {
     index: 637,
-    md: '<33> <__>\n\n',
+    md: '\\<33> \\<\\_\\_>\n\n',
     html: '<p>&lt;33&gt; &lt;__&gt;</p>\n\n',
   },
-  {
-    index: 638,
-    md: '<a h*#ref="hi">\n\n',
-    html: '<p>&lt;a h*#ref=&quot;hi&quot;&gt;</p>\n\n',
-  },
-  {
-    index: 639,
-    md: "<a href=\"hi'> <a href=hi'>\n\n",
-    html: "<p>&lt;a href=&quot;hi'&gt; &lt;a href=hi'&gt;</p>\n\n",
-  },
-  {
-    index: 640,
-    md: '< a><\nfoo><bar/ >\n<foo bar=baz\nbim!bop />\n\n',
-    html:
-      '<p>&lt; a&gt;&lt;\nfoo&gt;&lt;bar/ &gt;\n&lt;foo bar=baz\nbim!bop /&gt;</p>\n\n',
-  },
-  {
-    index: 641,
-    md: "<a href='bar'title=title>\n\n",
-    html: "<p>&lt;a href='bar'title=title&gt;</p>\n\n",
-  },
-  {
-    index: 642,
-    md: '</a></foo >\n\n',
-    html: '<p></a></foo ></p>\n\n',
-  },
-  {
-    index: 643,
-    md: '</a href="foo">\n\n',
-    html: '<p>&lt;/a href=&quot;foo&quot;&gt;</p>\n\n',
-  },
-  {
-    index: 644,
-    md: 'foo <!-- this is a\ncomment - with hyphen -->\n\n',
-    html: '<p>foo <!-- this is a\ncomment - with hyphen --></p>\n\n',
-  },
-  {
-    index: 645,
-    md: 'foo <!-- not a comment -- two hyphens -->\n\n',
-    html: '<p>foo &lt;!-- not a comment -- two hyphens --&gt;</p>\n\n',
-  },
-  {
-    index: 646,
-    md: 'foo <!--> foo -->\n\nfoo <!-- foo--->\n\n',
-    html:
-      '<p>foo &lt;!--&gt; foo --&gt;</p>\n<p>foo &lt;!-- foo---&gt;</p>\n\n',
-  },
-  {
-    index: 647,
-    md: 'foo <?php echo $a; ?>\n\n',
-    html: '<p>foo <?php echo $a; ?></p>\n\n',
-  },
-  {
-    index: 648,
-    md: 'foo <!ELEMENT br EMPTY>\n\n',
-    html: '<p>foo <!ELEMENT br EMPTY></p>\n\n',
-  },
-  {
-    index: 649,
-    md: 'foo <![CDATA[>&<]]>\n\n',
-    html: '<p>foo <![CDATA[>&<]]></p>\n\n',
-  },
-  {
-    index: 650,
-    md: 'foo <a href="&ouml;">\n\n',
-    html: '<p>foo <a href="&ouml;"></p>\n\n',
-  },
-  {
-    index: 651,
-    md: 'foo <a href="\\*">\n\n',
-    html: '<p>foo <a href="\\*"></p>\n\n',
-  },
-  {
-    index: 652,
-    md: '<a href="\\"">\n\n',
-    html: '<p>&lt;a href=&quot;&quot;&quot;&gt;</p>\n\n',
-  },
+  // {
+  //   index: 638,
+  //   md: '<a h*#ref="hi">\n\n',
+  //   html: '<p>&lt;a h*#ref=&quot;hi&quot;&gt;</p>\n\n',
+  // },
+  // {
+  //   index: 639,
+  //   md: "<a href=\"hi'> <a href=hi'>\n\n",
+  //   html: "<p>&lt;a href=&quot;hi'&gt; &lt;a href=hi'&gt;</p>\n\n",
+  // },
+  // {
+  //   index: 640,
+  //   md: '< a><\nfoo><bar/ >\n<foo bar=baz\nbim!bop />\n\n',
+  //   html:
+  //     '<p>&lt; a&gt;&lt;\nfoo&gt;&lt;bar/ &gt;\n&lt;foo bar=baz\nbim!bop /&gt;</p>\n\n',
+  // },
+  // {
+  //   index: 641,
+  //   md: "<a href='bar'title=title>\n\n",
+  //   html: "<p>&lt;a href='bar'title=title&gt;</p>\n\n",
+  // },
+  // {
+  //   index: 642,
+  //   md: '</a></foo >\n\n',
+  //   html: '<p></a></foo ></p>\n\n',
+  // },
+  // {
+  //   index: 643,
+  //   md: '</a href="foo">\n\n',
+  //   html: '<p>&lt;/a href=&quot;foo&quot;&gt;</p>\n\n',
+  // },
+  // {
+  //   index: 644,
+  //   md: 'foo <!-- this is a\ncomment - with hyphen -->\n\n',
+  //   html: '<p>foo <!-- this is a\ncomment - with hyphen --></p>\n\n',
+  // },
+  // {
+  //   index: 645,
+  //   md: 'foo <!-- not a comment -- two hyphens -->\n\n',
+  //   html: '<p>foo &lt;!-- not a comment -- two hyphens --&gt;</p>\n\n',
+  // },
+  // {
+  //   index: 646,
+  //   md: 'foo <!--> foo -->\n\nfoo <!-- foo--->\n\n',
+  //   html:
+  //     '<p>foo &lt;!--&gt; foo --&gt;</p>\n<p>foo &lt;!-- foo---&gt;</p>\n\n',
+  // },
+  // {
+  //   index: 647,
+  //   md: 'foo <?php echo $a; ?>\n\n',
+  //   html: '<p>foo <?php echo $a; ?></p>\n\n',
+  // },
+  // {
+  //   index: 648,
+  //   md: 'foo <!ELEMENT br EMPTY>\n\n',
+  //   html: '<p>foo <!ELEMENT br EMPTY></p>\n\n',
+  // },
+  // {
+  //   index: 649,
+  //   md: 'foo <![CDATA[>&<]]>\n\n',
+  //   html: '<p>foo <![CDATA[>&<]]></p>\n\n',
+  // },
+  // {
+  //   index: 650,
+  //   md: 'foo <a href="&ouml;">\n\n',
+  //   html: '<p>foo <a href="&ouml;"></p>\n\n',
+  // },
+  // {
+  //   index: 651,
+  //   md: 'foo <a href="\\*">\n\n',
+  //   html: '<p>foo <a href="\\*"></p>\n\n',
+  // },
+  // {
+  //   index: 652,
+  //   md: '<a href="\\"">\n\n',
+  //   html: '<p>&lt;a href=&quot;&quot;&quot;&gt;</p>\n\n',
+  // },
   {
     index: 653,
     md:

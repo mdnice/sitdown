@@ -2,8 +2,10 @@
 import TurndownService from '../../../lib/turndown';
 import { isCode } from '../isCode';
 import { isFence } from '../isFence';
+import { isKeep } from '../isKeep';
 import { fenceReplacement } from './fence';
 import { listReplacement } from './list';
+import { keepReplacement } from './keep';
 import { Options } from '../../types';
 
 export function blankReplacement(
@@ -11,7 +13,9 @@ export function blankReplacement(
   node: TurndownService.Node & { isBlock?: boolean },
   options: Options
 ) {
-  if (isFence(options, node)) {
+  if (isKeep(options, node)) {
+    return keepReplacement(content, node);
+  } else if (isFence(options, node)) {
     return fenceReplacement(content, node, options);
   } else if (isCode(node)) {
     var delimiter = options.codeDelimiter ? options.codeDelimiter : '`';
@@ -30,5 +34,6 @@ export function blankReplacement(
   } else if (node.nodeName.toLowerCase() === 'ul') {
     return content + '\n\n';
   }
+  debugger;
   return node.isBlock ? content + '\n\n' : '';
 }
