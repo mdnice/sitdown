@@ -14,11 +14,12 @@ import { applyBlockquoteRule } from './blockquote';
 import { applyEmRule } from './em';
 import { applyDelRule } from './del';
 import { applyLinkRule } from './link';
+
+import { isKeep } from '../util/isKeep';
 const gfm = turndownPluginGfm.gfm;
 const tables = turndownPluginGfm.tables;
 const strikethrough = turndownPluginGfm.strikethrough;
 
-const filters = ['div', 'style'];
 export default (turndownService: TurndownService) => {
   // Use the gfm plugin
   turndownService.use(gfm);
@@ -42,12 +43,8 @@ export default (turndownService: TurndownService) => {
     applyLinkRule,
   ]);
 
-  // turndownService.keep(['div', 'style']);
   turndownService.keep(node => {
-    const isKeep = filters.some(
-      filter => filter === node.nodeName.toLowerCase()
-    );
-    if (isKeep) {
+    if (isKeep(turndownService.options, node)) {
       if (node.parentNode) {
         const index = Array.from(node.parentNode.childNodes).findIndex(
           n => n === node

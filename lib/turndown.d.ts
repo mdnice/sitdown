@@ -37,6 +37,7 @@ declare namespace TurndownService {
         keepReplacement?: ReplacementFunction;
         blankReplacement?: ReplacementFunction;
         defaultReplacement?: ReplacementFunction;
+        keepFilter?: Filter;
     }
 
     interface Rule {
