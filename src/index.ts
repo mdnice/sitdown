@@ -1,17 +1,19 @@
 import applyPlugins from './plugins';
 import { blankReplacement, keepReplacement } from './util';
 import TurndownService from './lib/turndown';
+import TurndownServiceType from '@type/turndown';
 
 export class Sitdown {
-  defaultOptions: TurndownService.Options;
-  service: TurndownService;
+  defaultOptions: TurndownServiceType.Options;
+  service: TurndownServiceType;
 
-  constructor(options?: TurndownService.Options) {
+  constructor(options?: TurndownServiceType.Options) {
     this.defaultOptions = {
       headingStyle: 'atx',
       blankReplacement,
       keepReplacement,
     };
+    // @ts-ignore
     this.service = new TurndownService({
       ...this.defaultOptions,
       ...options,

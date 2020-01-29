@@ -1,5 +1,5 @@
 // blank
-import TurndownService from '../../lib/turndown';
+import TurndownService from '@type/turndown';
 import { isCode } from '../isCode';
 import { isFence } from '../isFence';
 import { isKeep } from '../isKeep';

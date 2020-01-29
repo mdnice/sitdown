@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import TurndownService from '@type/turndown';
 
 var escapes: [RegExp, string][] = [[/\s-/g, ' \\-']];
 

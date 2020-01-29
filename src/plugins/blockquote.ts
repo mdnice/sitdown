@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import TurndownService from '@type/turndown';
 
 export const applyBlockquoteRule = (turndownService: TurndownService) => {
   turndownService.addRule('hr', {

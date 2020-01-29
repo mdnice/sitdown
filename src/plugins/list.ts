@@ -1,5 +1,5 @@
 // list
-import TurndownService from '../lib/turndown';
+import TurndownService from '@type/turndown';
 import { listReplacement } from '../util';
 
 export const applyListRule = (turndownService: TurndownService) => {

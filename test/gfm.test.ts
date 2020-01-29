@@ -1,7 +1,7 @@
 // test
 import { Sitdown } from '../src';
 import Examples from './spec/gfm';
-import TurndownService from '../src/lib/turndown';
+import TurndownService from '@type/turndown';
 import MarkdownIt from 'markdown-it';
 import { RootNode } from './root';
 const taskList = require('./spec/md-it-plugin-taskList');

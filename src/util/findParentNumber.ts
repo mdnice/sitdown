@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import TurndownService from '@type/turndown';
 
 export function findParentNumber(
   node: TurndownService.Node,

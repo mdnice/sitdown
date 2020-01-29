@@ -1,5 +1,10 @@
 {
   "include": ["src", "types", "test"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/lib"
+  ],
   "compilerOptions": {
     "target": "es5",
     "module": "esnext",
@@ -22,11 +27,13 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "*": ["src/*", "node_modules/*","lib/*"]
+      "*": ["src/*", "node_modules/*","lib/*"],
+      "@type/*": ["src/types/*"]
     },
     "jsx": "react",
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "allowJs": true
+    "allowJs": true,
+    "declaration": false
   }
 }

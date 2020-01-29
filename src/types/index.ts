@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import TurndownService from '@type/turndown';
 
 export interface Options extends TurndownService.Options {
   startFence?: string;

@@ -19,8 +19,9 @@ declare class TurndownService {
   rules: TurndownService.Rules;
 }
 
-export = TurndownService;
+export default TurndownService;
 
+// eslint-disable-next-line @typescript-eslint/no-namespace
 declare namespace TurndownService {
   interface Options {
     headingStyle?: 'setext' | 'atx';
@@ -38,6 +39,7 @@ declare namespace TurndownService {
     blankReplacement?: ReplacementFunction;
     defaultReplacement?: ReplacementFunction;
     keepFilter?: Filter;
+    rules?: Rules;
   }
 
   interface Rule {
@@ -64,7 +66,7 @@ declare namespace TurndownService {
   }
 
   type Plugin = (service: TurndownService) => void;
-  type Node = HTMLElement;
+  type Node = HTMLElement & { isBlank?: boolean };
 
   type Filter = TagName | TagName[] | FilterFunction;
   type FilterFunction = (node: HTMLElement, options: Options) => boolean;
