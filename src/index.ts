@@ -1,7 +1,25 @@
-import TurndownService from 'turndown';
+import applyPlugins from './plugins';
+import { blankReplacement, keepReplacement } from './util';
+import TurndownService from './lib/turndown';
 
-const turndownService = new TurndownService({ headingStyle: 'atx' });
+export class Sitdown {
+  defaultOptions: TurndownService.Options;
+  service: TurndownService;
 
-export const sitdown = (html: string) => {
-  return turndownService.turndown(html);
-};
+  constructor(options?: TurndownService.Options) {
+    this.defaultOptions = {
+      headingStyle: 'atx',
+      blankReplacement,
+      keepReplacement,
+    };
+    this.service = new TurndownService({
+      ...this.defaultOptions,
+      ...options,
+    });
+    applyPlugins(this.service);
+  }
+
+  HTMLToMD(html: string) {
+    return this.service.turndown.call(this.service, html);
+  }
+}
