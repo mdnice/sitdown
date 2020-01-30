@@ -1,4 +1,5 @@
 {
+  "name": "sitdown",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -12,7 +13,8 @@
     "test": "tsdx test",
     "test:debug": "node --inspect node_modules/.bin/tsdx test --runInBand",
     "lint": "tsdx lint --fix",
-    "prepare": "tsdx build"
+    "prepare": "tsdx build",
+    "docs": "vuepress dev"
   },
   "peerDependencies": {},
   "husky": {
@@ -26,7 +28,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "",
   "author": "LinFeng1997",
   "module": "dist/.esm.js",
   "dependencies": {
@@ -40,6 +41,7 @@
     "markdown-it": "^10.0.0",
     "tsdx": "^0.12.0",
     "tslib": "^1.10.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "vuepress": "^1.2.0"
   }
 }

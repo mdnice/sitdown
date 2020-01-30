@@ -2,6 +2,22 @@
 
 This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
 
+## Installation
+
+## Usage
+
+## Options
+
+## Advanced Options
+
+## Methods
+
+## Extending with Rules
+
+## Plugins
+
+## Escaping Markdown Characters
+
 ## Local Development
 
 Below is a list.ts of commands you will probably find useful.

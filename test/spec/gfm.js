@@ -1,6 +1,6 @@
 // import TurndownService from "turndown";
 
-export default [
+module.exports = [
   {
     index: 1,
     md: '    foo→baz→→bim\n\n',
