@@ -11,7 +11,7 @@ import { Options } from '../../types';
 export function blankReplacement(
   content: string,
   node: TurndownService.Node & { isBlock?: boolean },
-  options: Options
+  options: Options & TurndownService.Options
 ) {
   if (isKeep(options, node)) {
     return keepReplacement(content, node);
@@ -34,6 +34,5 @@ export function blankReplacement(
   } else if (node.nodeName.toLowerCase() === 'ul') {
     return content + '\n\n';
   }
-  debugger;
   return node.isBlock ? content + '\n\n' : '';
 }
