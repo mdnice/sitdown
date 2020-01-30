@@ -14,7 +14,10 @@
     "test:debug": "node --inspect node_modules/.bin/tsdx test --runInBand",
     "lint": "tsdx lint --fix",
     "prepare": "tsdx build",
-    "docs": "npm run build && vuepress dev"
+    "docs": "npm run build && vuepress dev",
+    "patch": "npm run build && npm version patch && npm publish",
+    "minor": "npm run build && npm version minor && npm publish",
+    "major": "npm run build && npm version major && npm publish"
   },
   "peerDependencies": {},
   "husky": {
