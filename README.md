@@ -1,5 +1,5 @@
 # SitDown
-Convert HTML into Markdown with JavaScript.
+Convert HTML into Markdown with JavaScript.Support GitHub Flavored Markdown Spec.
 
 Learn from [turndown](https://github.com/domchristie/turndown).
 
@@ -8,7 +8,7 @@ This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
 ## Installation
 npm:
 
-    npm install turndown
+    npm install sitdown
     
 
 ## Usage
@@ -82,7 +82,7 @@ See **Extending with Rules** below.
 
 ### `keep(filter)`
 
-Determines which elements are to be kept and rendered as HTML. By default, Turndown does not keep any elements. The filter parameter works like a rule filter \(see section on filters belows\). Example:
+Determines which elements are to be kept and rendered as HTML. By default, Sitdown does not keep any elements. The filter parameter works like a rule filter \(see section on filters belows\). Example:
 
 ```js
 sitdown.service.keep(['del', 'ins'])
@@ -194,7 +194,7 @@ rules.emphasis = {
 
 ### [](#rule-precedence)Rule Precedence
 
-Turndown iterates over the set of rules, and picks the first one that matches the `filter`. The following list describes the order of precedence:
+Sitdown iterates over the set of rules, and picks the first one that matches the `filter`. The following list describes the order of precedence:
 
 1.  Blank rule
 2.  Added rules \(optional\)
@@ -208,9 +208,9 @@ Turndown iterates over the set of rules, and picks the first one that matches th
 The plugin API provides a convenient way for developers to apply multiple extensions. A plugin is just a function that is called with the `service` instance.
 
 ## Escaping Markdown Characters
-Turndown uses backslashes \(`\`\) to escape Markdown characters in the HTML input. This ensures that these characters are not interpreted as Markdown when the output is compiled back to HTML. For example, the contents of `<h1>1. Hello world</h1>` needs to be escaped to `1\. Hello world`, otherwise it will be interpreted as a list item rather than a heading.
+Sitdown uses backslashes \(`\`\) to escape Markdown characters in the HTML input. This ensures that these characters are not interpreted as Markdown when the output is compiled back to HTML. For example, the contents of `<h1>1. Hello world</h1>` needs to be escaped to `1\. Hello world`, otherwise it will be interpreted as a list item rather than a heading.
 
-To avoid the complexity and the performance implications of parsing the content of every HTML element as Markdown, Turndown uses a group of regular expressions to escape potential Markdown syntax. As a result, the escaping rules can be quite aggressive.
+To avoid the complexity and the performance implications of parsing the content of every HTML element as Markdown, Sitdown uses a group of regular expressions to escape potential Markdown syntax. As a result, the escaping rules can be quite aggressive.
 
 ## Local Development
 

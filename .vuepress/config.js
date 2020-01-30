@@ -2,8 +2,8 @@ module.exports = {
   port: 3200,
   extraWatchFiles: [require('path').resolve(__dirname, './nav')],
   locales: {
-    '/': {lang: 'en-US', title: 'SitDown', description: 'GitHub Flavored Markdown Spec'},
-    '/zh-hans/': {lang: 'zh-hans', title: 'SitDown', description: 'GitHub Flavored Markdown Spec'}
+    '/': {lang: 'en-US', title: 'SitDown', description: 'Convert HTML into Markdown with JavaScript.'},
+    '/zh-hans/': {lang: 'zh-hans', title: 'SitDown', description: 'Convert HTML into Markdown with JavaScript.'}
   },
   themeConfig: {
     repo: 'mdnice/sitdown',
