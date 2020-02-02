@@ -25,7 +25,8 @@
         },
         mounted() {
             this.sitdown = new Sitdown({
-                keepFilter: ['style']
+                keepFilter: ['style'],
+                codeBlockStyle:'fenced'
             });
             this.input = '';
         }

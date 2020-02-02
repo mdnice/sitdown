@@ -30,6 +30,8 @@ declare namespace TurndownService {
     codeBlockStyle?: 'indented' | 'fenced';
     emDelimiter?: '_' | '*';
     fence?: '```' | '~~~';
+    startFence?: '```' | '~~~';
+    endFence?: '```' | '~~~';
     strongDelimiter?: '__' | '**';
     linkStyle?: 'inlined' | 'referenced';
     linkReferenceStyle?: 'full' | 'collapsed' | 'shortcut';
