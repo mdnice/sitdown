@@ -22,7 +22,7 @@ export function fenceReplacement(
     (node.firstChild ? node.firstChild.textContent : '') +
     ((node.firstChild &&
       node.firstChild.textContent &&
-        node.firstChild.textContent.endsWith('\n')) ||
+      node.firstChild.textContent.endsWith('\n')) ||
     !content
       ? ''
       : '\n') +
