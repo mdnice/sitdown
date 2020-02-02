@@ -11,6 +11,9 @@ export const applyLinkRule = (turndownService: TurndownService) => {
 
     replacement: function(content, node) {
       var href = (node as HTMLElement).getAttribute('href');
+      if (!href && !content) {
+        return '';
+      }
       // Info:autolink
       var normalizeHref = href
         ? decodeURIComponent(href).replace('mailto:', '')
