@@ -11,6 +11,15 @@ export const applyZhihuRule = (turndownService: TurndownService) => {
     filter: 'img',
 
     replacement: function(_content: string, node) {
+      var formula = node.getAttribute('data-formula');
+      // Info：这个图片是公式
+      if (formula) {
+        var isBlockFormula =
+          node.parentElement &&
+          node.parentElement.nodeName === 'P' &&
+          node.parentElement.innerHTML === node.outerHTML;
+        return isBlockFormula ? `$$\n${formula}\n$$` : `$${formula}$`;
+      }
       var alt = node.getAttribute('alt') || '';
       var src =
         node.getAttribute('data-actualsrc') || node.getAttribute('src') || '';
