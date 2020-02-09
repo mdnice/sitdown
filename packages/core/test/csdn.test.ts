@@ -1,5 +1,5 @@
 import { Sitdown } from '../src';
-import md from './spec/markdownPaper/paper2.md';
+import md from './spec/markdownPaper/paper2-csdn.md';
 import html from './spec/markdownPaper/paper2-csdn.html';
 
 /*

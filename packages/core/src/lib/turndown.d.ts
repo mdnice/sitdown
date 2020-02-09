@@ -75,7 +75,7 @@ declare namespace TurndownService {
   type Node = HTMLElement & { unNeedEscape?: boolean };
 
   type Filter = TagName | TagName[] | FilterFunction;
-  type FilterFunction = (node: HTMLElement, options?: Options) => boolean;
+  type FilterFunction = (node: HTMLElement, options: Options) => boolean;
 
   type ReplacementFunction = (
     content: string,
