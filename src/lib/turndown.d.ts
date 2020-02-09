@@ -56,8 +56,12 @@ declare namespace TurndownService {
     options: Options;
     array: Rule[];
 
-    blankRule: ReplacementFunction;
-    defaultRule: ReplacementFunction;
+    blankRule: {
+      replacement:ReplacementFunction
+    };
+    defaultRule: {
+      replacement:ReplacementFunction
+    };
     keepReplacement: ReplacementFunction;
 
     add(key: Filter, rule: Rule): void;
