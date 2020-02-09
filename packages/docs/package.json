@@ -28,6 +28,7 @@
     "url": "https://github.com/mdnice/sitdown/issues"
   },
   "dependencies": {
+    "ant-design-vue": "^1.4.10",
     "sitdown": "^0.1.1"
   }
 }
