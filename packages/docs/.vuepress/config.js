@@ -30,6 +30,6 @@ module.exports = {
         nav: require('./nav/zh'),
       }
     },
-    $examples: require('../packages/core/test/spec/gfm')
+    $examples: require('../../core/test/spec/gfm')
   }
 }

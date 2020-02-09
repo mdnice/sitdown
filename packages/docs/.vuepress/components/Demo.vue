@@ -8,7 +8,7 @@
     </div>
 </template>
 <script>
-    import {Sitdown} from '../../dist/src.esm';
+    import {Sitdown} from 'sitdown/dist/src.esm';
 
     export default {
         data() {

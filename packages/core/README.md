@@ -1,11 +1,11 @@
-# `@sitedown/core`
+# `sitdown core`
 
 > TODO: description
 
 ## Usage
 
 ```
-const core = require('@sitedown/core');
+const sitdown = require('sitdown');
 
 // TODO: DEMONSTRATE API
 ```

@@ -1,12 +1,18 @@
 {
-  "name": "sitdown",
-  "version": "1.0.0",
+  "workspaces": [
+    "packages/core",
+    "packages/docs",
+    "packages/@sitdown/*"
+  ],
+  "private": true,
   "license": "MIT",
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "start": "lerna run start",
     "build": "lerna run build",
     "test": "lerna run test",
-    "lint": "tsdx lint --fix"
+    "lint": "tsdx lint --fix",
+    "docs:dev": "lerna exec --scope sitdown -- yarn build && lerna exec --scope @sitedown/docs -- yarn dev"
   },
   "husky": {
     "hooks": {

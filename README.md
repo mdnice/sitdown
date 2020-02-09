@@ -53,6 +53,7 @@ var sitdown = new Sitdown({ option: 'value' })
 | `linkStyle` | `inlined` or `referenced` | `inlined` |
 | `linkReferenceStyle` | `full`, `collapsed`, or `shortcut` | `full` |
 | `keepFilter` | `style`, `['style','div']`, or a function | `['style','div']` |
+| `env` | `{}` |  |
 
 ## Advanced Options
 | Option | Valid values | Default |

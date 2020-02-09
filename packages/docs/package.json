@@ -21,9 +21,13 @@
     "url": "git+https://github.com/mdnice/sitdown.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\""
+    "test": "echo \"Error: run tests from root\"",
+    "dev": "vuepress dev"
   },
   "bugs": {
     "url": "https://github.com/mdnice/sitdown/issues"
+  },
+  "dependencies": {
+    "sitdown": "^0.1.1"
   }
 }
