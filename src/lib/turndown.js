@@ -918,4 +918,6 @@ function canConvert (input) {
   )
 }
 
+TurndownService.RootNode = RootNode;
+
 export default TurndownService;

@@ -6,6 +6,10 @@ export class Sitdown {
   defaultOptions: TurndownService.Options;
   service: TurndownService;
 
+  get RootNode() {
+    return TurndownService.RootNode;
+  }
+
   constructor(options?: TurndownService.Options) {
     this.defaultOptions = {
       headingStyle: 'atx',
@@ -19,7 +23,10 @@ export class Sitdown {
     applyPlugins(this.service);
   }
 
-  HTMLToMD(html: string) {
+  HTMLToMD(html: string, env?: object) {
+    if (env) {
+      this.service.options.env = env;
+    }
     return this.service.turndown.call(this.service, html);
   }
 }

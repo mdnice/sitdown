@@ -5,6 +5,7 @@
 // TypeScript Version: 2.7
 
 declare class TurndownService {
+  static RootNode: any;
   constructor(options?: TurndownService.Options);
 
   addRule(key: string, rule: TurndownService.Rule): this;
@@ -23,6 +24,7 @@ export = TurndownService;
 
 declare namespace TurndownService {
   interface Options {
+    env?: any;
     headingStyle?: 'setext' | 'atx';
     hr?: string;
     br?: string;
@@ -66,7 +68,7 @@ declare namespace TurndownService {
   }
 
   type Plugin = (service: TurndownService) => void;
-  type Node = HTMLElement;
+  type Node = HTMLElement & { unNeedEscape?: boolean };
 
   type Filter = TagName | TagName[] | FilterFunction;
   type FilterFunction = (node: HTMLElement, options: Options) => boolean;
