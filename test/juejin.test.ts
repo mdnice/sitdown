@@ -1,5 +1,5 @@
 import { Sitdown } from '../src';
-import md from './spec/markdownPaper/paper1.md';
+import md from './spec/markdownPaper/paper1-juejin.md';
 import html from './spec/markdownPaper/paper1-juejin.html';
 
 import TurndownService from '../src/lib/turndown';
