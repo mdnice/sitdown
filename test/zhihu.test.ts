@@ -60,11 +60,11 @@ describe('知乎', () => {
 
   it('paper2 works', () => {
     const expected = sitdown.HTMLToMD(html2);
-      expect(expected).toEqual(md2);
+    expect(expected).toEqual(md2);
   });
 
   it('paper3 works', () => {
     const expected = sitdown.HTMLToMD(html3);
-      expect(expected).toEqual(md3);
+    expect(expected).toEqual(md3);
   });
 });
