@@ -66,20 +66,23 @@ export const applyWechatRule = (turndownService: TurndownService) => {
   // 公式
   const oldBlankReplace = turndownService.rules.blankRule.replacement;
   turndownService.rules.blankRule = {
-    replacement: (content,
-                  node,
-                  options) => {
+    replacement: (content, node, options) => {
       if (node.nodeName === 'svg') {
         (node.parentNode as TurndownService.Node).unNeedEscape = true;
         return node.outerHTML;
       }
-      return oldBlankReplace.call(turndownService.rules,content,node,options);
-    }
+      return oldBlankReplace.call(
+        turndownService.rules,
+        content,
+        node,
+        options
+      );
+    },
   };
   turndownService.addRule('paragraph', {
     filter: 'p',
 
-    replacement: function(content,node) {
+    replacement: function(content, node) {
       return '\n\n' + node.unNeedEscape ? content : escape(content) + '\n\n';
     },
   });
@@ -173,11 +176,11 @@ describe('微信', () => {
     hr: '---',
   });
   applyWechatRule(sitdown.service);
-  const wechatToMD = (html:string) => {
+  const wechatToMD = (html: string) => {
     const root = new sitdown.RootNode(html);
     const footLinks = extraFootLinks(root);
     return sitdown.HTMLToMD(html, { footLinks });
-  }
+  };
 
   it('paper1 works', () => {
     const expected = wechatToMD(html);
