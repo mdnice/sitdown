@@ -1,0 +1,35 @@
+{
+  "name": "docs",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "LinFeng1997 <244732635@qq.com>",
+  "homepage": "https://github.com/mdnice/sitdown#readme",
+  "license": "ISC",
+  "main": "lib/docs.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://r.cnpmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdnice/sitdown.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\"",
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "bugs": {
+    "url": "https://github.com/mdnice/sitdown/issues"
+  },
+  "dependencies": {
+    "ant-design-vue": "^1.4.10",
+    "sitdown": "^0.1.1"
+  }
+}
