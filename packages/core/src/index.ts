@@ -30,3 +30,5 @@ export class Sitdown {
     return this.service.turndown.call(this.service, html);
   }
 }
+
+export const RootNode = TurndownService.RootNode;
