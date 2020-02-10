@@ -1,11 +1,11 @@
-# `@sitedown/zhihu`
+# `@sitdown/zhihu`
 
 > TODO: description
 
 ## Usage
 
 ```
-const zhihu = require('@sitedown/zhihu');
+const zhihu = require('@sitdown/zhihu');
 
 // TODO: DEMONSTRATE API
 ```
