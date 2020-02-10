@@ -1,16 +1,16 @@
-作者：**灵魂画师牧码**
+# 和微信公众号编辑器战斗的日子
 
-> 本文提到的 Markdown Nice 体验地址：**[mdnice.com](https://mdnice.com)**
+> 本文提到的 Markdown Nice 体验地址：**https://mdnice.com**
 
-公元 2019 年，微信公众号排版能力孱弱，始终为运营者所诟病，秀米、135 编辑器等工具割据一方。
+公元2019年，微信公众号排版能力孱弱，始终为运营者所诟病，秀米、135编辑器等工具割据一方。
 
 但无论是微信原生工具，还是其他编辑器，都让创作者不得不将有限的创作经历分散到排版设计上。
 
-**Markdown** 解决排版的灵丹妙药，应运而生。
+> **Markdown**，解决排版的灵丹妙药，应运而生。
 
-## 一、引子
+## 引子
 
-### 1.1 Markdown 是什么？
+### Markdown是什么？
 
 Markdown 是一种排版语法，拥有极简的输入方式和极低的学习成本。
 
@@ -18,23 +18,23 @@ Markdown 是一种排版语法，拥有极简的输入方式和极低的学习�
 
 > 拥有它，让人专注于内容本身，而不被格式所打扰。
 
-![](https://user-gold-cdn.xitu.io/2019/9/25/16d65d3189081200?imageslim)
+![](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E8%AF%B7%E5%8B%BF%E6%89%93%E6%89%B0_20190923093136.gif)
 
-### 1.2 怎么和微信公众号结合？
+### 怎么和微信公众号结合？
 
 这么优秀的排版语法，可是微信公众号也不支持呀。
 
-> **别急！Markdown Nice 来帮你解决问题！**
+> **别急！Markdown Nice来帮你解决问题！**
 
-### 1.3 Markdown Nice 是什么？
+### Markdown Nice是什么？
 
 一款开源 Markdown 编辑器，写完后即排版成功，复制即可粘贴到微信公众号。
 
 **So what？ 只有这点么？**
 
-**当然不是！Nice宝宝你还有什么特性呀？**
+**当然不是！Nice宝宝你还有什么特性呀？** 
 
-![](https://user-gold-cdn.xitu.io/2019/9/25/16d65d3188e928f9?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E4%B9%96%E5%B7%A7_20190923093136.png)
 
 - 支持图床、脚注、代码、公式
 - 支持 8 种排版主题和 7 种代码主题
@@ -42,7 +42,7 @@ Markdown 是一种排版语法，拥有极简的输入方式和极低的学习�
 - 除了公众号外，还支持知乎、掘金、博客园和CSDN等平台
 - **我颜值高呀**
 
-![完整界面](https://user-gold-cdn.xitu.io/2019/9/25/16d65d318effae35?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![完整界面](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E5%AE%8C%E6%95%B4%E9%A1%B5%E9%9D%A2_20190923093136.png)
 
 这么多优秀的特性摆在你面前，还在等什么？
 
@@ -50,7 +50,7 @@ Markdown 是一种排版语法，拥有极简的输入方式和极低的学习�
 
 **快让你的微信排版 Nice 起来！**
 
-## 二、正文
+## 正文
 
 ~~没想到你还在看~~
 
@@ -58,15 +58,15 @@ Markdown 是一种排版语法，拥有极简的输入方式和极低的学习�
 
 不要小看Nice宝宝我，为了能够使用 Markdown 进行公众号排版，我可是和微信公众号编辑器做了半年的斗争，才赢得了现在的战果！
 
-![激烈斗争](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31d9d2d997?imageslim)
+![激烈斗争](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E8%88%92%E6%9C%8D%E4%B8%8D_20190923093136.gif)
 
 想听听我是如何战斗的？下面且听我娓娓道来！
 
-### 2.1 战斗序章
+### 战斗序章
 
 微信公众号编辑器源于百度 FEX 前端团队的开源的 [ueditor](http://ueditor.baidu.com "ueditor") 项目，这可是宝宝我扒取了网页代码发现的，如图所示：
 
-![浏览器检查元素](https://user-gold-cdn.xitu.io/2019/9/25/16d65d3188f8a35e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![浏览器检查元素](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/ueditor_20190923093136.png)
 
 因为 ueditor 是富文本编辑器，所以我即将面临的是 `markdown->富文本` 的转换战役，在开源界或者软件界这种转换战役有了相当多的优秀实现。比如：
 
@@ -98,25 +98,25 @@ Markdown Nice 是一个开源项目，由很多开源技术合体而成，其中
 
 在拥有上述技术傍身之后，我向微信编辑器宣战，打响了战斗第一枪！
 
-![](https://user-gold-cdn.xitu.io/2019/9/25/16d65d318cb6687a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E6%9D%A5%E5%90%A7_20190923093136.gif)
 
-### 2.2 战斗第一枪：代码主题
+### 战斗第一枪：代码主题
 
 微信公众号在2018年以前，是完全不支持代码块的，目前的支持也很单一，并且存在代码字体较大的问题。
 
 > 说来很气，微信公众号编辑器的开发者，就木有想过**代码块对程序员群体是多么重要么**？？
 
-![](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31dea0b38a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E9%97%AE%E5%8F%B7_20190923093136.jpeg)
 
 为此我找来了`highlight.js`代码高亮神器，帮助解决代码主题单一的问题。
 
-经过一定的筛选后，最终选定了 atom-one-dark、atom-one-light、monikai、GitHub、vs2015、xcode 和微信代码主题共 7 个代码样式供大家选择。
+经过一定的筛选后，最终选定了 atom-one-dark, atom-one-light, monikai, github, vs2015, xcode 和微信代码主题共 7 个代码样式供大家选择。
 
 其中微信代码主题由于其不属于`highlight.js`的归属范畴，故而其结构需要从微信公众号编辑器源码中获取，下面两张图展示了如何获取：
 
-![获取iframe的id](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31adbaf9b1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![获取iframe的id](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E8%8E%B7%E5%8F%96iframe%E7%9A%84id_20190923093136.png)
 
-![微信代码块源码](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31d0ab4979?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![微信代码块源码](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E5%BE%AE%E4%BF%A1%E4%BB%A3%E7%A0%81%E6%BA%90%E7%A0%81_20190923093136.png)
 
 而 `highlight.js` 与 `markdown-it` 解析器是关联使用的，故而工具中存在 2 个 markdown 解析器，分别用于解析微信代码主题和其他代码主题，[源码参考](https://github.com/zhning12/markdown-nice/blob/master/src/utils/helper.js#L55-L133 "源码参考")。
 
@@ -124,53 +124,52 @@ Markdown Nice 是一个开源项目，由很多开源技术合体而成，其中
 
 该问题使用以下 CSS 代码即可解决：
 
-```
+```css
 pre code {
   display: -webkit-box !important
-  }
-  复制代码
+}
 ```
 
 对比效果如图所示：
 
-![代码换行和不换行对比](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31fcb062f1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![代码换行和不换行对比](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E4%BB%A3%E7%A0%81%E6%8D%A2%E8%A1%8C%E5%92%8C%E4%B8%8D%E6%8D%A2%E8%A1%8C%E5%AF%B9%E6%AF%94_20190923093136.jpg)
 
 从此以后使用 Markdown Nice 的同志们代码更美观啦！
 
-### 2.3 战斗第二枪：图片上传
+### 战斗第二枪：图片上传
 
 一篇好的文章怎么可以没有图片？
 
 （某些技术人员说：我的就没有）
 
-![](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31b1ca636f?imageslim)
+![](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E5%9C%A8%E4%B8%8B%E8%BE%93%E4%BA%86_20190923093136.gif)
 
 > 图片管理是每一个成熟编辑器都会遇到的问题。
 
-Nice 宝宝最开始使用 [SM.MS](https://sm.ms/ "SM.MS") 图床，该图床由一位大佬在运维，非常感谢！
+Nice宝宝最开始使用 [SM.MS](https://sm.ms/ "SM.MS") 图床，该图床由一位大佬在运维，非常感谢！
 
 使用该图床虽然能够上传图片，但是粘贴到微信编辑器时，失败率极高（**想踩死微信编辑器**），如图所示：
 
-![图片上传失败](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31d90db03e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![图片上传失败](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0%E5%A4%B1%E8%B4%A5_20190923093136.png)
 
-真是\{喜闻乐见|hē hē hē hē\}呀！
+真是{喜闻乐见|hē hē hē hē}呀！
 
 为了解决上述问题，Markdown Nice 先后支持了自定义阿里云和七牛云图床，通过购买阿里云和七牛云的服务使用自建图床。
 
 **但是！让使用者自己配置，尽管有配置文档，但是整个配置过程复杂无比，简直惨绝人寰！**
 
-![吐血身亡](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31df328aaa?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![吐血身亡](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E5%90%90%E8%A1%80%E8%BA%AB%E4%BA%A1_20190923093136.jpg)
 
-于是，Nice 宝宝又使用自己的账号，自建图床，设定保存时间为一天，提供临时排版使用的 mdnice 图床。至此，工具中的图片上传支持情况如下：
+于是，Nice宝宝又使用自己的账号，自建图床，设定保存时间为一天，提供临时排版使用的 mdnice 图床。至此，工具中的图片上传支持情况如下：
 
-| 图床 | 费用 | 有效期 | 失败率 |
-| --- | --- | --- | --- |
-| mdnice | 免费 | 1天 | 低 |
-| SM.MS | 免费 | 长期 | 高 |
-| 阿里云 | [参考](https://cn.aliyun.com/product/oss "参考") | 自定义 | 低 |
-| 七牛云 | 10G免费 | 自定义 | 低 |
+|图床|费用|有效期|失败率|
+|---|---|---|---|
+|mdnice|免费|1天|低|
+|SM.MS|免费|长期|高|
+|阿里云|[参考](https://cn.aliyun.com/product/oss "参考")|自定义|低|
+|七牛云|10G免费|自定义|低|
 
-![四种图床](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31fe78bae1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![四种图床](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E5%9B%9B%E7%A7%8D%E5%9B%BE%E5%BA%8A_20190923093136.png)
 
 这场图床的战役中，最大的难度在于需要阅读阿里云 OSS 和七牛云 KODO 的文档，并且使用其开源出来的工具包 ali-oss 和 qiniu-js 。
 
@@ -178,7 +177,7 @@ Nice 宝宝最开始使用 [SM.MS](https://sm.ms/ "SM.MS") 图床，该图床由
 
 总之，这场战斗打的不亦乐乎。
 
-### 2.4 战斗第三枪：数学公式
+### 战斗第三枪：数学公式
 
 **微信公众号排版中，数学公式是一个噩梦！**
 
@@ -186,21 +185,21 @@ Nice 宝宝最开始使用 [SM.MS](https://sm.ms/ "SM.MS") 图床，该图床由
 
 - 不支持公式编辑
 - 不支持 html 和 css 生成的公式，因为字体无法导入
-- 不支持 svg，放入后提示失败
+- 不支持svg，放入后提示失败
 
 > 这三件事情简直像魔鬼的步伐，把公式需求者放在光滑的地板上摩擦、摩擦....
 
-![](https://user-gold-cdn.xitu.io/2019/9/25/16d65d3189d91437?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E6%91%A9%E6%93%A6%E6%91%A9%E6%93%A6_20190923093136.jpeg)
 
 目前唯一可行的方案就是将公式转换成图片，再将图片直接贴到公众号里，Nice宝宝觉得自己这个想法简直是完美！
 
 但是，怎么做呢......
 
-![](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31adc0733f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E6%B2%89%E6%80%9D_20190923093136.jpeg)
 
 忽然灵机一动，想到了朋友曾经推荐的一个转换公式网站 [codecogs](https://www.codecogs.com/latex/eqneditor.php "codecogs")，这个网站能够做到将任意公式转换成png图片并给出可访问链接。
 
-![codecogs](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31b1a54f6d?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![codecogs](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/codecogs_20190923093136.png)
 
 但是由于图片稳定性，无法直接使用该链接，会存在和第二场战役一样，图片粘贴失败的情况，让人苦不堪言。
 
@@ -211,43 +210,43 @@ Nice 宝宝最开始使用 [SM.MS](https://sm.ms/ "SM.MS") 图床，该图床由
 
 其中对于大量公式的转换，前端合理使用了异步请求，并非一个个转换而是并行执行，**性能上达到了10个公式也能2秒转换完毕的效果**，完全可用于公式排版。
 
-![转公式](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31df158b6c?imageslim)
+![转公式](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E8%BD%AC%E5%85%AC%E5%BC%8F_20190923093137.gif)
 
-### 2.5 战斗第四枪：微信外链转脚注
+### 战斗第四枪：微信外链转脚注
 
 众所周知（不知道也得知道），微信不支持外链，除了域名为`https://mp.weixin.qq.com/`的合法链接外，其他的链接出现后都会被自动删除。
 
 而添加外链的唯一官方方式就是在阅读全文处，当然，直接将链接本身放到文中或者制作二维码图片也是可以的选择。
 
-**而 Nice 宝宝则提供了将微信外链转为脚注的方式解决该问题，是不是很优雅呢？**
+**而Nice宝宝则提供了将微信外链转为脚注的方式解决该问题，是不是很优雅呢？**
 
-![](https://user-gold-cdn.xitu.io/2019/9/25/16d65d32062de823?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/fine_20190923093136.gif)
+
 
 其中链接和脚注的使用区别如下：
 
-```
+```markdown
 链接：[文字](链接 "文字")
-  脚注：[文字](脚注解释 "脚注名字")
-  复制代码
+脚注：[文字](脚注解释 "脚注名字")
 ```
 
 这里又涉及到了一个常见的问题，就是很多公众号作者的文章中，原来在其他平台发布时都是链接，而到这里排版时需要进行挨个修改，实在是让人头大。
 
-![](https://user-gold-cdn.xitu.io/2019/9/25/16d65d31bbc06094?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
+![](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E8%AE%A9%E4%BA%BA%E5%A4%B4%E5%A4%A7_20190923093136.jpeg)
 
 于是Nice宝宝我又做了一个小改进，就是在粘贴文章的时候会自动监测是否存在外链，并提示作者是否一键转成脚注，这样就不必手工修改了，赞不赞！
 
-![自动转脚注](https://user-gold-cdn.xitu.io/2019/9/25/16d65d32009da4e8?imageslim)
+![自动转脚注](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E8%87%AA%E5%8A%A8%E8%BD%AC%E8%84%9A%E6%B3%A8_20190923093136.gif)
 
-### 2.6 战役总结
+### 战役总结
 
 和微信公众号编辑器对抗，是个极其有意思的过程。除了上述提到的问题之外，还有很多的细节点需要注意，在此就不一一讨论了，感兴趣欢迎阅读源码。
 
 > Markdown Nice 的战斗之旅还远远没有结束，官网制作、浏览器插件、本地工具和排版纠正等功能蓄势待发。
 
-## 三、谈点和战斗无关的
+## 谈点和战斗无关的
 
-### 3.1 设计理念
+### 设计理念
 
 **大多数人而言，内容重于排版，排版重于设计。**
 
@@ -255,12 +254,12 @@ Nice 宝宝最开始使用 [SM.MS](https://sm.ms/ "SM.MS") 图床，该图床由
 
 而排版与设计之间的比较，作为一个曾经的微信美术编辑，随着排版经验的增多，发现文章的效果并不在于额外的花边、点缀。
 
-> **整齐、舒服、简单是硬道理\!**
+> **整齐、舒服、简单是硬道理!**
 
-### 3.2 内容、排版与设计
+### 内容、排版与设计
 
 **设计 = 排版 + 创意**
-
+ 
 ---
 
 因为：大多数人不会获取创意，或认为创意成本过高。
@@ -273,7 +272,7 @@ Nice 宝宝最开始使用 [SM.MS](https://sm.ms/ "SM.MS") 图床，该图床由
 
 但是：**Markdown Nice 将用户从排版中释放出来，只关注内容本身。**
 
-### 3.3 关于开源
+### 关于开源
 
 开源是个既简单又困难的过程：
 
@@ -284,15 +283,14 @@ Nice 宝宝最开始使用 [SM.MS](https://sm.ms/ "SM.MS") 图床，该图床由
 
 做产品的过程曲折而漫长，对照 Markdown Nice 开发过程，可以看到以下的步骤：
 
-1.  要有一个 idea，并且验证其可行性和必要性，去和同类产品比较，做到心中有数
-2.  抓住痛点，掌握核心价值，站在用户角度思考，多听反馈意见
-3.  螺旋上升，不断迭代，产出精品
-4.  最最重要一点，**做产品不只要写代码，还要宣传呀！！酒香也怕巷子深！！**
+1. 要有一个 idea，并且验证其可行性和必要性，去和同类产品比较，做到心中有数
+2. 抓住痛点，掌握核心价值，站在用户角度思考，多听反馈意见
+3. 螺旋上升，不断迭代，产出精品
+4. 最最重要一点，**做产品不只要写代码，还要宣传呀！！酒香也怕巷子深！！**
 
 参与开源，一路走来，甚是不易，望君珍惜。
 
 > 最后，感谢每一位开源参与者，欢迎更多人参与到开源中来，还有好多代码等着有人来写呢！
 
-![](https://user-gold-cdn.xitu.io/2019/9/25/16d65d320832c69d?imageslim)
+![](https://draw-wechat.oss-cn-hangzhou.aliyuncs.com/%E8%B5%B7%E6%9D%A5%E5%B9%B2%E6%B4%BB_20190923093136.gif)
 
-**『讲解开源项目系列』**——让对开源项目感兴趣的人不再畏惧、让开源项目的发起者不再孤单。跟着我们的文章，你会发现编程的乐趣、使用和发现参与开源项目如此简单。欢迎留言联系我们、加入我们，让更多人爱上开源、贡献开源～
