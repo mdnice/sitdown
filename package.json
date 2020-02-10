@@ -12,7 +12,8 @@
     "build": "lerna run build",
     "test": "lerna run test",
     "lint": "tsdx lint --fix",
-    "docs:dev": "lerna exec --scope sitdown -- yarn build && lerna exec --scope @sitedown/docs -- yarn dev"
+    "docs:dev": "lerna exec --scope sitdown -- yarn build && lerna exec --scope docs -- vuepress dev",
+    "docs:build": "lerna exec --scope sitdown -- yarn build && lerna exec --scope docs -- vuepress build"
   },
   "husky": {
     "hooks": {

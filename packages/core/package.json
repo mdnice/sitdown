@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "tsdx watch --name src",
-    "build": "tsdx build --name src",
+    "build": "tsdx build --name src && copyfiles -u 1 'src/**/*.d.ts' dist",
     "test": "tsdx test",
     "test:debug": "node --inspect node_modules/.bin/tsdx test --runInBand",
     "lint": "tsdx lint --fix",
@@ -30,5 +30,8 @@
   },
   "bugs": {
     "url": "https://github.com/mdnice/sitdown/issues"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.2.0"
   }
 }

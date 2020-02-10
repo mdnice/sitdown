@@ -22,7 +22,8 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\"",
-    "dev": "vuepress dev"
+    "dev": "vuepress dev",
+    "build": "vuepress build"
   },
   "bugs": {
     "url": "https://github.com/mdnice/sitdown/issues"
