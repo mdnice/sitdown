@@ -1,4 +1,4 @@
-import { Sitdown } from 'sitdown';
+import { Sitdown,RootNode } from 'sitdown';
 import { applyWechatRule, extraFootLinks } from '../src';
 // import html from './spec/temp.html';
 import md from './spec/markdownPaper/paper1-wechat.md';
@@ -25,9 +25,9 @@ describe('微信', () => {
     bulletListMarker: '-',
     hr: '---',
   });
-  applyWechatRule(sitdown.service);
+  sitdown.use(applyWechatRule);
   const wechatToMD = (html: string) => {
-    const root = new sitdown.RootNode(html);
+    const root = new RootNode(html);
     const footLinks = extraFootLinks(root);
     return sitdown.HTMLToMD(html, { footLinks });
   };

@@ -1,6 +1,6 @@
 {
   "name": "sitdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "> TODO: description",
   "author": "LinFeng1997 <244732635@qq.com>",
   "module": "dist/.esm.js",
@@ -22,7 +22,7 @@
     "start": "tsdx watch --name src",
     "build": "tsdx build --name src && copyfiles -u 1 'src/**/*.d.ts' dist",
     "test": "tsdx test",
-    "test:debug": "node --inspect node_modules/.bin/tsdx test --runInBand",
+    "test:debug": "node --inspect ../../node_modules/.bin/tsdx test --runInBand",
     "lint": "tsdx lint --fix",
     "patch": "npm run build && npm version patch && npm publish",
     "minor": "npm run build && npm version minor && npm publish",

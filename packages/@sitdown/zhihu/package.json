@@ -1,6 +1,6 @@
 {
   "name": "@sitdown/zhihu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "> TODO: description",
   "author": "LinFeng1997 <244732635@qq.com>",
   "module": "dist/.esm.js",
@@ -27,5 +27,8 @@
   },
   "bugs": {
     "url": "https://github.com/mdnice/sitdown/issues"
+  },
+  "devDependencies": {
+    "sitdown": "^1.0.1"
   }
 }

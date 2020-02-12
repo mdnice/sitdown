@@ -22,7 +22,7 @@ describe('知乎', () => {
     bulletListMarker: '-',
     hr: '---',
   });
-  applyZhihuRule(sitdown.service);
+  sitdown.use(applyZhihuRule);
   it('paper1 works', () => {
     const expected = sitdown.HTMLToMD(html);
     expect(expected).toEqual(md);

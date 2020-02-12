@@ -4274,7 +4274,7 @@ export default [
   },
   {
     index: 644,
-    md: 'foo<!-- this is a\ncomment \\- with hyphen \\-->\n\n',
+    md: 'foo<!-- this is a\ncomment - with hyphen -->\n\n',
     html: '<p>foo <!-- this is a\ncomment - with hyphen --></p>\n\n',
   },
   {

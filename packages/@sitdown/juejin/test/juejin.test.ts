@@ -17,7 +17,7 @@ describe('juejin', () => {
       bulletListMarker: '-',
       hr: '---',
     });
-    applyJuejinRule(sitdown.service);
+    sitdown.use(applyJuejinRule);
     const expected = sitdown.HTMLToMD(html);
     expect(expected).toEqual(md);
   });

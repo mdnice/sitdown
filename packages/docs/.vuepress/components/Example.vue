@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>{{isZh ? '示例' : 'Example'}} {{index}}</p>
+        <p>{{isZh ? '示例' : 'Example'}} {{example.index}}</p>
         <table>
             <thead>
             <tr>
@@ -34,6 +34,16 @@
   const md = new MarkdownIt({highlight});
   export default {
     props: {
+        example: {
+            type: Object,
+            default: () => {
+                return {
+                    html: '',
+                    md: ''
+                }
+            },
+            required: true
+        },
       md: {
         type: String,
         default: ''
@@ -41,18 +51,11 @@
       html: {
         type: String,
         default: ''
-      },
-      index: {
-        type: Number,
-        required: true
-      },
+      }
     },
     computed: {
       isZh: function () {
         return this.$page.path.startsWith('/zh-hans/')
-      },
-      example: function () {
-        return this.$site.themeConfig.$examples[this.index - 1]
       },
       mdCode: function () {
         return this.renderMd(this.example.md, 'md')
@@ -62,13 +65,22 @@
       }
     },
     methods: {
-      renderMd: (str, info) => md.render(`~~~~~~~~~~${info}\n${str}~~~~~~~~~~`)
+      renderMd: (str, info) => md.render(`~~~~~~~~~~${info}\n${str}~~~~~~~~~~`),
+        renderDemo:function(example) {
+            const html = `<div class="markdown-body">${example.html}</div>\n<link href="/css/github-markdown.css" rel="stylesheet"></link>`
+            if(this.$refs.demo && this.$refs.demo.contentDocument){
+                this.$refs.demo.contentDocument.write(html);
+                this.$refs.demo.contentDocument.close();
+            }
+        }
     },
     mounted() {
       // console.log('$site', this.$site)
       // console.log('$page', this.$page)
-      const html = `<div class="markdown-body">${this.example.html}</div>\n<link href="/css/github-markdown.css" rel="stylesheet"></link>`
-      this.$refs.demo && this.$refs.demo.contentDocument && this.$refs.demo.contentDocument.write(html);
+        this.$watch('example',(cur) => {
+            this.renderDemo(cur);
+        });
+      this.renderDemo(this.example);
     }
   }
 </script>

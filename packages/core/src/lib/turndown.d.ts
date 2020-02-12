@@ -5,7 +5,7 @@
 // TypeScript Version: 2.7
 
 declare class TurndownService {
-  static RootNode: any;
+  static RootNode: (input: string) => TurndownService.Node;
   constructor(options?: TurndownService.Options);
 
   addRule(key: string, rule: TurndownService.Rule): this;

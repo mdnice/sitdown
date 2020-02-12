@@ -11,8 +11,11 @@ export const applyParagraphRule = (turndownService: TurndownService) => {
   turndownService.addRule('paragraph', {
     filter: 'p',
 
-    replacement: function(content) {
-      return '\n\n' + escape(content) + '\n\n';
+    replacement: function(content, node) {
+      const hasCommentChild = Array.from(node.childNodes).some(
+        item => item.nodeType === 8
+      );
+      return '\n\n' + (hasCommentChild ? content : escape(content)) + '\n\n';
     },
   });
 };
