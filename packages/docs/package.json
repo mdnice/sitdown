@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "description": "> TODO: description",
   "author": "LinFeng1997 <244732635@qq.com>",
   "homepage": "https://github.com/mdnice/sitdown#readme",
@@ -29,10 +29,10 @@
     "url": "https://github.com/mdnice/sitdown/issues"
   },
   "dependencies": {
+    "@sitdown/juejin": "^1.0.1",
+    "@sitdown/wechat": "^1.0.1",
+    "@sitdown/zhihu": "^1.0.1",
     "ant-design-vue": "^1.4.10",
-    "sitdown": "^1.0.0",
-    "@sitdown/zhihu": "^1.0.0",
-    "@sitdown/wechat": "^1.0.0",
-    "@sitdown/juejin": "^1.0.0"
+    "sitdown": "^1.0.1"
   }
 }
