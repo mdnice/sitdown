@@ -13,7 +13,7 @@
 
 ```
 import { Sitdown,RootNode } from 'sitdown';
-import { applyWechatRule, extraFootLinks } from '../src';
+import { applyWechatRule, extraFootLinks } from '@sitdown/wechat';
 
 let sitdown = new Sitdown({
     keepFilter: ['style'],
