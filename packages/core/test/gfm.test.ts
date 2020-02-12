@@ -1,5 +1,5 @@
 // test
-import { Sitdown,RootNode } from '../src';
+import { Sitdown, RootNode } from '../src';
 import Examples from './spec/gfm';
 import TurndownService from '../src/lib/turndown';
 import MarkdownIt from 'markdown-it';
@@ -22,7 +22,7 @@ Examples.forEach(example => {
 });
 
 describe('GFM', () => {
-    (Examples as Example[])
+  (Examples as Example[])
     .filter(example => example.index <= 673)
     // .filter(
     //   example =>
@@ -42,7 +42,7 @@ describe('GFM', () => {
 
       it(`gfm example${example.index} markdown to html works`, () => {
         const html = md.render(example.md);
-          expect(RootNode(html).innerHTML).toEqual(
+        expect(RootNode(html).innerHTML).toEqual(
           RootNode(example.html).innerHTML
         );
       });
