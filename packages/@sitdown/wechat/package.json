@@ -27,5 +27,8 @@
   },
   "bugs": {
     "url": "https://github.com/mdnice/sitdown/issues"
+  },
+  "devDependencies":  {
+    "sitdown": "^1.0.0"
   }
 }
