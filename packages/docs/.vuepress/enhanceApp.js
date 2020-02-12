@@ -1,5 +1,6 @@
 import Pagination from 'ant-design-vue/lib/pagination'; // 加载 JS
-import 'ant-design-vue/lib/pagination/style/css'; // 加载 CSS
+import Radio from 'ant-design-vue/lib/radio'; // 加载 JS
+import 'ant-design-vue/lib/radio/style/css'; // 加载 CSS
 export default ({
                     Vue, // 当前 VuePress 应用所使用的 Vue 版本
                     options, // 根 Vue 实例的选项
@@ -8,4 +9,5 @@ export default ({
                 }) => {
     // ...使用应用程序级别的增强功能
     Vue.use(Pagination);
+    Vue.use(Radio);
 }
