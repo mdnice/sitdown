@@ -20,5 +20,5 @@ jobs:
             cd /home/mdnice/sitdown
             git stash
             git pull origin master
-            yarn
+            yarn bootstrap
             yarn docs:build
