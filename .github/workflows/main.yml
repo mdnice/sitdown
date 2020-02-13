@@ -20,5 +20,8 @@ jobs:
             cd /home/mdnice/sitdown
             git stash
             git pull origin master
-            yarn bootstrap
-            yarn docs:build
+            cd packages/docs
+            rm -rf node_modules/
+            rm -rf package-lock.json
+            cnpm install
+            yarn run build
