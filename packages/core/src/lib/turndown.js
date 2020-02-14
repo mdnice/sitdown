@@ -1,4 +1,6 @@
 import collapseWhitespace from '../util/collapse-whitespace';
+import isBlock from '../util/isBlock';
+import isVoid,{voidElements} from '../util/isVoid';
 
 function extend (destination) {
   for (var i = 1; i < arguments.length; i++) {
@@ -8,28 +10,6 @@ function extend (destination) {
     }
   }
   return destination
-}
-
-var blockElements = [
-  'address', 'article', 'aside', 'audio', 'blockquote', 'body', 'canvas',
-  'center', 'dd', 'dir', 'div', 'dl', 'dt', 'fieldset', 'figcaption',
-  'figure', 'footer', 'form', 'frameset', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
-  'header', 'hgroup', 'hr', 'html', 'isindex', 'li', 'main', 'menu', 'nav',
-  'noframes', 'noscript', 'ol', 'output', 'p', 'pre', 'section', 'table',
-  'tbody', 'td', 'tfoot', 'th', 'thead', 'tr', 'ul'
-];
-
-function isBlock (node) {
-  return blockElements.indexOf(node.nodeName.toLowerCase()) !== -1
-}
-
-var voidElements = [
-  'area', 'base', 'br', 'col', 'command', 'embed', 'hr', 'img', 'input',
-  'keygen', 'link', 'meta', 'param', 'source', 'track', 'wbr'
-];
-
-function isVoid (node) {
-  return voidElements.indexOf(node.nodeName.toLowerCase()) !== -1
 }
 
 var voidSelector = voidElements.join();

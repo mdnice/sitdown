@@ -1,6 +1,6 @@
 import TurndownService from '../lib/turndown';
 
-var voidElements = [
+export const voidElements = [
   'area',
   'base',
   'br',
