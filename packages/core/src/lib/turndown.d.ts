@@ -72,7 +72,7 @@ declare namespace TurndownService {
   }
 
   type Plugin = (service: TurndownService) => void;
-  type Node = HTMLElement & { unNeedEscape?: boolean };
+  type Node = HTMLElement & { unNeedEscape?: boolean; data?: string };
 
   type Filter = TagName | TagName[] | FilterFunction;
   type FilterFunction = (node: HTMLElement, options: Options) => boolean;
