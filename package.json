@@ -28,9 +28,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "dependencies": {
-    "turndown-plugin-gfm": "^1.0.2"
-  },
   "devDependencies": {
     "@types/jest": "^24.0.25",
     "@types/markdown-it": "0.0.9",

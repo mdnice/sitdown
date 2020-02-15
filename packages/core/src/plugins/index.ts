@@ -1,6 +1,4 @@
 import TurndownService from '../lib/turndown';
-// @ts-ignore
-import * as turndownPluginGfm from 'turndown-plugin-gfm';
 import { applyListRule } from './list';
 import { applyHrRule } from './hr';
 import { applyParagraphRule } from './paragraph';
@@ -17,19 +15,11 @@ import { applyLinkRule } from './link';
 import { applyImageRule } from './image';
 import { applyBrRule } from './br';
 import { applyStrongRule } from './strong';
+import { applyTaskRule } from './taskListItems';
 
 import { isKeep } from '../util/isKeep';
-const gfm = turndownPluginGfm.gfm;
-const tables = turndownPluginGfm.tables;
-const strikethrough = turndownPluginGfm.strikethrough;
 
 export default (turndownService: TurndownService) => {
-  // Use the gfm plugin
-  turndownService.use(gfm);
-
-  // Use the table and strikethrough plugins only
-  turndownService.use([tables, strikethrough]);
-
   turndownService.use([
     applyListRule,
     applyHrRule,
@@ -47,6 +37,7 @@ export default (turndownService: TurndownService) => {
     applyBrRule,
     applyStrongRule,
     applyImageRule,
+    applyTaskRule,
   ]);
 
   turndownService.keep(node => {

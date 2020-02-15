@@ -48,6 +48,35 @@ function isHeadingRow(tr: TurndownService.Node) {
 }
 
 export const applyTableRule = (turndownService: TurndownService) => {
+  turndownService.keep(function(node) {
+    return (
+      node.nodeName === 'TABLE' &&
+      !isHeadingRow((node as HTMLTableElement).rows[0])
+    );
+  });
+
+  turndownService.addRule('table', {
+    filter: function(node) {
+      return (
+        node.nodeName === 'TABLE' &&
+        isHeadingRow((node as HTMLTableElement).rows[0])
+      );
+    },
+
+    replacement: function(content) {
+      // Ensure there are no blank lines
+      content = content.replace('\n\n', '\n');
+      return '\n\n' + content + '\n\n';
+    },
+  });
+
+  turndownService.addRule('tableSection', {
+    filter: ['thead', 'tbody', 'tfoot'],
+    replacement: function(content) {
+      return content;
+    },
+  });
+
   turndownService.addRule('tableRow', {
     filter: 'tr',
     replacement: function(content, node) {
