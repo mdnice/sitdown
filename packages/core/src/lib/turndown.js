@@ -1,4 +1,4 @@
-import collapseWhitespace from '../util/collapse-whitespace';
+import RootNode from '../util/RootNode';
 import isBlock from '../util/isBlock';
 import isVoid,{voidElements} from '../util/isVoid';
 
@@ -98,75 +98,6 @@ function filterValue (rule, node, options) {
   } else {
     throw new TypeError('`filter` needs to be a string, array, or function')
   }
-}
-
-/*
- * Set up window for Node.js
- */
-
-var root = (typeof window !== 'undefined' ? window : {});
-
-/*
- * Parsing HTML strings
- */
-
-function canParseHTMLNatively () {
-  var Parser = root.DOMParser;
-  var canParse = false;
-
-  // Adapted from https://gist.github.com/1129031
-  // Firefox/Opera/IE throw errors on unsupported types
-  try {
-    // WebKit returns null on unsupported types
-    if (new Parser().parseFromString('', 'text/html')) {
-      canParse = true;
-    }
-  } catch (e) {}
-
-  return canParse
-}
-
-function createHTMLParser () {
-  var Parser = function () {};
-
-  {
-    var JSDOM = require('jsdom').JSDOM;
-    Parser.prototype.parseFromString = function (string) {
-      return new JSDOM(string).window.document
-    };
-  }
-  return Parser
-}
-
-var HTMLParser = canParseHTMLNatively() ? root.DOMParser : createHTMLParser();
-
-function RootNode (input) {
-  var root;
-  if (typeof input === 'string') {
-    var doc = htmlParser().parseFromString(
-        // DOM parsers arrange elements in the <head> and <body>.
-        // Wrapping in a custom element ensures elements are reliably arranged in
-        // a single element.
-        '<x-turndown id="turndown-root">' + input + '</x-turndown>',
-        'text/html'
-    );
-    root = doc.getElementById('turndown-root');
-  } else {
-    root = input.cloneNode(true);
-  }
-  collapseWhitespace({
-    element: root,
-    isBlock: isBlock,
-    isVoid: isVoid
-  });
-
-  return root
-}
-
-var _htmlParser;
-function htmlParser () {
-  _htmlParser = _htmlParser || new HTMLParser();
-  return _htmlParser
 }
 
 function Node (node) {
