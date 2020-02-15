@@ -14,6 +14,9 @@ import { applyBlockquoteRule } from './blockquote';
 import { applyEmRule } from './em';
 import { applyDelRule } from './del';
 import { applyLinkRule } from './link';
+import { applyImageRule } from './image';
+import { applyBrRule } from './br';
+import { applyStrongRule } from './strong';
 
 import { isKeep } from '../util/isKeep';
 const gfm = turndownPluginGfm.gfm;
@@ -41,6 +44,9 @@ export default (turndownService: TurndownService) => {
     applyEmRule,
     applyDelRule,
     applyLinkRule,
+    applyBrRule,
+    applyStrongRule,
+    applyImageRule,
   ]);
 
   turndownService.keep(node => {

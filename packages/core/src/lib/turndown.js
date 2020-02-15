@@ -19,48 +19,6 @@ function hasVoid (node) {
 
 var rules = {};
 
-rules.lineBreak = {
-  filter: 'br',
-
-  replacement: function (content, node, options) {
-    return options.br + '\n'
-  }
-};
-
-rules.list = {
-  filter: ['ul', 'ol'],
-
-  replacement: function (content, node) {
-    var parent = node.parentNode;
-    if (parent.nodeName === 'LI' && parent.lastElementChild === node) {
-      return '\n' + content
-    } else {
-      return '\n\n' + content + '\n\n'
-    }
-  }
-};
-
-rules.strong = {
-  filter: ['strong', 'b'],
-
-  replacement: function (content, node, options) {
-    if (!content.trim()) return ''
-    return options.strongDelimiter + content + options.strongDelimiter
-  }
-};
-
-rules.image = {
-  filter: 'img',
-
-  replacement: function (content, node) {
-    var alt = node.alt || '';
-    var src = node.getAttribute('src') || '';
-    var title = node.title || '';
-    var titlePart = title ? ' "' + title + '"' : '';
-    return src ? '![' + alt + ']' + '(' + src + titlePart + ')' : ''
-  }
-};
-
 /**
  * Manages a collection of rules used to convert HTML to Markdown
  */
