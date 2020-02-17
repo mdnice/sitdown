@@ -115,17 +115,16 @@ sitdown.HTMLToMD('<p>Hello <del>world</del><ins>World</ins></p>') // 'Hello Worl
 使用插件或插件数组。例子：
 
 ```js
-// 导入插件 turndown-plugin-gfm
-var turndownPluginGfm = require('turndown-plugin-gfm')
-var gfm = turndownPluginGfm.gfm
-var tables = turndownPluginGfm.tables
-var strikethrough = turndownPluginGfm.strikethrough
+import { Sitdown } from 'sitdown';
+import { applyJuejinRule } from '@sitdown/juejin';
 
-// 使用 gfm 插件
-sitdown.service.use(gfm)
-
-// 仅仅使用部分插件
-sitdown.service.use([tables, strikethrough])
+let sitdown = new Sitdown({
+      keepFilter: ['style'],
+      codeBlockStyle: 'fenced',
+      bulletListMarker: '-',
+      hr: '---',
+});
+sitdown.use(applyJuejinRule);
 ```
 
 `use` 返回 `service` 实例便于链式调用

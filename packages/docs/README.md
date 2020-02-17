@@ -116,17 +116,16 @@ This will remove `<del>` elements \(and contents\).
 Use a plugin, or an array of plugins. Example:
 
 ```js
-// Import plugins from turndown-plugin-gfm
-var turndownPluginGfm = require('turndown-plugin-gfm')
-var gfm = turndownPluginGfm.gfm
-var tables = turndownPluginGfm.tables
-var strikethrough = turndownPluginGfm.strikethrough
+import { Sitdown } from 'sitdown';
+import { applyJuejinRule } from '@sitdown/juejin';
 
-// Use the gfm plugin
-sitdown.service.use(gfm)
-
-// Use the table and strikethrough plugins only
-sitdown.service.use([tables, strikethrough])
+let sitdown = new Sitdown({
+      keepFilter: ['style'],
+      codeBlockStyle: 'fenced',
+      bulletListMarker: '-',
+      hr: '---',
+});
+sitdown.use(applyJuejinRule);
 ```
 
 `use` returns the `service` instance for chaining.
