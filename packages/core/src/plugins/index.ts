@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import TurndownService from '../service/turndown';
 import { applyListRule } from './list';
 import { applyHrRule } from './hr';
 import { applyParagraphRule } from './paragraph';

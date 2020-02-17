@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import { Node } from '../types';
 
 var blockElements = [
   'address',
@@ -52,6 +52,6 @@ var blockElements = [
   'ul',
 ];
 
-export default function isBlock(node: TurndownService.Node) {
+export default function isBlock(node: Node) {
   return blockElements.indexOf(node.nodeName.toLowerCase()) !== -1;
 }

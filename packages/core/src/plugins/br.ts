@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import TurndownService from '../service/turndown';
 
 export const applyBrRule = (turndownService: TurndownService) => {
   turndownService.addRule('hr', {

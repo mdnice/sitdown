@@ -1,12 +1,13 @@
-import TurndownService, { Options } from '../lib/turndown';
+import { Options, Node } from '../types';
 import {
   findOrderListIndentNumber,
   findParentNumber,
   repeat,
   IndentCodeIsListfirstChild,
 } from '../util';
+import TurndownService from '../service/turndown';
 
-function caclListIndent(node: TurndownService.Node, options: Options): number {
+function caclListIndent(node: Node, options: Options): number {
   var nestULCount = findParentNumber(node, 'UL');
   var nestOLCount = findParentNumber(node, 'OL');
   if (nestOLCount) {

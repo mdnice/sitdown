@@ -1,9 +1,9 @@
-import TurndownService from '../../lib/turndown';
+import { Options } from '../../types';
 
 export function fenceReplacement(
   content: string,
   node: HTMLElement | Document | DocumentFragment | Element,
-  options: TurndownService.Options
+  options: Options
 ) {
   var className = node.firstChild ? (node.firstChild as Element).className : '';
   var language = (className.match(/language-(\S+)/) || [null, ''])[1];

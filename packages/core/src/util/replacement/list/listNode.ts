@@ -1,17 +1,17 @@
-import TurndownService from '../../../lib/turndown';
+import { Node, Options } from '../../../types';
 import { findParentNumber } from '../../findParentNumber';
 import { repeat } from '../../repeat';
 import { IndentCodeIsListfirstChild } from '../../indentCodeIsListfirstChild';
 import { findOrderListIndentNumber } from '../../findOrderListIndentNumber';
 
 export class ListNode {
-  node: TurndownService.Node;
+  node: Node;
 
-  constructor(node: TurndownService.Node) {
+  constructor(node: Node) {
     this.node = node;
   }
 
-  get parent() {
+  private get parent() {
     return this.node.parentNode;
   }
 
@@ -68,7 +68,7 @@ export class ListNode {
     );
   }
 
-  lineIndent(options: TurndownService.Options) {
+  lineIndent(options: Options) {
     const { nestOLCount, nestULCount, nestCount, node } = this;
     var indent = `\n    ${repeat(' ', nestCount - 1)}$1`;
     if (IndentCodeIsListfirstChild(node, options) && nestOLCount) {

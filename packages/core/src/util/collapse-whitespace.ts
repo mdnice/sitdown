@@ -1,12 +1,12 @@
-import TurndownService from '../lib/turndown';
 import isBlock from './isBlock';
 import isVoid from './isVoid';
+import { Node } from '../types';
 
 interface Options {
-  element: TurndownService.Node;
+  element: Node;
   isBlock: typeof isBlock;
   isVoid: typeof isVoid;
-  isPre?: (node: TurndownService.Node) => boolean;
+  isPre?: (node: Node) => boolean;
 }
 
 /**
@@ -72,9 +72,7 @@ function collapseWhitespace(options: Options) {
         const index = Array.from(node.parentNode.childNodes).findIndex(
           n => n === node
         );
-        (node.parentNode.childNodes[
-          index + 1
-        ] as TurndownService.Node).unNeedEscape = true;
+        (node.parentNode.childNodes[index + 1] as Node).unNeedEscape = true;
       }
     } else {
       node = remove(node);
@@ -101,12 +99,12 @@ function collapseWhitespace(options: Options) {
  * @param {Node} node
  * @return {Node} node
  */
-function remove(node: TurndownService.Node) {
+function remove(node: Node) {
   var next = node.nextSibling || node.parentNode;
 
   node.parentNode && node.parentNode.removeChild(node);
 
-  return next as TurndownService.Node;
+  return next as Node;
 }
 
 /**
@@ -119,17 +117,17 @@ function remove(node: TurndownService.Node) {
  * @return {Node}
  */
 function next(
-  prev: TurndownService.Node | null,
-  current: TurndownService.Node,
-  isPre: (node: TurndownService.Node) => boolean
+  prev: Node | null,
+  current: Node,
+  isPre: (node: Node) => boolean
 ) {
   if ((prev && prev.parentNode === current) || isPre(current)) {
-    return (current.nextSibling || current.parentNode) as TurndownService.Node;
+    return (current.nextSibling || current.parentNode) as Node;
   }
 
   return (current.firstChild ||
     current.nextSibling ||
-    current.parentNode) as TurndownService.Node;
+    current.parentNode) as Node;
 }
 
 export default collapseWhitespace;

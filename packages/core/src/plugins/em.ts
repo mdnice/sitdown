@@ -1,5 +1,5 @@
 //em
-import TurndownService from '../lib/turndown';
+import TurndownService from '../service/turndown';
 
 export const applyEmRule = (turndownService: TurndownService) => {
   turndownService.addRule('em', {

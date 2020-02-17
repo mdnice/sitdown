@@ -1,9 +1,6 @@
-import TurndownService from '../../lib/turndown';
+import { Node } from '../../types';
 
-export function keepReplacement(
-  content: string,
-  node: TurndownService.Node & { isBlock?: boolean }
-) {
+export function keepReplacement(content: string, node: Node) {
   let html = (node as HTMLElement).outerHTML;
   if (!content) {
     let attrs = '';

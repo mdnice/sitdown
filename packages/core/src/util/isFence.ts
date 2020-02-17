@@ -1,7 +1,6 @@
-import { Options } from '../types';
-import TurndownService from '../lib/turndown';
+import { Options, Node } from '../types';
 
-export function isFence(options: Options, node: TurndownService.Node): boolean {
+export function isFence(options: Options, node: Node): boolean {
   return !!(
     options.codeBlockStyle === 'fenced' &&
     node.nodeName === 'PRE' &&

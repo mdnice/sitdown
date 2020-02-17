@@ -2,13 +2,7 @@ import RootNode from './RootNode';
 import Rules from './Rules';
 import Node from './Node';
 import join from '../util/join';
-import {
-  Options,
-  Node as NodeType,
-  Rule,
-  Filter,
-  FilterFunction,
-} from '../types';
+import { Options, Node as NodeType, Rule, FilterFunction } from '../types';
 
 var rules = {};
 
@@ -198,7 +192,7 @@ class Service {
    * @type Object
    */
 
-  addRule(key: Filter, rule: Rule) {
+  addRule(key: string, rule: Rule) {
     this.rules.add(key, rule);
     return this;
   }

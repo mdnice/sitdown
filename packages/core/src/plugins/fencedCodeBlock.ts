@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import TurndownService from '../service/turndown';
 import { fenceReplacement, isFence } from '../util';
 
 export const applyFenceRule = (turndownService: TurndownService) => {

@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import { Node } from '../types';
 
 export const voidElements = [
   'area',
@@ -19,6 +19,6 @@ export const voidElements = [
   'wbr',
 ];
 
-export default function isVoid(node: TurndownService.Node) {
+export default function isVoid(node: Node) {
   return voidElements.indexOf(node.nodeName.toLowerCase()) !== -1;
 }

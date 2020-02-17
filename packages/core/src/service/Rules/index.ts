@@ -3,7 +3,6 @@
  */
 import findRule from './findRule';
 import {
-  Filter,
   Options,
   ReplacementFunction,
   Rule,
@@ -56,7 +55,7 @@ export default class Rules {
     for (var key in options.rules) this.array.push(options.rules[key]);
   }
 
-  add(_key: Filter, rule: Rule) {
+  add(_key: string, rule: Rule) {
     this.array.unshift(rule);
   }
 

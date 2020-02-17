@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import TurndownService from '../service/turndown';
 import { escape } from '../util';
 
 const specialChars = [' ', '(', ')', '\\', '"'];

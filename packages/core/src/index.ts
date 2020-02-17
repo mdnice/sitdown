@@ -1,6 +1,6 @@
 import applyPlugins from './plugins';
 import { blankReplacement, keepReplacement } from './util';
-import TurndownService from './lib/turndown';
+import TurndownService from './service/turndown';
 import { Options } from './types';
 
 export class Sitdown {
@@ -33,4 +33,4 @@ export class Sitdown {
   }
 }
 
-export { default as RootNode } from './lib/RootNode';
+export { default as RootNode } from './service/RootNode';

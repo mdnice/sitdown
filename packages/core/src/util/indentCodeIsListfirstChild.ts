@@ -1,10 +1,6 @@
-import TurndownService from '../lib/turndown';
-import { Options } from '../types';
+import { Options, Node } from '../types';
 
-export function IndentCodeIsListfirstChild(
-  list: TurndownService.Node,
-  options: Options
-) {
+export function IndentCodeIsListfirstChild(list: Node, options: Options) {
   return (
     options.codeBlockStyle !== 'fenced' &&
     list &&

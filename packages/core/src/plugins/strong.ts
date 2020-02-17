@@ -1,4 +1,4 @@
-import TurndownService from '../lib/turndown';
+import TurndownService from '../service/turndown';
 
 export const applyStrongRule = (turndownService: TurndownService) => {
   turndownService.addRule('hr', {

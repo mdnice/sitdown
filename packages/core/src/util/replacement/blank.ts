@@ -1,17 +1,16 @@
 // blank
-import TurndownService from '../../lib/turndown';
 import { isCode } from '../isCode';
 import { isFence } from '../isFence';
 import { isKeep } from '../isKeep';
 import { fenceReplacement } from './fence';
 import { listReplacement } from './list';
 import { keepReplacement } from './keep';
-import { Options } from '../../types';
+import { Options, Node } from '../../types';
 
 export function blankReplacement(
   content: string,
-  node: TurndownService.Node & { isBlock?: boolean },
-  options: Options & TurndownService.Options
+  node: Node,
+  options: Options
 ) {
   if (isKeep(options, node)) {
     return keepReplacement(content, node);

@@ -1,11 +1,7 @@
-import TurndownService from '../../../lib/turndown';
+import { Options, Node } from '../../../types';
 import { ListNode } from './listNode';
 
-export function listReplacement(
-  content: string,
-  node: TurndownService.Node,
-  options: TurndownService.Options
-) {
+export function listReplacement(content: string, node: Node, options: Options) {
   var listNode = new ListNode(node);
   var { isLoose, isNewList: newList } = listNode;
 

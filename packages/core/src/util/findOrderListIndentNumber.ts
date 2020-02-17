@@ -1,9 +1,6 @@
-import TurndownService from '../lib/turndown';
+import { Node } from '../types';
 
-export function findOrderListIndentNumber(
-  node: TurndownService.Node,
-  count = 0
-): number {
+export function findOrderListIndentNumber(node: Node, count = 0): number {
   const parentName = 'OL';
   const parent = node.parentNode as HTMLElement;
   if (!parent) {

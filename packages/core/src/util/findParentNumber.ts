@@ -1,7 +1,7 @@
-import TurndownService from '../lib/turndown';
+import { Node } from '../types';
 
 export function findParentNumber(
-  node: TurndownService.Node,
+  node: Node,
   parentName: string,
   count = 0
 ): number {

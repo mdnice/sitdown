@@ -1,5 +1,6 @@
-import TurndownService from '../lib/turndown';
 import { escape } from '../util';
+import TurndownService from '../service/turndown';
+import { Node } from '../types';
 const escapes: [
   RegExp,
   string | ((substring: string, ...args: any[]) => string)
@@ -18,7 +19,7 @@ const escapes: [
 var every = Array.prototype.every;
 var indexOf = Array.prototype.indexOf;
 
-function cell(content: string, node: TurndownService.Node) {
+function cell(content: string, node: Node) {
   var index = node.parentNode
     ? indexOf.call(node.parentNode.childNodes, node)
     : -1;
@@ -35,12 +36,13 @@ function isFirstTbody(element: Node & ParentNode) {
         /^\s*$/i.test(previousSibling.textContent || '')))
   );
 }
-function isHeadingRow(tr: TurndownService.Node) {
+function isHeadingRow(tr: Node) {
   var parentNode = tr.parentNode;
   return parentNode
     ? parentNode.nodeName === 'THEAD' ||
         (parentNode.firstChild === tr &&
-          (parentNode.nodeName === 'TABLE' || isFirstTbody(parentNode)) &&
+          (parentNode.nodeName === 'TABLE' ||
+            isFirstTbody(parentNode as Node)) &&
           every.call(tr.childNodes, function(n: HTMLElement) {
             return n.nodeName === 'TH';
           }))
@@ -48,7 +50,7 @@ function isHeadingRow(tr: TurndownService.Node) {
 }
 
 export const applyTableRule = (turndownService: TurndownService) => {
-  turndownService.keep(function(node) {
+  turndownService.keep(function(node: Node) {
     return (
       node.nodeName === 'TABLE' &&
       !isHeadingRow((node as HTMLTableElement).rows[0])
@@ -72,7 +74,7 @@ export const applyTableRule = (turndownService: TurndownService) => {
 
   turndownService.addRule('tableSection', {
     filter: ['thead', 'tbody', 'tfoot'],
-    replacement: function(content) {
+    replacement: function(content: string) {
       return content;
     },
   });
@@ -108,7 +110,7 @@ export const applyTableRule = (turndownService: TurndownService) => {
 
   turndownService.addRule('tableCell', {
     filter: ['th', 'td'],
-    replacement: function(content, node) {
+    replacement: function(content: string, node: Node) {
       return cell(content, node);
     },
   });
