@@ -1,4 +1,4 @@
-import { Rule, Node, TagName, Options } from '../turndown';
+import { Rule, Node, TagName, Options } from '../../types';
 
 function filterValue(rule: Rule, node: Node, options: Options) {
   var filter = rule.filter;

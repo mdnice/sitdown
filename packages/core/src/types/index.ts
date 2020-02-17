@@ -7,8 +7,8 @@ export interface Options {
   codeBlockStyle?: 'indented' | 'fenced';
   emDelimiter?: '_' | '*';
   fence?: '```' | '~~~';
-  startFence?: '```' | '~~~' | string;
-  endFence?: '```' | '~~~' | string;
+  startFence?: '```' | '~~~';
+  endFence?: '```' | '~~~';
   codeDelimiter?: string;
   strongDelimiter?: '__' | '**';
   linkStyle?: 'inlined' | 'referenced';
@@ -34,9 +34,9 @@ export type Filter = TagName | TagName[] | FilterFunction;
 export type FilterFunction = (node: HTMLElement, options: Options) => boolean;
 
 export type ReplacementFunction = (
-    content: string,
-    node: Node,
-    options: Options
+  content: string,
+  node: Node,
+  options: Options
 ) => string;
 
 export type TagName = keyof HTMLElementTagNameMap;
@@ -52,3 +52,22 @@ export type Node = HTMLElement & {
     trailing: string;
   };
 };
+
+export interface Rules {
+  options: Options;
+  array: Rule[];
+
+  blankRule: {
+    replacement: ReplacementFunction;
+  };
+  defaultRule: {
+    replacement: ReplacementFunction;
+  };
+  keepReplacement: ReplacementFunction;
+
+  add(key: Filter, rule: Rule): void;
+  forEach(callback: (rule: Rule, index: number) => any): void;
+  forNode(node: Node): Rule;
+  keep(filter: Filter): void;
+  remove(filter: Filter): void;
+}

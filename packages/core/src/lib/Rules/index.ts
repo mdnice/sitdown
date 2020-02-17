@@ -9,7 +9,7 @@ import {
   Rule,
   Node,
   FilterFunction,
-} from '../turndown';
+} from '../../types';
 
 export default class Rules {
   private _keep: Rule[];

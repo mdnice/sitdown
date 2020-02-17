@@ -2,6 +2,7 @@
 import { Sitdown, RootNode } from '../src';
 import Examples from './spec/gfm';
 import TurndownService from '../src/lib/turndown';
+import {Options,Node} from '../src/types';
 import MarkdownIt from 'markdown-it';
 const taskList = require('./spec/md-it-plugin-taskList');
 const md = new MarkdownIt({
@@ -11,7 +12,7 @@ interface Example {
   index: number;
   md: string;
   html: string;
-  option?: TurndownService.Options;
+  option?: Options;
   enhance?: (service: TurndownService) => void;
 }
 
@@ -42,8 +43,8 @@ describe('GFM', () => {
 
       it(`gfm example${example.index} markdown to html works`, () => {
         const html = md.render(example.md);
-        expect(RootNode(html).innerHTML).toEqual(
-          RootNode(example.html).innerHTML
+        expect((RootNode(html) as Node).innerHTML).toEqual(
+            (RootNode(html) as Node).innerHTML
         );
       });
     });

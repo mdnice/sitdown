@@ -1,12 +1,13 @@
 import applyPlugins from './plugins';
 import { blankReplacement, keepReplacement } from './util';
 import TurndownService from './lib/turndown';
+import { Options } from './types';
 
 export class Sitdown {
-  defaultOptions: TurndownService.Options;
+  defaultOptions: Options;
   service: TurndownService;
 
-  constructor(options?: TurndownService.Options) {
+  constructor(options?: Options) {
     this.defaultOptions = {
       headingStyle: 'atx',
       blankReplacement,
@@ -23,13 +24,13 @@ export class Sitdown {
     if (env) {
       this.service.options.env = env;
     }
-    return this.service.turndown.call(this.service, html);
+    return this.service.turndown(html);
   }
 
-  use(plugin: TurndownService.Plugin | TurndownService.Plugin[]) {
+  use(plugin: Plugin | Plugin[]) {
     this.service.use(plugin);
     return this;
   }
 }
 
-export const RootNode = TurndownService.RootNode;
+export { default as RootNode } from './lib/RootNode';

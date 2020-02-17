@@ -1,5 +1,5 @@
 import isBlock from '../../util/isBlock';
-import { Node } from '../turndown';
+import { Node } from '../../types';
 
 export default function flankingWhitespace(node: Node) {
   var leading = '';

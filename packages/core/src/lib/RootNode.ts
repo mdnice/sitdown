@@ -17,10 +17,10 @@ export default function RootNode(input: string) {
       // DOM parsers arrange elements in the <head> and <body>.
       // Wrapping in a custom element ensures elements are reliably arranged in
       // a single element.
-      '<x-turndown id="turndown-root">' + input + '</x-turndown>',
+      '<x-sitdown id="root-node">' + input + '</x-sitdown>',
       'text/html'
     );
-    root = doc.getElementById('turndown-root');
+    root = doc.getElementById('root-node');
   } else {
     root = (input as HTMLElement).cloneNode(true);
   }

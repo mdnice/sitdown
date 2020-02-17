@@ -1,5 +1,5 @@
 import isVoid, { voidElements } from '../../util/isVoid';
-import { Node } from '../turndown';
+import { Node } from '../../types';
 
 var voidSelector = voidElements.join();
 function hasVoid(node: Node) {
