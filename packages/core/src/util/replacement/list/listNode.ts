@@ -117,7 +117,6 @@ export class ListNode {
     }
     // Info：嵌套列表且父列表为空
     if (nestListAndParentIsEmpty) {
-      // @ts-ignore
       prefix = prefix.trimStart();
     }
 

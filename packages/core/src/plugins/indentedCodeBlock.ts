@@ -33,9 +33,7 @@ function caclListIndent(node: Node, options: Options): number {
   }
   return nestULCount * 2 + 4;
 }
-export const applyIndentedCodeBlockRule = (
-  service: Service
-) => {
+export const applyIndentedCodeBlockRule = (service: Service) => {
   service.addRule('indentedCodeBlock', {
     filter: function(node, options) {
       return !!(

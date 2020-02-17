@@ -100,11 +100,9 @@ class Service {
 
     if (input === '') return '';
 
-    const node = RootNode(input);
+    const node = RootNode(input) as NodeType;
     if (node) {
-      // @ts-ignore
       var output = this.process(node);
-      // @ts-ignore
       return this.postProcess(output);
     } else {
       return input;
@@ -120,7 +118,7 @@ class Service {
    */
 
   process(parentNode: NodeType) {
-    return reduce.call(
+    const rst = reduce.call(
       parentNode.childNodes,
       (output, node) => {
         node = new Node(node);
@@ -141,6 +139,7 @@ class Service {
       },
       ''
     );
+    return String(rst);
   }
 
   /**
@@ -247,13 +246,12 @@ class Service {
 
   replacementForNode(node: NodeType) {
     var rule = this.rules.forNode(node);
-    var content = String(this.process(node));
+    var content = this.process(node);
     var whitespace = node.flankingWhitespace || { leading: '', trailing: '' };
     if (whitespace.leading || whitespace.trailing) content = content.trim();
     return (
       whitespace.leading +
-      // @ts-ignore
-      rule.replacement(content, node, this.options) +
+      (rule.replacement ? rule.replacement(content, node, this.options) : '') +
       whitespace.trailing
     );
   }
