@@ -1,4 +1,4 @@
-import RootNode from '../util/RootNode';
+import RootNode from './RootNode';
 import Rules from './Rules';
 import Node from './Node';
 
