@@ -1,83 +1,8 @@
 import RootNode from '../util/RootNode';
-import isBlock from '../util/isBlock';
-import isVoid,{voidElements} from '../util/isVoid';
 import Rules from './Rules';
-
-function extend (destination) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];
-    for (var key in source) {
-      if (source.hasOwnProperty(key)) destination[key] = source[key];
-    }
-  }
-  return destination
-}
-
-var voidSelector = voidElements.join();
-function hasVoid (node) {
-  return node.querySelector && node.querySelector(voidSelector)
-}
+import Node from './Node';
 
 var rules = {};
-
-function Node (node) {
-  node.isBlock = isBlock(node);
-  node.isCode = node.nodeName.toLowerCase() === 'code' || node.parentNode.isCode;
-  node.isBlank = isBlank(node);
-  node.flankingWhitespace = flankingWhitespace(node);
-  return node
-}
-
-function isBlank (node) {
-  return (
-      ['A', 'TH', 'TD', 'IFRAME', 'SCRIPT', 'AUDIO', 'VIDEO'].indexOf(node.nodeName) === -1 &&
-      /^\s*$/i.test(node.textContent) &&
-      !isVoid(node) &&
-      !hasVoid(node)
-  )
-}
-
-function flankingWhitespace (node) {
-  var leading = '';
-  var trailing = '';
-
-  if (!node.isBlock) {
-    var hasLeading = /^[ \r\n\t]/.test(node.textContent);
-    var hasTrailing = /[ \r\n\t]$/.test(node.textContent);
-
-    if (hasLeading && !isFlankedByWhitespace('left', node)) {
-      leading = ' ';
-    }
-    if (hasTrailing && !isFlankedByWhitespace('right', node)) {
-      trailing = ' ';
-    }
-  }
-
-  return { leading: leading, trailing: trailing }
-}
-
-function isFlankedByWhitespace (side, node) {
-  var sibling;
-  var regExp;
-  var isFlanked;
-
-  if (side === 'left') {
-    sibling = node.previousSibling;
-    regExp = / $/;
-  } else {
-    sibling = node.nextSibling;
-    regExp = /^ /;
-  }
-
-  if (sibling) {
-    if (sibling.nodeType === 3) {
-      isFlanked = regExp.test(sibling.nodeValue);
-    } else if (sibling.nodeType === 1 && !isBlock(sibling)) {
-      isFlanked = regExp.test(sibling.textContent);
-    }
-  }
-  return isFlanked
-}
 
 var reduce = Array.prototype.reduce;
 var leadingNewLinesRegExp = /^\n*/;
@@ -151,7 +76,7 @@ function TurndownService (options) {
       return node.isBlock ? '\n\n' + content + '\n\n' : content
     }
   };
-  this.options = extend({}, defaults, options);
+  this.options = Object.assign({}, defaults, options);
   this.rules = new Rules(this.options);
 }
 
