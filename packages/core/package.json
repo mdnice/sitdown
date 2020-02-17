@@ -31,7 +31,14 @@
   "bugs": {
     "url": "https://github.com/mdnice/sitdown/issues"
   },
+  "browser": {
+    "jsdom": false
+  },
+  "dependencies": {
+    "jsdom": "^11.9.0"
+  },
   "devDependencies": {
     "copyfiles": "^2.2.0"
-  }
+  },
+  "gitHead": "9eabd0aaab99943f239a1d5ba5345c4cdf1d772b"
 }
