@@ -42,6 +42,9 @@ declare namespace TurndownService {
     blankReplacement?: ReplacementFunction;
     defaultReplacement?: ReplacementFunction;
     keepFilter?: Filter;
+    rules?: {
+      [key: string]: Rule;
+    };
   }
 
   interface Rule {
@@ -72,7 +75,11 @@ declare namespace TurndownService {
   }
 
   type Plugin = (service: TurndownService) => void;
-  type Node = HTMLElement & { unNeedEscape?: boolean; data?: string };
+  type Node = HTMLElement & {
+    unNeedEscape?: boolean;
+    data?: string;
+    isBlank?: boolean;
+  };
 
   type Filter = TagName | TagName[] | FilterFunction;
   type FilterFunction = (node: HTMLElement, options: Options) => boolean;
