@@ -1,12 +1,11 @@
 import RootNode from './RootNode';
 import Rules from './Rules';
 import Node from './Node';
+import join from '../util/join';
 
 var rules = {};
 
 var reduce = Array.prototype.reduce;
-var leadingNewLinesRegExp = /^\n*/;
-var trailingNewLinesRegExp = /\n*$/;
 var escapes = [
   [/\\/g, '\\\\'],
   [/\*/g, '\\*'],
@@ -252,25 +251,6 @@ function replacementForNode (node) {
  * @returns The whitespace to separate the current output and the replacement
  * @type String
  */
-
-function separatingNewlines (output, replacement) {
-  var newlines = [
-    output.match(trailingNewLinesRegExp)[0],
-    replacement.match(leadingNewLinesRegExp)[0]
-  ].sort();
-  var maxNewlines = newlines[newlines.length - 1];
-  return maxNewlines.length < 2 ? maxNewlines : '\n\n'
-}
-
-function join (string1, string2) {
-  var separator = separatingNewlines(string1, string2);
-
-  // Remove trailing/leading newlines and replace with separator
-  string1 = string1.replace(trailingNewLinesRegExp, '');
-  string2 = string2.replace(leadingNewLinesRegExp, '');
-
-  return string1 + separator + string2
-}
 
 /**
  * Determines whether an input can be converted
