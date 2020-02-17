@@ -1,12 +1,12 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 import { escape } from '../util';
 
 const escapes: [RegExp, string][] = [
   [/\*/g, '\\*'],
   [/"/g, '\\"'],
 ];
-export const applyReferenceLinkRule = (turndownService: TurndownService) => {
-  turndownService.addRule('referenceLink', {
+export const applyReferenceLinkRule = (service: Service) => {
+  service.addRule('referenceLink', {
     filter: function(node, options) {
       return !!(
         options.linkStyle === 'referenced' &&

@@ -1,7 +1,7 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 
-export const applyTaskRule = (turndownService: TurndownService) => {
-  turndownService.addRule('task', {
+export const applyTaskRule = (service: Service) => {
+  service.addRule('task', {
     filter: function(node) {
       return (
         (node as HTMLInputElement).type === 'checkbox' &&

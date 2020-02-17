@@ -1,7 +1,7 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 
-export const applyBlockquoteRule = (turndownService: TurndownService) => {
-  turndownService.addRule('hr', {
+export const applyBlockquoteRule = (service: Service) => {
+  service.addRule('hr', {
     filter: 'blockquote',
 
     replacement: function(content, node) {

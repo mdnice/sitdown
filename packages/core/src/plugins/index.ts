@@ -1,4 +1,4 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 import { applyListRule } from './list';
 import { applyHrRule } from './hr';
 import { applyParagraphRule } from './paragraph';
@@ -19,8 +19,8 @@ import { applyTaskRule } from './taskListItems';
 
 import { isKeep } from '../util/isKeep';
 
-export default (turndownService: TurndownService) => {
-  turndownService.use([
+export default (service: Service) => {
+  service.use([
     applyListRule,
     applyHrRule,
     applyParagraphRule,
@@ -40,8 +40,8 @@ export default (turndownService: TurndownService) => {
     applyTaskRule,
   ]);
 
-  turndownService.keep(node => {
-    if (isKeep(turndownService.options, node)) {
+  service.keep(node => {
+    if (isKeep(service.options, node)) {
       if (node.parentNode) {
         const index = Array.from(node.parentNode.childNodes).findIndex(
           n => n === node

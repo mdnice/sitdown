@@ -1,8 +1,8 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 import { Options } from '../types';
 
-export const applyCodeRule = (turndownService: TurndownService) => {
-  turndownService.addRule('code', {
+export const applyCodeRule = (service: Service) => {
+  service.addRule('code', {
     filter: function(node) {
       var hasSiblings = node.previousSibling || node.nextSibling;
       var isCodeBlock =

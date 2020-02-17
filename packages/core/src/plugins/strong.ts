@@ -1,7 +1,7 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 
-export const applyStrongRule = (turndownService: TurndownService) => {
-  turndownService.addRule('hr', {
+export const applyStrongRule = (service: Service) => {
+  service.addRule('hr', {
     filter: ['strong', 'b'],
 
     replacement: function(content, _node, options) {

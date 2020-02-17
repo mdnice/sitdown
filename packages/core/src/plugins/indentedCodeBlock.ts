@@ -5,7 +5,7 @@ import {
   repeat,
   IndentCodeIsListfirstChild,
 } from '../util';
-import TurndownService from '../service/turndown';
+import Service from '../service';
 
 function caclListIndent(node: Node, options: Options): number {
   var nestULCount = findParentNumber(node, 'UL');
@@ -34,9 +34,9 @@ function caclListIndent(node: Node, options: Options): number {
   return nestULCount * 2 + 4;
 }
 export const applyIndentedCodeBlockRule = (
-  turndownService: TurndownService
+  service: Service
 ) => {
-  turndownService.addRule('indentedCodeBlock', {
+  service.addRule('indentedCodeBlock', {
     filter: function(node, options) {
       return !!(
         options.codeBlockStyle === 'indented' &&

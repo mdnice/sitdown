@@ -1,7 +1,7 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 
-export const applyHrRule = (turndownService: TurndownService) => {
-  turndownService.addRule('hr', {
+export const applyHrRule = (service: Service) => {
+  service.addRule('hr', {
     filter: 'hr',
 
     replacement: function(_, __, options) {

@@ -1,5 +1,5 @@
 import { escape } from '../util';
-import TurndownService from '../service/turndown';
+import Service from '../service';
 import { Node } from '../types';
 const escapes: [
   RegExp,
@@ -49,15 +49,15 @@ function isHeadingRow(tr: Node) {
     : false;
 }
 
-export const applyTableRule = (turndownService: TurndownService) => {
-  turndownService.keep(function(node: Node) {
+export const applyTableRule = (service: Service) => {
+  service.keep(function(node: Node) {
     return (
       node.nodeName === 'TABLE' &&
       !isHeadingRow((node as HTMLTableElement).rows[0])
     );
   });
 
-  turndownService.addRule('table', {
+  service.addRule('table', {
     filter: function(node) {
       return (
         node.nodeName === 'TABLE' &&
@@ -72,14 +72,14 @@ export const applyTableRule = (turndownService: TurndownService) => {
     },
   });
 
-  turndownService.addRule('tableSection', {
+  service.addRule('tableSection', {
     filter: ['thead', 'tbody', 'tfoot'],
     replacement: function(content: string) {
       return content;
     },
   });
 
-  turndownService.addRule('tableRow', {
+  service.addRule('tableRow', {
     filter: 'tr',
     replacement: function(content, node) {
       var borderCells = '';
@@ -108,7 +108,7 @@ export const applyTableRule = (turndownService: TurndownService) => {
     },
   });
 
-  turndownService.addRule('tableCell', {
+  service.addRule('tableCell', {
     filter: ['th', 'td'],
     replacement: function(content: string, node: Node) {
       return cell(content, node);

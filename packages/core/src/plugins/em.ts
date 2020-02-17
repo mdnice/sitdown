@@ -1,8 +1,8 @@
 //em
-import TurndownService from '../service/turndown';
+import Service from '../service';
 
-export const applyEmRule = (turndownService: TurndownService) => {
-  turndownService.addRule('em', {
+export const applyEmRule = (service: Service) => {
+  service.addRule('em', {
     filter: ['em', 'i'],
 
     replacement: function(content, node, options) {

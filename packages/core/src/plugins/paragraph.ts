@@ -1,4 +1,4 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 
 var escapes: [RegExp, string][] = [[/\s-/g, ' \\-']];
 
@@ -7,8 +7,8 @@ function escape(string: string) {
     return accumulator.replace(escape[0], escape[1]);
   }, string);
 }
-export const applyParagraphRule = (turndownService: TurndownService) => {
-  turndownService.addRule('paragraph', {
+export const applyParagraphRule = (service: Service) => {
+  service.addRule('paragraph', {
     filter: 'p',
 
     replacement: function(content, node) {

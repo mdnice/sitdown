@@ -1,8 +1,8 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 import { fenceReplacement, isFence } from '../util';
 
-export const applyFenceRule = (turndownService: TurndownService) => {
-  turndownService.addRule('fencedCodeBlock', {
+export const applyFenceRule = (service: Service) => {
+  service.addRule('fencedCodeBlock', {
     filter: function(node, options) {
       return isFence(options, node);
     },

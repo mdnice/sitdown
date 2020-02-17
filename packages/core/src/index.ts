@@ -1,11 +1,11 @@
 import applyPlugins from './plugins';
 import { blankReplacement, keepReplacement } from './util';
-import TurndownService from './service/turndown';
+import Service from './service';
 import { Options } from './types';
 
 export class Sitdown {
   defaultOptions: Options;
-  service: TurndownService;
+  service: Service;
 
   constructor(options?: Options) {
     this.defaultOptions = {
@@ -13,7 +13,7 @@ export class Sitdown {
       blankReplacement,
       keepReplacement,
     };
-    this.service = new TurndownService({
+    this.service = new Service({
       ...this.defaultOptions,
       ...options,
     });

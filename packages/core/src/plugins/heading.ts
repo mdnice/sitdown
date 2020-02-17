@@ -1,10 +1,10 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 import { repeat, escape } from '../util';
 
 var escapes: [RegExp, string][] = [[/\s#/g, ' \\#']];
 
-export const applyHeadingRule = (turndownService: TurndownService) => {
-  turndownService.addRule('heading', {
+export const applyHeadingRule = (service: Service) => {
+  service.addRule('heading', {
     filter: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
 
     replacement: function(content, node, options) {

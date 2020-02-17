@@ -1,10 +1,10 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 import { escape } from '../util';
 
 const specialChars = [' ', '(', ')', '\\', '"'];
 const escapes: [RegExp, string][] = [[/"/g, '&quot;']];
-export const applyLinkRule = (turndownService: TurndownService) => {
-  turndownService.addRule('link', {
+export const applyLinkRule = (service: Service) => {
+  service.addRule('link', {
     filter: function(node, options) {
       return !!(options.linkStyle === 'inlined' && node.nodeName === 'A');
     },

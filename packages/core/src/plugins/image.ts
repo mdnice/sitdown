@@ -1,7 +1,7 @@
-import TurndownService from '../service/turndown';
+import Service from '../service';
 
-export const applyImageRule = (turndownService: TurndownService) => {
-  turndownService.addRule('hr', {
+export const applyImageRule = (service: Service) => {
+  service.addRule('hr', {
     filter: 'img',
 
     replacement: function(_content, node) {

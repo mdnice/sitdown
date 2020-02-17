@@ -1,8 +1,8 @@
 // del
-import TurndownService from '../service/turndown';
+import Service from '../service';
 
-export const applyDelRule = (turndownService: TurndownService) => {
-  turndownService.addRule('del', {
+export const applyDelRule = (service: Service) => {
+  service.addRule('del', {
     filter: ['del', 's'],
 
     replacement: function(content) {

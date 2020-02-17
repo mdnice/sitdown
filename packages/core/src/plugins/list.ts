@@ -1,9 +1,9 @@
 // list
-import TurndownService from '../service/turndown';
+import Service from '../service';
 import { listReplacement } from '../util';
 
-export const applyListRule = (turndownService: TurndownService) => {
-  turndownService.addRule('list', {
+export const applyListRule = (service: Service) => {
+  service.addRule('list', {
     filter: ['ul', 'ol'],
 
     replacement: function(content, node) {
@@ -20,7 +20,7 @@ export const applyListRule = (turndownService: TurndownService) => {
     },
   });
 
-  turndownService.addRule('listItem', {
+  service.addRule('listItem', {
     filter: 'li',
 
     replacement: listReplacement,
