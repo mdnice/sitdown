@@ -154,7 +154,7 @@ The filter property determines whether or not an element should be replaced with
 * `filter: 'p'` will select `<p>` elements
 * `filter: ['em', 'i']` will select `<em>` or `<i>` elements
 
-Alternatively, the filter can be a function that returns a boolean depending on whether a given node should be replaced. The function is passed a DOM node as well as the `TurndownService` options. For example, the following rule selects `<a>` elements \(with an `href`\) when the `linkStyle` option is `inlined`:
+Alternatively, the filter can be a function that returns a boolean depending on whether a given node should be replaced. The function is passed a DOM node as well as the `Service` options. For example, the following rule selects `<a>` elements \(with an `href`\) when the `linkStyle` option is `inlined`:
 
 ```js
 filter: function (node, options) {
@@ -168,7 +168,7 @@ filter: function (node, options) {
 
 ### [](#replacement-function)`replacement` Function
 
-The replacement function determines how an element should be converted. It should return the Markdown string for a given node. The function is passed the node's content, the node itself, and the `TurndownService` options.
+The replacement function determines how an element should be converted. It should return the Markdown string for a given node. The function is passed the node's content, the node itself, and the `Service` options.
 
 The following rule shows how `<em>` elements are converted:
 
