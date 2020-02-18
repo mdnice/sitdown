@@ -1,0 +1,27 @@
+name: remote ssh command
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          command_timeout: 5m
+          script: |
+            cd /home/mdnice/sitdown
+            git stash
+            git pull origin master
+            cd packages/docs
+            rm -rf node_modules/
+            rm -rf package-lock.json
+            cnpm install
+            yarn run build

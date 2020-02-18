@@ -116,16 +116,17 @@ This will remove `<del>` elements \(and contents\).
 Use a plugin, or an array of plugins. Example:
 
 ```js
-import { Sitdown } from 'sitdown';
-import { applyJuejinRule } from '@sitdown/juejin';
+// Import plugins from turndown-plugin-gfm
+var turndownPluginGfm = require('turndown-plugin-gfm')
+var gfm = turndownPluginGfm.gfm
+var tables = turndownPluginGfm.tables
+var strikethrough = turndownPluginGfm.strikethrough
 
-let sitdown = new Sitdown({
-      keepFilter: ['style'],
-      codeBlockStyle: 'fenced',
-      bulletListMarker: '-',
-      hr: '---',
-});
-sitdown.use(applyJuejinRule);
+// Use the gfm plugin
+sitdown.service.use(gfm)
+
+// Use the table and strikethrough plugins only
+sitdown.service.use([tables, strikethrough])
 ```
 
 `use` returns the `service` instance for chaining.
@@ -154,7 +155,7 @@ The filter property determines whether or not an element should be replaced with
 * `filter: 'p'` will select `<p>` elements
 * `filter: ['em', 'i']` will select `<em>` or `<i>` elements
 
-Alternatively, the filter can be a function that returns a boolean depending on whether a given node should be replaced. The function is passed a DOM node as well as the `Service` options. For example, the following rule selects `<a>` elements \(with an `href`\) when the `linkStyle` option is `inlined`:
+Alternatively, the filter can be a function that returns a boolean depending on whether a given node should be replaced. The function is passed a DOM node as well as the `TurndownService` options. For example, the following rule selects `<a>` elements \(with an `href`\) when the `linkStyle` option is `inlined`:
 
 ```js
 filter: function (node, options) {
@@ -168,7 +169,7 @@ filter: function (node, options) {
 
 ### [](#replacement-function)`replacement` Function
 
-The replacement function determines how an element should be converted. It should return the Markdown string for a given node. The function is passed the node's content, the node itself, and the `Service` options.
+The replacement function determines how an element should be converted. It should return the Markdown string for a given node. The function is passed the node's content, the node itself, and the `TurndownService` options.
 
 The following rule shows how `<em>` elements are converted:
 
@@ -211,3 +212,31 @@ The plugin API provides a convenient way for developers to apply multiple extens
 Sitdown uses backslashes \(`\`\) to escape Markdown characters in the HTML input. This ensures that these characters are not interpreted as Markdown when the output is compiled back to HTML. For example, the contents of `<h1>1. Hello world</h1>` needs to be escaped to `1\. Hello world`, otherwise it will be interpreted as a list item rather than a heading.
 
 To avoid the complexity and the performance implications of parsing the content of every HTML element as Markdown, Sitdown uses a group of regular expressions to escape potential Markdown syntax. As a result, the escaping rules can be quite aggressive.
+
+## Local Development
+
+Below is a list.ts of commands you will probably find useful.
+
+### `npm start` or `yarn start`
+
+Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+
+<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+
+Your library will be rebuilt if you make edits.
+
+### `npm run build` or `yarn build`
+
+Bundles the package to the `dist` folder.
+The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
+
+<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
+
+### `npm test` or `yarn test`
+
+Runs the test watcher (Jest) in an interactive mode.
+By default, runs tests related to files changed since the last commit.
+
+## [](#license)License
+
+sitdown is copyright © 2020+ mdnice and released under the MIT license.

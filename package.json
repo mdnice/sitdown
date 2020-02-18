@@ -1,20 +1,22 @@
 {
-  "version": "0.1.0",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist"
+  "workspaces": [
+    "packages/core",
+    "packages/docs",
+    "packages/@sitdown/*"
   ],
+  "private": true,
+  "license": "MIT",
   "scripts": {
-    "start": "tsdx watch --name src",
-    "build": "tsdx build --name src",
-    "test": "tsdx test",
-    "test:debug": "node --inspect node_modules/.bin/tsdx test --runInBand",
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean",
+    "start": "lerna run start",
+    "build": "lerna run build",
+    "test": "lerna run test",
     "lint": "tsdx lint --fix",
-    "prepare": "tsdx build"
+    "docs:dev": "lerna exec --scope sitdown -- yarn build && lerna exec --scope docs -- vuepress dev",
+    "docs:build": "lerna exec --scope sitdown -- yarn build && lerna exec --scope docs -- vuepress build",
+    "clean": "lerna clean && rm -rf node_modules"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint"
@@ -26,20 +28,16 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "",
-  "author": "LinFeng1997",
-  "module": "dist/.esm.js",
-  "dependencies": {
-    "turndown-plugin-gfm": "^1.0.2"
-  },
   "devDependencies": {
     "@types/jest": "^24.0.25",
     "@types/markdown-it": "0.0.9",
     "husky": "^3.1.0",
     "jest-raw-loader": "^1.0.1",
+    "lerna": "^3.20.2",
     "markdown-it": "^10.0.0",
     "tsdx": "^0.12.0",
     "tslib": "^1.10.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "vuepress": "^1.2.0"
   }
 }
