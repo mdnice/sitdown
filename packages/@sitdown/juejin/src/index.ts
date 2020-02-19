@@ -1,6 +1,6 @@
-import TurndownService from 'sitdown/dist/lib/turndown';
+import Service from 'sitdown/dist/service';
 
-export const applyJuejinRule = (turndownService: TurndownService) => {
+export const applyJuejinRule = (turndownService: Service) => {
   turndownService.addRule('juejinImg', {
     filter: 'img',
 

@@ -1,6 +1,6 @@
-import TurndownService from "sitdown/dist/lib/turndown";
+import Service from 'sitdown/dist/service';
 
-export const applyZhihuRule = (turndownService: TurndownService) => {
+export const applyZhihuRule = (turndownService: Service) => {
   turndownService.addRule('zhizhuImg', {
     filter: 'img',
 
