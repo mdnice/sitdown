@@ -1,4 +1,4 @@
-import RootNode from './RootNode';
+import { createRootNode } from './RootNode';
 import Rules from './Rules';
 import Node from './Node';
 import join from '../util/join';
@@ -54,7 +54,6 @@ var escapes = [
 class Service {
   options: Options;
   rules: Rules;
-  static RootNode: (input: string) => Node | HTMLElement | null;
 
   constructor(options: Options) {
     var defaults = {
@@ -100,7 +99,7 @@ class Service {
 
     if (input === '') return '';
 
-    const node = RootNode(input) as NodeType;
+    const node = createRootNode(input) as NodeType;
     if (node) {
       var output = this.process(node);
       return this.postProcess(output);
@@ -277,4 +276,4 @@ function canConvert(input: NodeType | string) {
 }
 
 export default Service;
-export { default as RootNode } from './RootNode';
+export { createRootNode } from './RootNode';
