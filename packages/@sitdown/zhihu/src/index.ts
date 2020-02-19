@@ -1,7 +1,7 @@
 import Service from 'sitdown/dist/service';
 
-export const applyZhihuRule = (turndownService: Service) => {
-  turndownService.addRule('zhizhuImg', {
+export const applyZhihuRule = (service: Service) => {
+  service.addRule('zhizhuImg', {
     filter: 'img',
 
     replacement: function(_content: string, node: HTMLElement) {
@@ -22,7 +22,7 @@ export const applyZhihuRule = (turndownService: Service) => {
       return src ? '![' + alt + ']' + '(' + src + titlePart + ')' : '';
     },
   });
-  turndownService.addRule('zhihuNoscript', {
+  service.addRule('zhihuNoscript', {
     filter: 'noscript',
 
     replacement: function() {
