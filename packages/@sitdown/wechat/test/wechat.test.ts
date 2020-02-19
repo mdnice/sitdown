@@ -1,10 +1,13 @@
 import { Sitdown,RootNode } from 'sitdown';
+import { Node } from 'sitdown/dist/types';
 import { applyWechatRule, extraFootLinks } from '../src';
 // import html from './spec/temp.html';
 import md from './spec/markdownPaper/paper1-wechat.md';
 import html from './spec/markdownPaper/paper1-wechat.html';
 import md4 from './spec/markdownPaper/paper4-wechat.md';
 import html4 from './spec/markdownPaper/paper4-wechat.html';
+import formulaHTML from './spec/markdownPaper/formula.html';
+import formulaMd from './spec/markdownPaper/formula.md';
 // import md5 from './spec/markdownPaper/paper5.md';
 // import html5 from './spec/markdownPaper/paper5-wechat.html';
 
@@ -27,10 +30,15 @@ describe('微信', () => {
   });
   sitdown.use(applyWechatRule);
   const wechatToMD = (html: string) => {
-    const root = new RootNode(html);
+    const root = new RootNode(html) as Node;
     const footLinks = extraFootLinks(root);
     return sitdown.HTMLToMD(html, { footLinks });
   };
+
+  it('formula works', () => {
+    const expected = wechatToMD(formulaHTML);
+    expect(expected).toEqual(formulaMd);
+  });
 
   it('paper1 works', () => {
     const expected = wechatToMD(html);
