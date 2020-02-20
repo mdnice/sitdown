@@ -1,4 +1,5 @@
-import TurndownService from 'sitdown/dist/lib/turndown';
+import Service from 'sitdown/dist/service';
+import {Node} from 'sitdown/dist/types';
 
 interface FootLink {
   ref: string;
@@ -38,7 +39,7 @@ function extraFootLink(child: ChildNode): FootLink | null {
   return footLink;
 }
 
-export function extraFootLinks(node: TurndownService.Node) {
+export function extraFootLinks(node: Node) {
   const sections = node.querySelectorAll('section');
   const footLinks: FootLink[] = [];
   Array.from(sections).forEach(section => {
@@ -54,24 +55,24 @@ export function extraFootLinks(node: TurndownService.Node) {
   });
   return footLinks;
 }
-export const applyWechatRule = (turndownService: TurndownService) => {
+export const applyWechatRule = (service: Service) => {
   // 公式
-  const oldBlankReplace = turndownService.rules.blankRule.replacement;
-  turndownService.rules.blankRule = {
+  const oldBlankReplace = service.rules.blankRule.replacement;
+  service.rules.blankRule = {
     replacement: (content, node, options) => {
       if (node.nodeName === 'svg') {
-        (node.parentNode as TurndownService.Node).unNeedEscape = true;
+        (node.parentNode as Node).unNeedEscape = true;
         return node.outerHTML;
       }
       return oldBlankReplace.call(
-        turndownService.rules,
+        service.rules,
         content,
         node,
         options
       );
     },
   };
-  turndownService.addRule('paragraph', {
+  service.addRule('paragraph', {
     filter: 'p',
 
     replacement: function(content, node) {
@@ -79,7 +80,7 @@ export const applyWechatRule = (turndownService: TurndownService) => {
     },
   });
 
-  turndownService.addRule('wechatImg', {
+  service.addRule('wechatImg', {
     filter: 'img',
 
     replacement: function(_content: string, node) {
@@ -97,8 +98,9 @@ export const applyWechatRule = (turndownService: TurndownService) => {
     },
   });
 
-  turndownService.remove(['figcaption', 'sup']);
-  turndownService.addRule('wechatFootnoteLink-section', {
+  // @ts-ignore
+  service.remove(['figcaption', 'sup']);
+  service.addRule('wechatFootnoteLink-section', {
     filter: function(node) {
       let rst = false;
       if (node.nodeName === 'SECTION') {
@@ -118,7 +120,7 @@ export const applyWechatRule = (turndownService: TurndownService) => {
     },
   });
 
-  turndownService.addRule('wechatFootnoteLink', {
+  service.addRule('wechatFootnoteLink', {
     filter: function(node) {
       const isWechatLink =
         node.nodeName === 'SPAN' &&
@@ -142,7 +144,29 @@ export const applyWechatRule = (turndownService: TurndownService) => {
     },
   });
 
-  turndownService.keep(function(node) {
+  service.addRule('wechatFormula', {
+    filter: function(node) {
+      const isFormula =
+          node.nodeName === 'SECTION' &&
+          node.getAttribute('data-formula');
+      return !!isFormula;
+    },
+
+    replacement: function(_content: string, node: HTMLElement) {
+      var formula = node.getAttribute('data-formula');
+
+      if (formula) {
+        var isBlockFormula =
+            node.parentElement &&
+            node.parentElement.nodeName === 'P' &&
+            node.parentElement.innerHTML === node.outerHTML;
+        return isBlockFormula ? `\n$$\n${formula}\n$$\n` : `$${formula.trimEnd()}$\n\n`;
+      }
+      return '';
+    },
+  });
+
+  service.keep(function(node) {
     return (
       node.nodeName === 'SPAN' &&
       node.style.display === 'block' &&

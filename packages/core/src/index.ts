@@ -32,5 +32,5 @@ export class Sitdown {
     return this;
   }
 }
-
+export type Plugin = (service: Service) => void;
 export { default as RootNode } from './service/RootNode';

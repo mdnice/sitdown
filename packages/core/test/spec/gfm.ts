@@ -1,5 +1,3 @@
-// import TurndownService from "turndown";
-
 export default [
   {
     index: 1,
@@ -933,25 +931,16 @@ export default [
   //   index: 132,
   //   md: '<a href="foo">\n*bar*\n</a>\n\n',
   //   html: '<a href="foo">\n*bar*\n</a>\n\n',
-  //   enhance: (service: TurndownService) => {
-  //     service.keep(['a'])
-  //   }
   // },
   // {
   //   index: 133,
   //   md: '<Warning>\n*bar*\n</Warning>\n\n',
   //   html: '<Warning>\n*bar*\n</Warning>\n\n',
-  //   enhance: (service: TurndownService) => {
-  //     service.keep(['Warning'])
-  //   }
   // },
   // {
   //   index: 134,
   //   md: '<i class="foo">\n*bar*\n</i>\n\n',
   //   html: '<i class="foo">\n*bar*\n</i>\n\n',
-  //     enhance: (service: TurndownService) => {
-  //       service.keep(['i'])
-  //     }
   // },
   // {
   //   index: 135,
@@ -962,9 +951,6 @@ export default [
   //   index: 136,
   //   md: '<del>\n*foo*\n</del>\n\n',
   //   html: '<del>\n*foo*\n</del>\n\n',
-  //   enhance: (service: TurndownService) => {
-  //       service.keep(['del'])
-  //   }
   // },
   // {
   //   index: 137,

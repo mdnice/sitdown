@@ -1,7 +1,7 @@
 // test
 import { Sitdown, RootNode } from '../src';
 import Examples from './spec/gfm';
-import TurndownService from '../src/service/turndown';
+import Service from '../src/service';
 import {Options,Node} from '../src/types';
 import MarkdownIt from 'markdown-it';
 const taskList = require('./spec/md-it-plugin-taskList');
@@ -13,7 +13,7 @@ interface Example {
   md: string;
   html: string;
   option?: Options;
-  enhance?: (service: TurndownService) => void;
+  enhance?: (service: Service) => void;
 }
 
 Examples.forEach(example => {
@@ -43,8 +43,8 @@ describe('GFM', () => {
 
       it(`gfm example${example.index} markdown to html works`, () => {
         const html = md.render(example.md);
-        expect((RootNode(html) as Node).innerHTML).toEqual(
-            (RootNode(html) as Node).innerHTML
+        expect((new RootNode(html) as Node).innerHTML).toEqual(
+            (new RootNode(html) as Node).innerHTML
         );
       });
     });

@@ -10,7 +10,7 @@ function htmlParser() {
   return _htmlParser;
 }
 
-export default function RootNode(input: string) {
+export function createRootNode(input: string) {
   var root;
   if (typeof input === 'string') {
     var doc = htmlParser().parseFromString(
@@ -31,4 +31,11 @@ export default function RootNode(input: string) {
   });
 
   return root;
+}
+
+export default class RootNode {
+  constructor(input: string){
+    // @ts-ignore
+    return createRootNode(input);
+  }
 }
