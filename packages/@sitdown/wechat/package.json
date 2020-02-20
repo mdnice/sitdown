@@ -1,6 +1,6 @@
 {
   "name": "@sitdown/wechat",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "> TODO: description",
   "author": "LinFeng1997 <244732635@qq.com>",
   "module": "dist/.esm.js",
@@ -29,6 +29,6 @@
     "url": "https://github.com/mdnice/sitdown/issues"
   },
   "devDependencies": {
-    "sitdown": "^1.0.2"
+    "sitdown": "^1.1.0"
   }
 }
