@@ -1,5 +1,5 @@
 # SitDown
-Convert HTML into Markdown with JavaScript.Support GitHub Flavored Markdown Spec.
+Convert HTML into Markdown with JavaScript.Support GitHub Flavored Markdown Spec.Also support almost wechat/zhihu/csdn/juejin HTML.
 
 Learn from [turndown](https://github.com/domchristie/turndown).
 
