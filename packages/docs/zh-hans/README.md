@@ -1,5 +1,5 @@
 # SitDown
-使用 JavaScript 将 HTML 转换为 Markdown。支持 GitHub Flavored Markdown 规范。
+使用 JavaScript 将 HTML 转换为 Markdown。支持 GitHub Flavored Markdown 规范。也支持大部分的微信、知乎、CSDN、掘金的 HTML。
 
 借鉴了 [turndown](https://github.com/domchristie/turndown)。
 
