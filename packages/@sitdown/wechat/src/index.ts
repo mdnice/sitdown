@@ -146,9 +146,7 @@ export const applyWechatRule = (service: Service) => {
 
   service.addRule('wechatFormula', {
     filter: function(node) {
-      const isFormula =
-          node.nodeName === 'SECTION' &&
-          node.getAttribute('data-formula');
+      const isFormula = node.getAttribute('data-formula');
       return !!isFormula;
     },
 
@@ -156,11 +154,9 @@ export const applyWechatRule = (service: Service) => {
       var formula = node.getAttribute('data-formula');
 
       if (formula) {
-        var isBlockFormula =
-            node.parentElement &&
-            node.parentElement.nodeName === 'P' &&
-            node.parentElement.innerHTML === node.outerHTML;
-        return isBlockFormula ? `\n$$\n${formula}\n$$\n` : `$${formula.trimEnd()}$\n\n`;
+        var formulaType = node.getAttribute('data-formula-type');
+        var isBlockFormula = formulaType === 'block-equation';
+        return isBlockFormula ? `\n\n$$\n${formula.trimEnd()}\n$$\n\n` : `$${formula.trimEnd()}$`;
       }
       return '';
     },
