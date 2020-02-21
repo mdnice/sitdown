@@ -1,5 +1,6 @@
 {
   "name": "docs",
+  "private": true,
   "description": "> TODO: description",
   "author": "LinFeng1997 <244732635@qq.com>",
   "homepage": "https://github.com/mdnice/sitdown#readme",
