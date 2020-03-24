@@ -22,7 +22,7 @@
     "start": "tsdx watch --name src",
     "build": "tsdx build --name src",
     "test": "tsdx test",
-    "test:debug": "node --inspect node_modules/.bin/tsdx test --runInBand",
+    "test:debug": "node --inspect ../../../node_modules/.bin/tsdx test --runInBand",
     "lint": "tsdx lint --fix"
   },
   "bugs": {

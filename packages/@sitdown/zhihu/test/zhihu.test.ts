@@ -6,6 +6,8 @@ import md2 from './spec/markdownPaper/paper2-zhihu.md';
 import html2 from './spec/markdownPaper/paper2-zhihu.html';
 import md3 from './spec/markdownPaper/paper3-zhihu.md';
 import html3 from './spec/markdownPaper/paper3-zhihu.html';
+import md4 from './spec/markdownPaper/formula.md';
+import html4 from './spec/markdownPaper/formula.html';
 
 /*
 知乎 html 转 md 存在的不一致处：
@@ -36,5 +38,10 @@ describe('知乎', () => {
   it('paper3 works', () => {
     const expected = sitdown.HTMLToMD(html3);
     expect(expected).toEqual(md3);
+  });
+
+  it('formula', () => {
+    const expected = sitdown.HTMLToMD(html4);
+    expect(expected).toEqual(md4);
   });
 });
