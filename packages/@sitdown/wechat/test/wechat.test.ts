@@ -1,4 +1,4 @@
-import { Sitdown,RootNode } from 'sitdown';
+import { Sitdown, RootNode } from 'sitdown';
 import { Node } from 'sitdown/dist/types';
 import { applyWechatRule, extraFootLinks } from '../src';
 // import html from './spec/temp.html';
@@ -43,6 +43,11 @@ describe('微信', () => {
   it('paper1 works', () => {
     const expected = wechatToMD(html);
     expect(expected).toEqual(md);
+  });
+
+  it('fence works', () => {
+    const expected = wechatToMD(require('./spec/markdownPaper/fence.html'));
+    expect(expected).toEqual(require('./spec/markdownPaper/fence.md'));
   });
 
   it('paper4 works', () => {

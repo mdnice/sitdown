@@ -1,5 +1,6 @@
 import Service from 'sitdown/dist/service';
-import {Node} from 'sitdown/dist/types';
+import { Node } from 'sitdown/dist/types';
+import { applyFenceRule } from './fence';
 
 interface FootLink {
   ref: string;
@@ -64,12 +65,7 @@ export const applyWechatRule = (service: Service) => {
         (node.parentNode as Node).unNeedEscape = true;
         return node.outerHTML;
       }
-      return oldBlankReplace.call(
-        service.rules,
-        content,
-        node,
-        options
-      );
+      return oldBlankReplace.call(service.rules, content, node, options);
     },
   };
   service.addRule('paragraph', {
@@ -156,7 +152,9 @@ export const applyWechatRule = (service: Service) => {
       if (formula) {
         var formulaType = node.getAttribute('data-formula-type');
         var isBlockFormula = formulaType === 'block-equation';
-        return isBlockFormula ? `\n\n$$\n${formula.trimEnd()}\n$$\n\n` : `$${formula.trimEnd()}$`;
+        return isBlockFormula
+          ? `\n\n$$\n${formula.trimEnd()}\n$$\n\n`
+          : `$${formula.trimEnd()}$`;
       }
       return '';
     },
@@ -169,4 +167,6 @@ export const applyWechatRule = (service: Service) => {
       node.style.textAlign === 'center'
     );
   });
+
+  applyFenceRule(service);
 };
