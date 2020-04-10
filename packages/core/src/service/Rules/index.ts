@@ -79,8 +79,8 @@ export default class Rules {
     if (node.isBlank) return this.blankRule;
     var rule;
 
-    if ((rule = findRule(this._keep, node, this.options))) return rule;
     if ((rule = findRule(this.array, node, this.options))) return rule;
+    if ((rule = findRule(this._keep, node, this.options))) return rule;
     if ((rule = findRule(this._remove, node, this.options))) return rule;
 
     return this.defaultRule;

@@ -1,13 +1,7 @@
-import { Sitdown,RootNode } from 'sitdown';
+import { Sitdown, RootNode } from 'sitdown';
 import { Node } from 'sitdown/dist/types';
 import { applyWechatRule, extraFootLinks } from '../src';
 // import html from './spec/temp.html';
-import md from './spec/markdownPaper/paper1-wechat.md';
-import html from './spec/markdownPaper/paper1-wechat.html';
-import md4 from './spec/markdownPaper/paper4-wechat.md';
-import html4 from './spec/markdownPaper/paper4-wechat.html';
-import formulaHTML from './spec/markdownPaper/formula.html';
-import formulaMd from './spec/markdownPaper/formula.md';
 // import md5 from './spec/markdownPaper/paper5.md';
 // import html5 from './spec/markdownPaper/paper5-wechat.html';
 
@@ -36,18 +30,27 @@ describe('微信', () => {
   };
 
   it('formula works', () => {
-    const expected = wechatToMD(formulaHTML);
-    expect(expected).toEqual(formulaMd);
+    const expected = wechatToMD(require('./spec/markdownPaper/formula.html'));
+    expect(expected).toEqual(require('./spec/markdownPaper/formula.md'));
   });
 
   it('paper1 works', () => {
-    const expected = wechatToMD(html);
-    expect(expected).toEqual(md);
+    const expected = wechatToMD(
+      require('./spec/markdownPaper/paper1-wechat.html')
+    );
+    expect(expected).toEqual(require('./spec/markdownPaper/paper1-wechat.md'));
+  });
+
+  it('fence works', () => {
+    const expected = wechatToMD(require('./spec/markdownPaper/fence.html'));
+    expect(expected).toEqual(require('./spec/markdownPaper/fence.md'));
   });
 
   it('paper4 works', () => {
-    const expected = wechatToMD(html4);
-    expect(expected).toEqual(md4);
+    const expected = wechatToMD(
+      require('./spec/markdownPaper/paper4-wechat.html')
+    );
+    expect(expected).toEqual(require('./spec/markdownPaper/paper4-wechat.md'));
   });
 
   // it('paper5 works', () => {

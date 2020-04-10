@@ -4,6 +4,8 @@ import Examples from './spec/gfm';
 import Service from '../src/service';
 import {Options,Node} from '../src/types';
 import MarkdownIt from 'markdown-it';
+// import { applyZhihuRule } from '@sitdown/zhihu/src';
+
 const taskList = require('./spec/md-it-plugin-taskList');
 const md = new MarkdownIt({
   html: true,
@@ -31,6 +33,7 @@ describe('GFM', () => {
     // )
     .forEach(example => {
       let sitdown = new Sitdown();
+      // sitdown.use(applyZhihuRule as any);
       it(`gfm example${example.index} html to markdown works`, () => {
         if (example.option) {
           sitdown = new Sitdown(example.option);
