@@ -1,5 +1,6 @@
 import Service from 'sitdown/dist/service';
-import { Util } from 'sitdown/dist';
+// @ts-ignore
+import { Util } from 'sitdown/dist/src.esm';
 
 const isFence = Util.isFence;
 function fenceReplacement(
