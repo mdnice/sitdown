@@ -34,7 +34,7 @@ export function createRootNode(input: string) {
 }
 
 export default class RootNode {
-  constructor(input: string){
+  constructor(input: string) {
     // @ts-ignore
     return createRootNode(input);
   }

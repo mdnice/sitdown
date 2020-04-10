@@ -13,6 +13,7 @@ export interface Options {
   strongDelimiter?: '__' | '**';
   linkStyle?: 'inlined' | 'referenced';
   linkReferenceStyle?: 'full' | 'collapsed' | 'shortcut';
+  convertNoHeaderTable?: boolean;
 
   keepReplacement?: ReplacementFunction;
   blankReplacement?: ReplacementFunction;

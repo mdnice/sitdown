@@ -1,6 +1,6 @@
 import { escape } from '../util';
 import Service from '../service';
-import { Node } from '../types';
+import { Node, Options } from '../types';
 const escapes: [
   RegExp,
   string | ((substring: string, ...args: any[]) => string)
@@ -19,11 +19,14 @@ const escapes: [
 var every = Array.prototype.every;
 var indexOf = Array.prototype.indexOf;
 
-function cell(content: string, node: Node) {
+function cell(content: string, node: Node, options?: Options) {
   var index = node.parentNode
     ? indexOf.call(node.parentNode.childNodes, node)
     : -1;
   var prefix = ' ';
+  if (options && options.convertNoHeaderTable) {
+    content = content.replace(/\n+/g, '<br>');
+  }
   if (index === 0) prefix = '| ';
   return prefix + escape(escapes, content) + ' |';
 }
@@ -110,8 +113,44 @@ export const applyTableRule = (service: Service) => {
 
   service.addRule('tableCell', {
     filter: ['th', 'td'],
-    replacement: function(content: string, node: Node) {
-      return cell(content, node);
+    replacement: function(content: string, node: Node, options) {
+      return cell(content, node, options);
+    },
+  });
+
+  service.addRule('noHeaderTable', {
+    filter: function(node, options) {
+      const hasHead = Array.from(node.childNodes).some(
+        n => n.nodeName === 'THEAD'
+      );
+      if (
+        node.nodeName === 'TABLE' &&
+        !hasHead &&
+        options.convertNoHeaderTable
+      ) {
+        try {
+          const tr = node.querySelector('tr');
+          if (tr) {
+            const length = tr.cells.length;
+            const header = (node as HTMLTableElement).createTHead();
+            const row = header.insertRow(0);
+            // console.dir(node);
+            for (let i = 0; i < length; i++) {
+              const cell = row.insertCell(i);
+              cell.innerHTML = ' ';
+            }
+          }
+        } catch (e) {
+          console.log(e);
+          return false;
+        }
+        return true;
+      }
+      return false;
+    },
+
+    replacement: function(content) {
+      return content;
     },
   });
 };

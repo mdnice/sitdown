@@ -7,9 +7,19 @@ function hasVoid(node: Node) {
 }
 export default function isBlank(node: Node) {
   return (
-    ['A', 'TH', 'TD', 'IFRAME', 'SCRIPT', 'AUDIO', 'VIDEO'].indexOf(
-      node.nodeName
-    ) === -1 &&
+    [
+      'A',
+      'TABLE',
+      'THEAD',
+      'TBODY',
+      'TR',
+      'TH',
+      'TD',
+      'IFRAME',
+      'SCRIPT',
+      'AUDIO',
+      'VIDEO',
+    ].indexOf(node.nodeName) === -1 &&
     /^\s*$/i.test(node.textContent || '') &&
     !isVoid(node) &&
     !hasVoid(node)
