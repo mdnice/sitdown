@@ -1,11 +1,11 @@
 import Service from 'sitdown/dist/service';
-import { isFence } from 'sitdown/src/util';
-import { Options } from 'sitdown/src/types';
+import { Util } from 'sitdown/dist';
 
+const isFence = Util.isFence;
 function fenceReplacement(
   content: string,
   node: HTMLElement | Document | DocumentFragment | Element,
-  options: Options
+  options: Service['options']
 ) {
   var className = node.firstChild ? (node.firstChild as Element).className : '';
   var language = (className.match(/language-(\S+)/) || [null, ''])[1];

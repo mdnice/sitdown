@@ -1,6 +1,7 @@
 import applyPlugins from './plugins';
 import { blankReplacement, keepReplacement } from './util';
 import Service from './service';
+import * as Util from './util';
 import { Options } from './types';
 
 export class Sitdown {
@@ -34,3 +35,4 @@ export class Sitdown {
 }
 export type Plugin = (service: Service) => void;
 export { default as RootNode } from './service/RootNode';
+export { Util };
