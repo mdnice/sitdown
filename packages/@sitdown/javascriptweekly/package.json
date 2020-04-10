@@ -23,7 +23,10 @@
     "build": "tsdx build --name src",
     "test": "tsdx test",
     "test:debug": "node --inspect node_modules/.bin/tsdx test --runInBand",
-    "lint": "tsdx lint --fix"
+    "lint": "tsdx lint --fix",
+    "patch": "npm run build && npm version patch && npm publish",
+    "minor": "npm run build && npm version minor && npm publish",
+    "major": "npm run build && npm version major && npm publish"
   },
   "bugs": {
     "url": "https://github.com/mdnice/sitdown/issues"
