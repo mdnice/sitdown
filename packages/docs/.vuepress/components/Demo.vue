@@ -13,6 +13,7 @@
     import { applyJuejinRule } from '@sitdown/juejin/dist/src.esm';
     import { applyWechatRule, extraFootLinks } from '@sitdown/wechat/dist/src.esm';
     import { applyZhihuRule } from '@sitdown/zhihu/dist/src.esm';
+    import { applyJSWeeklyRule } from '@sitdown/javascriptweekly/dist/src.esm';
     // //
     const gfm = new Sitdown({
         keepFilter: ['style'],
@@ -47,26 +48,38 @@
     });
     zhihu.use(applyZhihuRule);
 
+    let jsWeekly = new Sitdown({
+        keepFilter: ['style'],
+        codeBlockStyle: 'fenced',
+        bulletListMarker: '-',
+        hr: '---',
+        convertNoHeaderTable: true,
+    });
+    jsWeekly.use(applyJSWeeklyRule);
+
     let csdn = new Sitdown({
         keepFilter: ['style'],
         codeBlockStyle: 'fenced',
         bulletListMarker: '-',
         hr: '---',
     });
+
     const methods = {
         GFM: input => gfm.HTMLToMD(input),
         Juejin: input => juejin.HTMLToMD(input),
         Zhihu: input => zhihu.HTMLToMD(input),
         Wechat: input => wechatToMD(input),
-        CSDN: input => csdn.HTMLToMD(input)
-    }
+        CSDN: input => csdn.HTMLToMD(input),
+        JSWeekly: input => jsWeekly.HTMLToMD(input)
+    };
+
     export default {
         data() {
             return {
                 input: '',
                 result: '',
                 engine: 'GFM',
-                engineOptions:['GFM','Wechat','Zhihu', 'Juejin','CSDN']
+                engineOptions:['GFM','Wechat','Zhihu', 'Juejin','CSDN','JSWeekly']
             }
         },
         methods: {
