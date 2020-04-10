@@ -1,6 +1,6 @@
 {
   "name": "@sitdown/wechat",
-  "version": "1.1.2",
+  "version": "1.1.4",
   "description": "Convert 微信 HTML into Markdown with JavaScript.",
   "author": "LinFeng1997 <244732635@qq.com>",
   "module": "dist/.esm.js",
