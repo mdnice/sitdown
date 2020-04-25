@@ -1,6 +1,6 @@
 {
   "name": "@sitdown/javascriptweekly",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Convert javascriptweekly HTML into Markdown with JavaScript.",
   "author": "LinFeng1997 <244732635@qq.com>",
   "module": "dist/.esm.js",
