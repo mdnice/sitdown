@@ -8,7 +8,6 @@
   "license": "MIT",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "clean": "lerna clean",
     "start": "lerna run start",
     "build": "lerna run build",
     "test": "lerna run test",
