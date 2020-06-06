@@ -9,7 +9,7 @@
   "scripts": {
     "bootstrap": "lerna bootstrap",
     "start": "lerna run start",
-    "build": "lerna run build",
+    "build": "lerna exec --scope sitdown -- yarn build && lerna run build --ignore sitdown",
     "test": "lerna run test",
     "lint": "tsdx lint --fix",
     "docs:dev": "lerna exec --scope sitdown -- yarn build && lerna exec --scope docs -- vuepress dev",

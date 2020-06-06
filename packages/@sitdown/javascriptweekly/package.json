@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/mdnice/sitdown/issues"
   },
-  "devDependencies": {
+  "peerDependencies": {
     "sitdown": "^1.1.1"
   },
   "gitHead": "ca200d2940d38e15d809a4a879982027f520b4ab"
