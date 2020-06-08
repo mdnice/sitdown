@@ -8,9 +8,8 @@
   "license": "MIT",
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "clean": "lerna clean",
     "start": "lerna run start",
-    "build": "lerna run build",
+    "build": "lerna exec --scope sitdown -- yarn build && lerna run build --ignore sitdown",
     "test": "lerna run test",
     "lint": "tsdx lint --fix",
     "docs:dev": "lerna exec --scope sitdown -- yarn build && lerna exec --scope docs -- vuepress dev",

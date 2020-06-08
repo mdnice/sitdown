@@ -25,6 +25,7 @@ function cell(content: string, _node: Node, _options?: Options) {
 }
 
 export const applyJSWeeklyRule = (service: Service) => {
+  service.options.convertNoHeaderTable = true;
   service.addRule('JSWeeklyTableRow', {
     filter: 'tr',
     replacement: function(content) {

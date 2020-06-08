@@ -1,6 +1,6 @@
 {
   "name": "@sitdown/javascriptweekly",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Convert javascriptweekly HTML into Markdown with JavaScript.",
   "author": "LinFeng1997 <244732635@qq.com>",
   "module": "dist/.esm.js",
@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/mdnice/sitdown/issues"
   },
-  "devDependencies": {
+  "peerDependencies": {
     "sitdown": "^1.1.1"
   },
   "gitHead": "ca200d2940d38e15d809a4a879982027f520b4ab"
