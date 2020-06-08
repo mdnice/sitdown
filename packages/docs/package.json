@@ -37,7 +37,7 @@
     "sitdown": "^1.1.0"
   },
   "devDependencies": {
-    "vuepress": "^1.2.0"
+    "vuepress": "1.2.0"
   },
   "gitHead": "ca200d2940d38e15d809a4a879982027f520b4ab"
 }
