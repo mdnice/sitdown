@@ -11,7 +11,7 @@ jobs:
       # action命令，切换分支获取源码
       - name: Checkout
           # 使用action库  actions/checkout获取源码
-        uses: actions/checkout@dev
+        uses: actions/checkout@master
       # action命令，安装Node10
       - name: use Node.js 10
           # 使用action库  actions/setup-node安装node
