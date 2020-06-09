@@ -24,4 +24,4 @@ jobs:
             rm -rf node_modules/
             rm -rf package-lock.json
             cnpm install
-            yarn run build
+            sudo yarn run build

@@ -1,0 +1,30 @@
+name: validate npm build script
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      # action命令，切换分支获取源码
+      - name: Checkout
+          # 使用action库  actions/checkout获取源码
+          uses: actions/checkout@dev
+      # action命令，安装Node10
+      - name: use Node.js 10
+          # 使用action库  actions/setup-node安装node
+          uses: actions/setup-node@v1
+          with:
+            node-version: 10
+      # action命令，install && build
+      - name: bootstrap and build
+          # 运行的命令或者 action
+          run: |
+            npm install lerna -g
+            lerna bootstrap --registry http://r.cnpmjs.org/
+            npm run build
+          # 环境变量
+          env:
+            CI: true
