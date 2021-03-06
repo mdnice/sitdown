@@ -12,4 +12,14 @@ export const applyJuejinRule = (service: Service) => {
       return src ? '![' + alt + ']' + '(' + src + titlePart + ')' : '';
     },
   });
+
+  service.addRule('juejinCopyCode', {
+    filter(node) {
+      return (node.tagName === 'SPAN' &&
+          node.innerText === '复制代码')
+    },
+    replacement() {
+      return ''
+    }
+  });
 };
