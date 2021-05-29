@@ -3,7 +3,7 @@
   "version": "1.1.6",
   "description": "Convert HTML into Markdown with JavaScript.Support GitHub Flavored Markdown Spec.Also support almost wechat/zhihu/csdn/juejin HTML.",
   "author": "LinFeng1997 <244732635@qq.com>",
-  "module": "dist/.esm.js",
+  "module": "dist/src.esm.js",
   "homepage": "https://github.com/mdnice/sitdown#readme",
   "license": "MIT",
   "main": "dist/index.js",
