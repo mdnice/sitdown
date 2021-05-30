@@ -1,8 +1,10 @@
-name: validate npm build script
+name: validate npm test and build script
 on:
   push:
     branches:
       - dev
+      - master
+      - main
 jobs:
   build:
     name: Build
@@ -24,6 +26,7 @@ jobs:
         run: |
             npm install lerna@3.20.2 -g
             lerna bootstrap --registry http://r.cnpmjs.org/ --ignore-scripts
+            npm run test
             npm run build
         # 环境变量
         env:
