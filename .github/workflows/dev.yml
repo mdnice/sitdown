@@ -1,4 +1,4 @@
-name: validate npm test and build script
+name: validate npm build script
 on:
   push:
     branches:
