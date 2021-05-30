@@ -23,7 +23,7 @@ jobs:
           # 运行的命令或者 action
         run: |
             npm install lerna@3.20.2 -g
-            lerna bootstrap --registry http://r.cnpmjs.org/
+            lerna bootstrap
             npm run build
         # 环境变量
         env:
