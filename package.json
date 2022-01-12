@@ -34,7 +34,7 @@
     "husky": "^3.1.0",
     "jest-raw-loader": "^1.0.1",
     "lerna": "^3.20.2",
-    "markdown-it": "^10.0.0",
+    "markdown-it": "^12.3.2",
     "tsdx": "^0.12.0",
     "tslib": "^1.10.0",
     "typescript": "^3.7.4",
